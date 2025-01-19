@@ -1,0 +1,16 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# other ignores
+.import/
+.mono/
+*.import
+*.log
+*.tmp
+*.translation
+
+.DS_Store
+
+# prevent credentials from being committed
+export_presets.cfg
