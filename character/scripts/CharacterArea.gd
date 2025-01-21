@@ -1,14 +1,11 @@
-extends Area2D
+extends CharacterBody2D
 signal hit
 
 var speed = 400  # How fast the player will move (pixels/sec).
-var screen_size  # Size of the game window.
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#hide()
-	screen_size = get_viewport_rect().size
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -17,9 +14,7 @@ func _process(delta: float) -> void:
 	# The speed of the movement (0-1 based on joystick inclination)
 	var velocity = Input.get_vector("ui_left", "ui_right","ui_up", "ui_down").length()
 	
-	position += direction * velocity * speed * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	move_and_collide(direction * velocity * speed * delta)
 	
 	_animate(direction)
 		

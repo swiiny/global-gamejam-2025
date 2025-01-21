@@ -37,7 +37,7 @@ height = 142.0
 
 [node name="Character2d" type="Node2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="CharacterBody2D" parent="."]
 collision_layer = 2
 script = ExtResource("1_s8ni6")
 
