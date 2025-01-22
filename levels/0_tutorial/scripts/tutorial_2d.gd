@@ -9,8 +9,9 @@ func _ready() -> void:
 
 	# Connect `body_entered` signals for all rooms
 	for room in $Rooms.get_children():
-		var area = room.get_node("Area2D")  # Assumes each room has an Area2D
-		area.connect("body_entered", Callable(self, "_on_area_body_entered").bind(room))  # Bind directly to a function
+		# the area 2D of the room node
+		var area = room.get_node("Area2D")
+		area.connect("body_entered", Callable(self, "_on_area_body_entered").bind(room))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

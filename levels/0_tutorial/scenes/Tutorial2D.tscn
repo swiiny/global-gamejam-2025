@@ -19,7 +19,7 @@ script = ExtResource("1_vechb")
 light_mask = 3
 visibility_layer = 3
 z_index = 2
-position = Vector2(1200, 320)
+position = Vector2(574, 410)
 
 [node name="TileMapLayerBackground" type="TileMapLayer" parent="."]
 z_index = -1
@@ -57,7 +57,7 @@ tile_map_data = PackedByteArray("AAABAPX/AAAMAAYAAAABAPb/AAAMAAYAAAABAPf/AAAMAAY
 tile_set = ExtResource("2_c7boc")
 
 [node name="ParentsRoom2d" parent="Rooms" instance=ExtResource("4_vwsie")]
-position = Vector2(1976, 584)
+position = Vector2(1977, 584)
 
 [node name="TileMapLayerFloor" type="TileMapLayer" parent="Rooms/ParentsRoom2d"]
 z_index = 1

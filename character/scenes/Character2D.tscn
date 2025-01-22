@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://5e0os3qn5jp5"]
+[gd_scene load_steps=10 format=3 uid="uid://5e0os3qn5jp5"]
 
 [ext_resource type="Script" path="res://character/scripts/CharacterArea.gd" id="1_s8ni6"]
 [ext_resource type="Texture2D" uid="uid://82qkvg0u2wxo" path="res://character/assets/playerGrey_up1.png" id="2_7ss0k"]
 [ext_resource type="Texture2D" uid="uid://iow4e5jpq46p" path="res://character/assets/playerGrey_walk1.png" id="2_27gcy"]
 [ext_resource type="Texture2D" uid="uid://go8hvjycpd0f" path="res://character/assets/playerGrey_walk2.png" id="3_4j6sc"]
 [ext_resource type="Texture2D" uid="uid://cg5jcwmq1r42m" path="res://character/assets/playerGrey_up2.png" id="3_gtbsj"]
+[ext_resource type="Texture2D" uid="uid://b8wptnw00drr1" path="res://character/assets/player_aura.png" id="6_1cwps"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mbf3"]
 animations = [{
@@ -35,9 +36,13 @@ animations = [{
 radius = 53.0
 height = 142.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tyut3"]
+radius = 192.666
+
 [node name="Character2d" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(128, 112)
 collision_layer = 2
 script = ExtResource("1_s8ni6")
 
@@ -49,10 +54,18 @@ animation = &"walk"
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_8pwpf")
 
-[node name="Node2D" type="Node2D" parent="Player"]
-
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
+
+[node name="AuraArea2D" type="Area2D" parent="Player"]
+show_behind_parent = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AuraArea2D"]
+shape = SubResource("CircleShape2D_tyut3")
+debug_color = Color(0.979457, 0, 0.387882, 0.42)
+
+[node name="AuraSprite" type="Sprite2D" parent="Player/AuraArea2D"]
+texture = ExtResource("6_1cwps")
