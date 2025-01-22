@@ -9,6 +9,12 @@ func _ready() -> void:
 	_set_camera_limits()
 	_set_events()
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	#print(current_room)
+	#print($Character2d/Player.position)
+	pass
+	
 # make the user span at SpawnMarker2D location
 func _spawn():
 	$Character2d.position = $SpawnMarker2D.position
@@ -17,6 +23,7 @@ func _spawn():
 func _set_camera_limits(): 
 	var camera = $Character2d/Player/Camera2D
 	
+	camera.limit_left = 0
 	camera.limit_right = 34 * 64
 	camera.limit_top = -1 * 64
 	camera.limit_bottom = 24 * 64
@@ -28,11 +35,7 @@ func _set_events():
 		var area = room.get_node("Area2D")
 		area.connect("body_entered", Callable(self, "_on_area_body_entered").bind(room))
 		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	#print(current_room)
-	print($Character2d/Player.position)
-	pass
+
 
 
 func _on_area_body_entered(body, room):
@@ -42,5 +45,3 @@ func _on_area_body_entered(body, room):
 			
 			# Enable the new room
 			current_room = room
-			
-			
