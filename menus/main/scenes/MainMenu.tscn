@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh5qfewn53ccx"]
+
+[ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="1_ryxna"]
+[ext_resource type="Script" path="res://menus/main/scripts/main_menu.gd" id="1_t5u2m"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t5u2m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ryxna")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 1080.0
+alignment = 1
+
+[node name="StartButton" type="MenuButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start Adventure"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
