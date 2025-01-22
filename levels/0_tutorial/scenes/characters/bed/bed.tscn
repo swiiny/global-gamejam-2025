@@ -1,22 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cywiwkxb0ofbh"]
+[gd_scene load_steps=3 format=3 uid="uid://cywiwkxb0ofbh"]
 
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/characters/bed/scripts/bed_hitbox.gd" id="1_fnjfx"]
 [ext_resource type="Script" path="res://common/noise_detector.gd" id="2_ly7kt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_surgr"]
-
 [node name="Bed" type="StaticBody2D"]
 
 [node name="Shape" type="Polygon2D" parent="."]
-position = Vector2(3, 1)
-offset = Vector2(-100, -200)
-polygon = PackedVector2Array(0, 0, 200, 0, 200, 100, 200, 100, 200, 400, 0, 400, 0, 100, 0, 100)
+offset = Vector2(-64, -96)
+polygon = PackedVector2Array(0, 0, 128, 0, 128, 64, 128, 64, 128, 192, 0, 192, 0, 64, 0, 64)
 vertex_colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.751692, 0, 0.0808739, 1, 0.751692, 0, 0.0808739, 1, 0.751692, 0, 0.0808739, 1, 0.751692, 0, 0.0808739, 1, 1, 1, 1, 1)
 polygons = [PackedByteArray(0, 1, 2, 7), PackedByteArray(3, 4, 5, 6)]
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
-position = Vector2(-100, -200)
-polygon = PackedVector2Array(0, 0, 200, 0, 200, 100, 200, 100, 200, 400, 0, 400, 0, 100, 0, 100)
+position = Vector2(-64, -96)
+polygon = PackedVector2Array(0, 0, 128, 0, 128, 64, 128, 64, 128, 192, 0, 192, 0, 64, 0, 64)
 
 [node name="Hitbox" type="Area2D" parent="." groups=["global_hitbox", "hitbox"]]
 collision_layer = 0
@@ -24,11 +21,9 @@ collision_mask = 3
 monitorable = false
 script = ExtResource("1_fnjfx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-scale = Vector2(100, 100)
-shape = SubResource("CircleShape2D_surgr")
-
-[node name="Polygon2D" type="Polygon2D" parent="Hitbox"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+position = Vector2(-64, -96)
+polygon = PackedVector2Array(0, 0, 128, 0, 128, 64, 128, 64, 128, 192, 0, 192, 0, 64, 0, 64)
 
 [node name="Noise_Detector" type="Node" parent="."]
 script = ExtResource("2_ly7kt")

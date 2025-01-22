@@ -14,7 +14,7 @@ func _ready() -> void:
 	add_to_group("player")
 	# init player aura
 	_initAura()
-	
+
 func _draw() -> void:
 	var collision_shape = $AuraArea2D/CollisionShape2D.shape
 	var radius = collision_shape.radius

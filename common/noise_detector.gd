@@ -13,7 +13,6 @@ var hitbox: Hitbox = get_node("../Hitbox")
 func _ready() -> void:
 	hitbox.player_detected.connect(_on_player_detected)
 	hitbox.player_lost.connect(_on_player_lost)
-	pass # Replace with function body.
 
 func _on_player_detected() -> void:
 	player_detected = true
@@ -30,7 +29,6 @@ func _process(delta: float) -> void:
 	else:
 		detection_level -= _detection_delta(delta)
 		detection_level = max(detection_level, 0)
-	print(detection_level)
 
 func _detection_delta(delta: float) -> int:
 	var player = get_tree().get_first_node_in_group("player") as Player
