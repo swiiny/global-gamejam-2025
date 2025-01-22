@@ -62,6 +62,7 @@ limit_smoothed = true
 
 [node name="AuraArea2D" type="Area2D" parent="Player"]
 show_behind_parent = true
+z_as_relative = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AuraArea2D"]
 shape = SubResource("CircleShape2D_tyut3")
@@ -69,3 +70,5 @@ debug_color = Color(0.979457, 0, 0.387882, 0.42)
 
 [node name="AuraSprite" type="Sprite2D" parent="Player/AuraArea2D"]
 texture = ExtResource("6_1cwps")
+
+[node name="Line2D" type="Line2D" parent="Player/AuraArea2D"]
