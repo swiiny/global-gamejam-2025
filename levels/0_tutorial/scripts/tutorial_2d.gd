@@ -27,3 +27,5 @@ func _on_area_body_entered(body, room):
 			
 			# Enable the new room
 			current_room = room
+			
+			

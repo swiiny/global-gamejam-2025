@@ -29,6 +29,12 @@ func _process(delta: float) -> void:
 		_update_aura_opacity(is_moving)
 
 	_animate(direction)
+	
+	# dev only
+	if Input.is_key_pressed(KEY_S):
+		speed = 1200
+	else:
+		speed = 400
 
 # return played direction
 func _player_direction() -> Vector2:
@@ -98,7 +104,7 @@ func _update_aura_opacity(moving: bool) -> void:
 
 	if moving:
 		# Fade in to full opacity over 1 second
-		current_tween.tween_property(aura_sprite, "modulate:a", 0.95, 1.0)
+		current_tween.tween_property(aura_sprite, "modulate:a", 0.8, 1.0)
 	else:
 		# Fade out to 0 opacity over 0.1 seconds
 		current_tween.tween_property(aura_sprite, "modulate:a", 0.0, 0.1)
