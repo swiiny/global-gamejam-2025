@@ -37,21 +37,21 @@ height = 142.0
 
 [node name="Character2d" type="Node2D"]
 
-[node name="Area2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 collision_layer = 2
 script = ExtResource("1_s8ni6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_0mbf3")
 animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_8pwpf")
 
-[node name="Node2D" type="Node2D" parent="Area2D"]
+[node name="Node2D" type="Node2D" parent="Player"]
 
-[node name="Camera2D" type="Camera2D" parent="Area2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
 limit_left = 0
 limit_top = 0
