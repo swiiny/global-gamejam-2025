@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://5e0os3qn5jp5"]
 
 [ext_resource type="Script" path="res://character/scripts/CharacterArea.gd" id="1_s8ni6"]
-[ext_resource type="Texture2D" uid="uid://bcn8bi36arg4o" path="res://character/assets/playerGrey_up1.png" id="2_7ss0k"]
-[ext_resource type="Texture2D" uid="uid://dwot4xyfofd7t" path="res://character/assets/playerGrey_walk1.png" id="2_27gcy"]
-[ext_resource type="Texture2D" uid="uid://dkll1miyliynp" path="res://character/assets/playerGrey_walk2.png" id="3_4j6sc"]
-[ext_resource type="Texture2D" uid="uid://dt4imoefbvhf" path="res://character/assets/playerGrey_up2.png" id="3_gtbsj"]
+[ext_resource type="Texture2D" uid="uid://82qkvg0u2wxo" path="res://character/assets/playerGrey_up1.png" id="2_7ss0k"]
+[ext_resource type="Texture2D" uid="uid://iow4e5jpq46p" path="res://character/assets/playerGrey_walk1.png" id="2_27gcy"]
+[ext_resource type="Texture2D" uid="uid://go8hvjycpd0f" path="res://character/assets/playerGrey_walk2.png" id="3_4j6sc"]
+[ext_resource type="Texture2D" uid="uid://cg5jcwmq1r42m" path="res://character/assets/playerGrey_up2.png" id="3_gtbsj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mbf3"]
 animations = [{
@@ -48,3 +48,11 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_8pwpf")
+
+[node name="Node2D" type="Node2D" parent="Area2D"]
+
+[node name="Camera2D" type="Camera2D" parent="Area2D"]
+position = Vector2(0, 1)
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
