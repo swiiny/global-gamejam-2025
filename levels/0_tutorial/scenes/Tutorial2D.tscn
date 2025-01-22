@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=9 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="2_c7boc"]
 [ext_resource type="PackedScene" uid="uid://bhxvnljyvvk7o" path="res://levels/0_tutorial/scenes/rooms/ChildrenRoom2D.tscn" id="3_628ec"]
 [ext_resource type="PackedScene" uid="uid://bty203e3e4e6m" path="res://levels/0_tutorial/scenes/rooms/ParentsRoom2D.tscn" id="4_vwsie"]
+[ext_resource type="PackedScene" uid="uid://cywiwkxb0ofbh" path="res://levels/0_tutorial/scenes/characters/bed/bed.tscn" id="6_0mwjl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
 size = Vector2(685, 479.5)
@@ -20,7 +21,7 @@ script = ExtResource("1_vechb")
 light_mask = 3
 visibility_layer = 3
 z_index = 2
-position = Vector2(670, 159)
+position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
 position = Vector2(655, 135)
@@ -60,6 +61,13 @@ position = Vector2(904.5, 285.75)
 shape = SubResource("RectangleShape2D_cp0vr")
 debug_color = Color(0, 0.553191, 0.912511, 0.42)
 
+[node name="PlayerBed" parent="Rooms/ChildrenRoom" instance=ExtResource("6_0mwjl")]
+position = Vector2(125, -543)
+metadata/friendly = true
+
+[node name="BrotherBed" parent="Rooms/ChildrenRoom" instance=ExtResource("6_0mwjl")]
+position = Vector2(317, -543)
+
 [node name="ParentsRoom2d" parent="Rooms" instance=ExtResource("4_vwsie")]
 position = Vector2(1977, 584)
 
@@ -69,3 +77,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/ParentsRoom2d/Area2D"]
 position = Vector2(-285, -287.5)
 shape = SubResource("RectangleShape2D_lfh1k")
+
+[node name="Bed" parent="Rooms/ParentsRoom2d" instance=ExtResource("6_0mwjl")]
+position = Vector2(-379, -423)
+
+[node name="Bed2" parent="Rooms/ParentsRoom2d" instance=ExtResource("6_0mwjl")]
+position = Vector2(-186, -423)

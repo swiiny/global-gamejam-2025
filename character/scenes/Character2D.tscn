@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://5e0os3qn5jp5"]
 
-[ext_resource type="Script" path="res://character/scripts/CharacterArea.gd" id="1_s8ni6"]
-[ext_resource type="Texture2D" uid="uid://82qkvg0u2wxo" path="res://character/assets/playerGrey_up1.png" id="2_7ss0k"]
-[ext_resource type="Texture2D" uid="uid://iow4e5jpq46p" path="res://character/assets/playerGrey_walk1.png" id="2_27gcy"]
-[ext_resource type="Texture2D" uid="uid://go8hvjycpd0f" path="res://character/assets/playerGrey_walk2.png" id="3_4j6sc"]
-[ext_resource type="Texture2D" uid="uid://cg5jcwmq1r42m" path="res://character/assets/playerGrey_up2.png" id="3_gtbsj"]
-[ext_resource type="Texture2D" uid="uid://b8wptnw00drr1" path="res://character/assets/player_aura.png" id="6_1cwps"]
+[ext_resource type="Script" path="res://character/scripts/player.gd" id="1_s8ni6"]
+[ext_resource type="Texture2D" uid="uid://bcn8bi36arg4o" path="res://character/assets/playerGrey_up1.png" id="2_7ss0k"]
+[ext_resource type="Texture2D" uid="uid://dwot4xyfofd7t" path="res://character/assets/playerGrey_walk1.png" id="2_27gcy"]
+[ext_resource type="Texture2D" uid="uid://dkll1miyliynp" path="res://character/assets/playerGrey_walk2.png" id="3_4j6sc"]
+[ext_resource type="Texture2D" uid="uid://dt4imoefbvhf" path="res://character/assets/playerGrey_up2.png" id="3_gtbsj"]
+[ext_resource type="Texture2D" uid="uid://b81elrnwk4g4j" path="res://character/assets/player_aura.png" id="6_1cwps"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mbf3"]
 animations = [{
@@ -33,15 +33,17 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pwpf"]
-radius = 53.0
-height = 142.0
+radius = 26.0
+height = 66.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tyut3"]
 radius = 193.494
 
 [node name="Character2d" type="Node2D"]
+position = Vector2(-128, -112)
 
 [node name="Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(128, 112)
 collision_layer = 2
 script = ExtResource("1_s8ni6")
@@ -51,11 +53,9 @@ sprite_frames = SubResource("SpriteFrames_0mbf3")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_8pwpf")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, 1)
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
@@ -70,5 +70,3 @@ debug_color = Color(0.979457, 0, 0.387882, 0.42)
 
 [node name="AuraSprite" type="Sprite2D" parent="Player/AuraArea2D"]
 texture = ExtResource("6_1cwps")
-
-[node name="Line2D" type="Line2D" parent="Player/AuraArea2D"]
