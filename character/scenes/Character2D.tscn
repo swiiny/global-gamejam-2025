@@ -33,13 +33,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pwpf"]
-radius = 53.0
-height = 142.0
+radius = 26.0
+height = 66.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tyut3"]
 radius = 193.494
 
 [node name="Character2d" type="Node2D"]
+position = Vector2(-128, -112)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
@@ -52,11 +53,9 @@ sprite_frames = SubResource("SpriteFrames_0mbf3")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_8pwpf")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, 1)
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
@@ -71,5 +70,3 @@ debug_color = Color(0.979457, 0, 0.387882, 0.42)
 
 [node name="AuraSprite" type="Sprite2D" parent="Player/AuraArea2D"]
 texture = ExtResource("6_1cwps")
-
-[node name="Line2D" type="Line2D" parent="Player/AuraArea2D"]
