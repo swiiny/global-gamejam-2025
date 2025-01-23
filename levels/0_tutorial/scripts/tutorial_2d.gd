@@ -34,8 +34,7 @@ func _set_ui():
 func _set_camera(): 
 	var camera = $Character2d/Player/Camera2D
 	
-	#camera.zoom = Vector2(2, 2)
-	camera.zoom = Vector2(2.1, 2.1)
+	camera.zoom = Vector2(2, 2)
 	
 	camera.limit_left = 0
 	camera.limit_right = 34 * 64
