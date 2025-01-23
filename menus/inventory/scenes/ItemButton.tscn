@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3tqvyr3n1uht"]
+
+[ext_resource type="Script" path="res://menus/inventory/scripts/item_button.gd" id="1_kgcac"]
+
+[node name="ItemButton" type="TextureButton"]
+script = ExtResource("1_kgcac")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

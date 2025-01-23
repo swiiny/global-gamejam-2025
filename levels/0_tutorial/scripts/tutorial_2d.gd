@@ -2,22 +2,34 @@ extends Node2D
 
 # the room the user is in
 var current_room = null
+var inventory_open = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# the following functions must be called at the beginning of every levels
 	_spawn()	
 	_set_camera_limits()
 	_set_events()
+	_set_ui()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#print(current_room)
-	#print($Character2d/Player.position)
 	pass
+
+func _input(event):
+	if event.is_action_pressed("ui_inventory"):
+		if $CanvasLayer/InventoryUi:
+			$CanvasLayer/InventoryUi.visible = !$CanvasLayer/InventoryUi.visible
+			print("Inventory UI toggled:", $CanvasLayer/InventoryUi.visible)
+		else:
+			print("InventoryUI node not found!")
 	
 # make the user span at SpawnMarker2D location
 func _spawn():
 	$Character2d.position = $SpawnMarker2D.position
+	
+func _set_ui():
+	$CanvasLayer/InventoryUi.visible = false
 	
 # set the camera limits for this level
 func _set_camera_limits(): 
@@ -35,7 +47,6 @@ func _set_events():
 		var area = room.get_node("Area2D")
 		area.connect("body_entered", Callable(self, "_on_area_body_entered").bind(room))
 		
-
 
 
 func _on_area_body_entered(body, room):

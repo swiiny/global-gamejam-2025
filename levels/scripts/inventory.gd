@@ -7,15 +7,17 @@ var items: Array = []
 func add_item(item: String) -> void:
 	if item not in items:
 		items.append(item)
+		emit_signal("inventory_updated", items)
 		print("Added item:", item)
 
 # Remove an item from the inventory
 func remove_item(item: String) -> void:
 	if item in items:
 		items.erase(item)
+		emit_signal("inventory_updated", items)
 		print("Removed item:", item)
 
-# Check if an item is in the inventory
+# Check if an item is in the inventoryengin
 func has_item(item: String) -> bool:
 	return item in items
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=10 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhxvnljyvvk7o" path="res://levels/0_tutorial/scenes/rooms/ChildrenRoom2D.tscn" id="3_628ec"]
 [ext_resource type="PackedScene" uid="uid://bty203e3e4e6m" path="res://levels/0_tutorial/scenes/rooms/ParentsRoom2D.tscn" id="4_vwsie"]
 [ext_resource type="PackedScene" uid="uid://cywiwkxb0ofbh" path="res://levels/0_tutorial/scenes/characters/bed/bed.tscn" id="6_0mwjl"]
+[ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="7_jx2bf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
 size = Vector2(685, 479.5)
@@ -83,3 +84,16 @@ position = Vector2(-379, -423)
 
 [node name="Bed2" parent="Rooms/ParentsRoom2d" instance=ExtResource("6_0mwjl")]
 position = Vector2(-186, -423)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryUi" parent="CanvasLayer" instance=ExtResource("7_jx2bf")]
+z_index = 100
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -189.0
+offset_right = 64.0
+offset_bottom = -189.0
+grow_vertical = 0
