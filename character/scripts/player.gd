@@ -9,6 +9,7 @@ var currently_moving := false
 
 var is_moving = false
 var current_tween: Tween = null  # To manage a single active tween
+var are_movements_disabled = false
 
 func _ready() -> void:
 	add_to_group("player")
@@ -26,16 +27,19 @@ func _process(delta: float) -> void:
 	var velocity = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").length()
 
 	# Move the character
-	move_and_collide(direction * velocity * speed * delta)
+	if !are_movements_disabled:
+		move_and_collide(direction * velocity * speed * delta)
 
-	# Detect movement and handle aura animation
-	currently_moving = velocity > 0
-	if currently_moving != is_moving:
-		is_moving = currently_moving
-		_update_aura_opacity(is_moving)
-	_update_noise_level(velocity)
+		# Detect movement and handle aura animation
+		currently_moving = velocity > 0
+		if currently_moving != is_moving:
+			is_moving = currently_moving
+			_update_aura_opacity(is_moving)
+		_update_noise_level(velocity)
 
-	_animate(direction)
+		_animate(direction)
+	else:
+		$AnimatedSprite2D.stop()
 	
 	# dev only
 	if Input.is_key_pressed(KEY_S):

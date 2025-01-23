@@ -4,6 +4,7 @@ extends Node2D
 var current_room = null
 var inventory_open = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# the following functions must be called at the beginning of every levels
@@ -29,6 +30,7 @@ func _spawn():
 	
 func _set_ui():
 	$CanvasLayer/InventoryUi.visible = false
+	$Rooms/ChildrenRoom/BrotherBed/ChatBox.visible = false
 	
 # set the camera limits for this level
 func _set_camera(): 

@@ -28,9 +28,22 @@ func _on_noise_detector_wake_up() -> void:
 		var brotherBed = get_tree().current_scene.find_child("BrotherBed") as Node2D
 		
 		if brotherBed:
-			var chat_box = brotherBed.find_child("ChatBox")
+			var chat_box = brotherBed.find_child("ChatBox") as Panel
 			if chat_box:
+				chat_box.visible = true
+				
+				var player = get_tree().current_scene.find_child("Player") as Player
+				if player:
+					player.are_movements_disabled = true
+				
 				interact_with_chat(chat_box, "Go back to bed ! The parents gonna be mad if they wake up.")
+				
+				# replace my key press trigger
+				await get_tree().create_timer(5).timeout
+				# re-activate player's movements
+				player.are_movements_disabled = false
+				# hide the chatbox
+				chat_box.visible = false;
 			
 		
 				
