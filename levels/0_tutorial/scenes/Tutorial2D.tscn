@@ -70,6 +70,7 @@ z_index = 2
 position = Vector2(317, -543)
 
 [node name="ChatBox" type="Panel" parent="Rooms/ChildrenRoom/BrotherBed"]
+z_index = 5
 offset_left = 37.0
 offset_top = -96.0
 offset_right = 190.0
@@ -107,8 +108,54 @@ shape = SubResource("RectangleShape2D_lfh1k")
 [node name="Bed" parent="Rooms/ParentsRoom2d" instance=ExtResource("8_e8s3d")]
 position = Vector2(-351, -425)
 
+[node name="ChatBox" type="Panel" parent="Rooms/ParentsRoom2d/Bed"]
+z_index = 5
+offset_left = 37.0
+offset_top = -96.0
+offset_right = 190.0
+offset_bottom = -36.0
+
+[node name="TextureRect" type="TextureRect" parent="Rooms/ParentsRoom2d/Bed/ChatBox"]
+layout_mode = 0
+offset_right = 154.0
+offset_bottom = 61.0
+texture = ExtResource("6_0pp0o")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Rooms/ParentsRoom2d/Bed/ChatBox"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 144.0
+offset_bottom = 56.0
+autowrap_mode = 2
+clip_text = true
+
 [node name="Bed2" parent="Rooms/ParentsRoom2d" instance=ExtResource("8_e8s3d")]
 position = Vector2(-174, -433)
+
+[node name="ChatBox" type="Panel" parent="Rooms/ParentsRoom2d/Bed2"]
+z_index = 5
+offset_left = 37.0
+offset_top = -96.0
+offset_right = 190.0
+offset_bottom = -36.0
+
+[node name="TextureRect" type="TextureRect" parent="Rooms/ParentsRoom2d/Bed2/ChatBox"]
+layout_mode = 0
+offset_right = 154.0
+offset_bottom = 61.0
+texture = ExtResource("6_0pp0o")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Rooms/ParentsRoom2d/Bed2/ChatBox"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 144.0
+offset_bottom = 56.0
+autowrap_mode = 2
+clip_text = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

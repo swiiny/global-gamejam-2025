@@ -2,8 +2,8 @@ class_name ChatBox extends Node2D
 
 func type_text(label: Label, text: String, tree: SceneTree, speed: float = 0.05):
 	label.text = ""
-	for char in text:
-		label.text += char
+	for c in text:
+		label.text += c
 		await tree.create_timer(speed).timeout
 
 func interact_with_chat(chat_box: Panel, dialogue_text: String, tree: SceneTree):
