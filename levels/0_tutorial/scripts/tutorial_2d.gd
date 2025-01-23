@@ -8,7 +8,7 @@ var inventory_open = false
 func _ready() -> void:
 	# the following functions must be called at the beginning of every levels
 	_spawn()	
-	_set_camera_limits()
+	_set_camera()
 	_set_events()
 	_set_ui()
 
@@ -20,7 +20,6 @@ func _input(event):
 	if event.is_action_pressed("ui_inventory"):
 		if $CanvasLayer/InventoryUi:
 			$CanvasLayer/InventoryUi.visible = !$CanvasLayer/InventoryUi.visible
-			print("Inventory UI toggled:", $CanvasLayer/InventoryUi.visible)
 		else:
 			print("InventoryUI node not found!")
 	
@@ -32,8 +31,11 @@ func _set_ui():
 	$CanvasLayer/InventoryUi.visible = false
 	
 # set the camera limits for this level
-func _set_camera_limits(): 
+func _set_camera(): 
 	var camera = $Character2d/Player/Camera2D
+	
+	#camera.zoom = Vector2(2, 2)
+	camera.zoom = Vector2(2.1, 2.1)
 	
 	camera.limit_left = 0
 	camera.limit_right = 34 * 64
@@ -56,3 +58,4 @@ func _on_area_body_entered(body, room):
 			
 			# Enable the new room
 			current_room = room
+		

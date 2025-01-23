@@ -8,7 +8,7 @@ func mark_as_completed(level_name: String, interaction_id: String) -> void:
 	if not completed_interactions.has(level_name):
 		completed_interactions[level_name] = {}
 	completed_interactions[level_name][interaction_id] = true
-	print("Marked", interaction_id, "as completed in level", level_name)
+	print("Marked ", interaction_id, " as completed in level ", level_name)
 
 # Check if an interaction is completed
 func is_completed(level_name: String, interaction_id: String) -> bool:

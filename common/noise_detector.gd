@@ -24,6 +24,7 @@ func _on_player_lost() -> void:
 func _process(delta: float) -> void:
 	if (player_detected):
 		detection_level += _detection_delta(delta)
+		
 		if (detection_level > 100):
 			emit_signal("wake_up")
 	else:
@@ -32,4 +33,7 @@ func _process(delta: float) -> void:
 
 func _detection_delta(delta: float) -> float:
 	var player = get_tree().get_first_node_in_group("player") as Player
-	return player.noise_level * detection_rate * delta
+	if player:
+		return player.noise_level * detection_rate * delta
+	else:
+		return 0
