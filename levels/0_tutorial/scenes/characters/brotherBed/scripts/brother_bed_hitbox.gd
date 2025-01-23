@@ -11,6 +11,7 @@ func _on_noise_detector_wake_up() -> void:
 		
 		if brotherBed:
 			var chat_box = brotherBed.find_child("ChatBox") as Panel
+			
 			if chat_box:				
 				var player = get_tree().current_scene.find_child("Player") as Player
 				if player:

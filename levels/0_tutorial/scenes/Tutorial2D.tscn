@@ -1,18 +1,22 @@
-[gd_scene load_steps=13 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=15 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="2_c7boc"]
 [ext_resource type="PackedScene" uid="uid://bhxvnljyvvk7o" path="res://levels/0_tutorial/scenes/rooms/ChildrenRoom2D.tscn" id="3_628ec"]
-[ext_resource type="PackedScene" uid="uid://bty203e3e4e6m" path="res://levels/0_tutorial/scenes/rooms/ParentsRoom2D.tscn" id="4_vwsie"]
+[ext_resource type="PackedScene" uid="uid://bty203e3e4e6m" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/ParentsRoom2D.tscn" id="4_vwsie"]
 [ext_resource type="PackedScene" uid="uid://cywiwkxb0ofbh" path="res://levels/0_tutorial/scenes/characters/brotherBed/BrotherBed.tscn" id="6_0mwjl"]
 [ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="6_0pp0o"]
 [ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="7_jx2bf"]
 [ext_resource type="PackedScene" uid="uid://ot0a0l8xrcl5" path="res://levels/0_tutorial/scenes/characters/playerBed/PlayerBed.tscn" id="7_mlrqq"]
 [ext_resource type="PackedScene" uid="uid://c47pgf5v7tf7u" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed.tscn" id="8_e8s3d"]
+[ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scripts/parents_room_2d.gd" id="9_bbgtl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
 size = Vector2(685, 479.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxah4"]
+size = Vector2(140, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfh1k"]
 size = Vector2(890, 501)
@@ -97,6 +101,13 @@ position = Vector2(111, -549)
 
 [node name="ParentsRoom2d" parent="Rooms" instance=ExtResource("4_vwsie")]
 position = Vector2(1977, 584)
+script = ExtResource("9_bbgtl")
+
+[node name="OutOfRoomArea2D" type="Area2D" parent="Rooms/ParentsRoom2d"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/ParentsRoom2d/OutOfRoomArea2D"]
+position = Vector2(-60, -26.5)
+shape = SubResource("RectangleShape2D_vxah4")
 
 [node name="Area2D" type="Area2D" parent="Rooms/ParentsRoom2d"]
 collision_mask = 2
@@ -169,3 +180,5 @@ offset_top = -187.0
 offset_right = 64.0
 offset_bottom = -187.0
 grow_vertical = 0
+
+[connection signal="area_entered" from="Rooms/ParentsRoom2d/OutOfRoomArea2D" to="Rooms/ParentsRoom2d" method="_on_out_of_room_area_2d_area_entered"]
