@@ -15,6 +15,10 @@ run/main_scene="res://menus/main/scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+LevelProgess="*res://levels/scripts/level_progess.gd"
+
 [display]
 
 window/size/viewport_width=1440

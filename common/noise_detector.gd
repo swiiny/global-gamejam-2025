@@ -24,6 +24,7 @@ func _on_player_lost() -> void:
 func _process(delta: float) -> void:
 	if (player_detected):
 		detection_level += _detection_delta(delta)
+		print(detection_level)
 		if (detection_level > 100):
 			emit_signal("wake_up")
 	else:
