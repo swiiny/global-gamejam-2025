@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 LevelProgess="*res://levels/scripts/level_progess.gd"
+Inventory="*res://levels/scripts/inventory.gd"
 
 [display]
 
