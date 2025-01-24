@@ -211,6 +211,24 @@ debug_color = Color(0.831943, 0.391622, 1.15514e-06, 0.42)
 [node name="Pig1" parent="Rooms/StableRoom" instance=ExtResource("14_wh5oo")]
 position = Vector2(512, 671)
 
+[node name="Pig2" parent="Rooms/StableRoom" instance=ExtResource("14_wh5oo")]
+position = Vector2(138, 627)
+
+[node name="Pig3" parent="Rooms/StableRoom" instance=ExtResource("14_wh5oo")]
+position = Vector2(166, 160)
+
+[node name="Pig4" parent="Rooms/StableRoom" instance=ExtResource("14_wh5oo")]
+position = Vector2(511, 207)
+
+[node name="Pig5" parent="Rooms/StableRoom" instance=ExtResource("14_wh5oo")]
+position = Vector2(819, 630)
+
+[node name="Pig6" parent="Rooms/StableRoom" instance=ExtResource("14_wh5oo")]
+position = Vector2(863, 192)
+
+[node name="Pig7" parent="Rooms/StableRoom" instance=ExtResource("14_wh5oo")]
+position = Vector2(1171, 621)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InventoryUi" parent="CanvasLayer" instance=ExtResource("7_jx2bf")]
