@@ -30,6 +30,10 @@ func _process(delta: float) -> void:
 	else:
 		detection_level -= _detection_delta(delta)
 		detection_level = max(detection_level, 0)
+	
+	var label = get_parent().find_child("Label")
+	if label:
+		label.text = str(int(detection_level))
 
 func _detection_delta(delta: float) -> float:
 	var player = get_tree().get_first_node_in_group("player") as Player
