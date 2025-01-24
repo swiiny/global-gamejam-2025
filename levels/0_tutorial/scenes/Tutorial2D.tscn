@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=20 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="2_c7boc"]
-[ext_resource type="PackedScene" uid="uid://bhxvnljyvvk7o" path="res://levels/0_tutorial/scenes/rooms/ChildrenRoom2D.tscn" id="3_628ec"]
-[ext_resource type="PackedScene" uid="uid://bty203e3e4e6m" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/ParentsRoom2D.tscn" id="4_vwsie"]
+[ext_resource type="PackedScene" uid="uid://bhxvnljyvvk7o" path="res://levels/0_tutorial/scenes/rooms/childrenRoom/scenes/ChildrenRoom2D.tscn" id="3_628ec"]
+[ext_resource type="PackedScene" uid="uid://bty203e3e4e6m" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scenes/ParentsRoom2D.tscn" id="4_vwsie"]
 [ext_resource type="PackedScene" uid="uid://cywiwkxb0ofbh" path="res://levels/0_tutorial/scenes/characters/brotherBed/BrotherBed.tscn" id="6_0mwjl"]
 [ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="6_0pp0o"]
 [ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="7_jx2bf"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://c47pgf5v7tf7u" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed.tscn" id="8_e8s3d"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scripts/parents_room_2d.gd" id="9_bbgtl"]
 [ext_resource type="PackedScene" uid="uid://b5oh64fstb4h7" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed2.tscn" id="11_bl455"]
+[ext_resource type="PackedScene" uid="uid://b5li1px22svbd" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scenes/StableRoom.tscn" id="12_brdme"]
+[ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scripts/stable_room.gd" id="13_o7x4w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
 size = Vector2(685, 479.5)
@@ -21,6 +23,12 @@ size = Vector2(140, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfh1k"]
 size = Vector2(890, 501)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8eu2"]
+size = Vector2(1313, 875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwprf"]
+size = Vector2(26, 223)
 
 [node name="Tutorial2d" type="Node2D"]
 position = Vector2(8, 8)
@@ -33,7 +41,10 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(630, 155)
+position = Vector2(641, 181)
+
+[node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
+position = Vector2(277, 256)
 
 [node name="TileMaps" type="Node2D" parent="."]
 
@@ -99,6 +110,8 @@ clip_text = true
 
 [node name="PlayerBed" parent="Rooms/ChildrenRoom" instance=ExtResource("7_mlrqq")]
 position = Vector2(111, -549)
+collision_layer = 0
+collision_mask = 128
 
 [node name="ParentsRoom2d" parent="Rooms" instance=ExtResource("4_vwsie")]
 position = Vector2(1977, 584)
@@ -110,8 +123,10 @@ collision_layer = 0
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/ParentsRoom2d/OutOfRoomArea2D"]
+z_index = 5
 position = Vector2(-60, -26.5)
 shape = SubResource("RectangleShape2D_vxah4")
+debug_color = Color(0.831373, 0.392157, 0, 0.419608)
 
 [node name="Area2D" type="Area2D" parent="Rooms/ParentsRoom2d"]
 collision_mask = 2
@@ -172,6 +187,26 @@ offset_bottom = 56.0
 autowrap_mode = 2
 clip_text = true
 
+[node name="StableRoom" parent="Rooms" instance=ExtResource("12_brdme")]
+position = Vector2(820, 576)
+script = ExtResource("13_o7x4w")
+
+[node name="Area2D" type="Area2D" parent="Rooms/StableRoom"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StableRoom/Area2D"]
+position = Vector2(637.5, 409.5)
+shape = SubResource("RectangleShape2D_m8eu2")
+
+[node name="OutOfRoomArea2D" type="Area2D" parent="Rooms/StableRoom"]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StableRoom/OutOfRoomArea2D"]
+position = Vector2(-6, 412.5)
+shape = SubResource("RectangleShape2D_fwprf")
+debug_color = Color(0.831943, 0.391622, 1.15514e-06, 0.42)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InventoryUi" parent="CanvasLayer" instance=ExtResource("7_jx2bf")]
@@ -186,3 +221,4 @@ offset_bottom = -187.0
 grow_vertical = 0
 
 [connection signal="body_entered" from="Rooms/ParentsRoom2d/OutOfRoomArea2D" to="Rooms/ParentsRoom2d" method="_on_out_of_room_area_2d_body_entered"]
+[connection signal="body_entered" from="Rooms/StableRoom/OutOfRoomArea2D" to="Rooms/StableRoom" method="_on_out_of_room_area_2d_body_entered"]

@@ -13,9 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
-	if LevelProgess.is_completed(level.name, level.interactions.get_food.key):
-		print("can continue")
-	else:
+	if !LevelProgess.is_completed(level.name, level.interactions.get_food.key):
 		print("must get_food first")
 		var player = get_tree().get_first_node_in_group("player") as Player
 			
