@@ -7,6 +7,45 @@
 [ext_resource type="Texture2D" uid="uid://cnql156xkoxxr" path="res://Cutscenes/Assets/lights and stars.png" id="5_12hnr"]
 [ext_resource type="Texture2D" uid="uid://rw0d8qhm0kwp" path="res://Cutscenes/Assets/background.png" id="6_vfgwr"]
 
+[sub_resource type="Animation" id="Animation_0u3j7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AngryParent:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Monastery:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_88x4h"]
 resource_name = "fade out"
 length = 30.0
@@ -67,12 +106,18 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_0u3j7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5tmji"]
+_data = {
+"RESET": SubResource("Animation_0u3j7"),
+"fade out": SubResource("Animation_88x4h")
+}
+
+[sub_resource type="Animation" id="Animation_28dwb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AngryParent:modulate")
+tracks/0/path = NodePath("Node2D/LightsAndStars:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -80,36 +125,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Monastery:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5tmji"]
-_data = {
-"RESET": SubResource("Animation_0u3j7"),
-"fade out": SubResource("Animation_88x4h")
 }
 
 [sub_resource type="Animation" id="Animation_5m0pt"]
@@ -129,25 +144,37 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.654902), Color(1, 1, 1, 0.8), Color(1, 1, 1, 0.654902), Color(1, 1, 1, 0.796078)]
 }
 
-[sub_resource type="Animation" id="Animation_28dwb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lxglj"]
+_data = {
+"RESET": SubResource("Animation_28dwb"),
+"blink lights": SubResource("Animation_5m0pt")
+}
+
+[sub_resource type="Animation" id="Animation_yeq0i"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/LightsAndStars:modulate")
+tracks/0/path = NodePath("Node2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lxglj"]
-_data = {
-"RESET": SubResource("Animation_28dwb"),
-"blink lights": SubResource("Animation_5m0pt")
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerCutscene:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(767, 587)]
 }
 
 [sub_resource type="Animation" id="Animation_qlw4q"]
@@ -176,33 +203,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(767, 587), Vector2(800, 587)]
-}
-
-[sub_resource type="Animation" id="Animation_yeq0i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerCutscene:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(767, 587)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o22rb"]
