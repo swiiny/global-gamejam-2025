@@ -1,7 +1,12 @@
 class_name Player extends CharacterBody2D
 
-var speed = 400  # Movement speed in pixels/sec.
-@export var noise_level = 1
+var speed = 300  # Movement speed in pixels/sec.
+var normal_speed = 300
+var slow_speed = 150
+var default_noise_level = 1
+var sneaky_noise_level = default_noise_level * 0.6
+
+@export var noise_level = default_noise_level
 var currently_moving := false
 
 @onready var dynamic_collision_shape = $AuraArea2D/CollisionShape2D
@@ -45,7 +50,15 @@ func _process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_S):
 		speed = 1200
 	else:
-		speed = 400
+		speed = normal_speed
+		
+	if Input.is_action_pressed('ui_sneaky'):
+		speed = slow_speed
+		noise_level = sneaky_noise_level
+		
+	if Input.is_action_just_released('ui_sneaky'):
+		speed = normal_speed
+		noise_level = default_noise_level
 
 # return played direction
 func _player_direction() -> Vector2:
@@ -67,14 +80,24 @@ func _animate(direction: Vector2) -> void:
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
+	
+	var move_animation = "walk"	
+	
+	if Input.is_action_pressed('ui_sneaky'):
+		move_animation = "crouch"
+		
+	if Input.is_action_just_released('ui_sneaky'):
+		move_animation = "crouch"
+	
 
 	if direction.x != 0:
-		$AnimatedSprite2D.animation = "walk"
+		$AnimatedSprite2D.animation = move_animation
 		$AnimatedSprite2D.flip_v = false
 		$AnimatedSprite2D.flip_h = direction.x < 0
 	elif direction.y != 0:
-		$AnimatedSprite2D.animation = "up"
-		$AnimatedSprite2D.flip_v = direction.y > 0
+		$AnimatedSprite2D.animation = move_animation
+	else:
+		$AnimatedSprite2D.animation = "neutral"
 
 # draw a circle around the player & set the circle backouground size to be the same as the aura collision shape
 func _initAura() -> void:
