@@ -95,11 +95,11 @@ func _animate(direction: Vector2) -> void:
 		move_animation = "crouch"
 
 	if Input.is_action_just_released('ui_sneaky'):
-		move_animation = "crouch"
+		move_animation = "walk"
 
 
 	if direction.x != 0:
-		$AnimatedSprite2D.animation = move_animation + "_horizonal"
+		$AnimatedSprite2D.animation = move_animation + "_horizontal"
 		$AnimatedSprite2D.flip_v = false
 		$AnimatedSprite2D.flip_h = direction.x < 0
 	elif direction.y != 0:
