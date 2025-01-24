@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=16 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ot0a0l8xrcl5" path="res://levels/0_tutorial/scenes/characters/playerBed/PlayerBed.tscn" id="7_mlrqq"]
 [ext_resource type="PackedScene" uid="uid://c47pgf5v7tf7u" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed.tscn" id="8_e8s3d"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scripts/parents_room_2d.gd" id="9_bbgtl"]
+[ext_resource type="PackedScene" uid="uid://b5oh64fstb4h7" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed2.tscn" id="11_bl455"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
 size = Vector2(685, 479.5)
@@ -142,8 +143,8 @@ offset_bottom = 56.0
 autowrap_mode = 2
 clip_text = true
 
-[node name="Bed2" parent="Rooms/ParentsRoom2d" instance=ExtResource("8_e8s3d")]
-position = Vector2(-174, -433)
+[node name="Bed2" parent="Rooms/ParentsRoom2d" instance=ExtResource("11_bl455")]
+position = Vector2(-153, -428)
 
 [node name="ChatBox" type="Panel" parent="Rooms/ParentsRoom2d/Bed2"]
 z_index = 5
