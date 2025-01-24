@@ -46,11 +46,6 @@ func _process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.stop()
 	
-	# dev only
-	#if Input.is_key_pressed(KEY_S):
-		#speed = 1200
-	#else:
-		#speed = normal_speed
 		
 	if Input.is_action_just_pressed('ui_sneaky'):
 		if speed != slow_speed:
