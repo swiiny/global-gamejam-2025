@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://character/scripts/player.gd" id="1_s8ni6"]
 [ext_resource type="Texture2D" uid="uid://1dqvknar5ss4" path="res://character/assets/CrouchSide_1.png" id="2_y1la2"]
 [ext_resource type="Texture2D" uid="uid://cnu7woe7s1v" path="res://character/assets/CrouchSide_2.png" id="3_4yepc"]
-[ext_resource type="Texture2D" uid="uid://b5e1ifcimcgdq" path="res://character/assets/WalkSide_1.png" id="4_p8s5k"]
-[ext_resource type="Texture2D" uid="uid://dglyxnmtmkhfb" path="res://character/assets/WalkSide_2.png" id="5_cc2nm"]
+[ext_resource type="Texture2D" uid="uid://c0a2n4qg2ds4x" path="res://character/assets/WalkRight_1.png" id="4_uy80h"]
+[ext_resource type="Texture2D" uid="uid://dsfsyao5miwar" path="res://character/assets/WalkRight_2.png" id="5_22ma7"]
 [ext_resource type="Texture2D" uid="uid://b8wptnw00drr1" path="res://character/assets/player_aura.png" id="6_1cwps"]
 [ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="7_ycl36"]
 
@@ -31,10 +31,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_p8s5k")
+"texture": ExtResource("4_uy80h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_cc2nm")
+"texture": ExtResource("5_22ma7")
 }],
 "loop": true,
 "name": &"walk",
@@ -61,7 +61,8 @@ script = ExtResource("1_s8ni6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_0mbf3")
 animation = &"walk"
-frame_progress = 0.00645698
+frame = 1
+frame_progress = 0.63502
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 32)

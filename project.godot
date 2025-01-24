@@ -19,12 +19,12 @@ config/icon="res://icon.svg"
 
 LevelProgess="*res://levels/scripts/level_progess.gd"
 Inventory="*res://levels/scripts/inventory.gd"
+SignalBus="*res://common/signal_bus.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
 window/size/resizable=false
 
 [editor]

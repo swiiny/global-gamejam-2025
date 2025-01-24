@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=22 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scripts/parents_room_2d.gd" id="9_bbgtl"]
 [ext_resource type="PackedScene" uid="uid://b5oh64fstb4h7" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed2.tscn" id="11_bl455"]
 [ext_resource type="PackedScene" uid="uid://b5li1px22svbd" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scenes/StableRoom.tscn" id="12_brdme"]
+[ext_resource type="PackedScene" uid="uid://r0t8bfagke7f" path="res://collectibles/shared/scenes/Collectible.tscn" id="12_gq6ch"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scripts/stable_room.gd" id="13_o7x4w"]
 [ext_resource type="PackedScene" uid="uid://dg28s2v5p584x" path="res://levels/0_tutorial/scenes/characters/animals/scenes/Pig1.tscn" id="14_wh5oo"]
 
@@ -207,18 +208,12 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(715, 331)
+position = Vector2(673, 206)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
 position = Vector2(269, 269)
 
 [node name="TileMaps" type="Node2D" parent="."]
-
-[node name="TileMapLayerItems" type="TileMapLayer" parent="TileMaps"]
-z_index = 11
-position = Vector2(-8, -20)
-tile_map_data = PackedByteArray("AAAgAAMAAAAOAAIAAAA=")
-tile_set = ExtResource("2_c7boc")
 
 [node name="TileMapLayerBgTop" type="TileMapLayer" parent="TileMaps"]
 z_index = 10
@@ -323,54 +318,13 @@ shape = SubResource("RectangleShape2D_lfh1k")
 [node name="Bed" parent="Rooms/ParentsRoom2d" instance=ExtResource("8_e8s3d")]
 position = Vector2(-351, -425)
 
-[node name="ChatBox" type="Panel" parent="Rooms/ParentsRoom2d/Bed"]
-z_index = 5
-offset_left = 37.0
-offset_top = -96.0
-offset_right = 190.0
-offset_bottom = -36.0
-
-[node name="TextureRect" type="TextureRect" parent="Rooms/ParentsRoom2d/Bed/ChatBox"]
-layout_mode = 0
-offset_right = 154.0
-offset_bottom = 61.0
-texture = ExtResource("6_0pp0o")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Rooms/ParentsRoom2d/Bed/ChatBox"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 144.0
-offset_bottom = 56.0
-autowrap_mode = 2
-clip_text = true
-
 [node name="Bed2" parent="Rooms/ParentsRoom2d" instance=ExtResource("11_bl455")]
 position = Vector2(-153, -428)
 
-[node name="ChatBox" type="Panel" parent="Rooms/ParentsRoom2d/Bed2"]
-z_index = 5
-offset_left = 37.0
-offset_top = -96.0
-offset_right = 190.0
-offset_bottom = -36.0
-
-[node name="TextureRect" type="TextureRect" parent="Rooms/ParentsRoom2d/Bed2/ChatBox"]
-layout_mode = 0
-offset_right = 154.0
-offset_bottom = 61.0
-texture = ExtResource("6_0pp0o")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Rooms/ParentsRoom2d/Bed2/ChatBox"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 144.0
-offset_bottom = 56.0
-autowrap_mode = 2
-clip_text = true
+[node name="CollectibleKey" parent="Rooms/ParentsRoom2d" instance=ExtResource("12_gq6ch")]
+z_index = 11
+position = Vector2(-1321, -289)
+item_name = "item-key"
 
 [node name="StableRoom" parent="Rooms" instance=ExtResource("12_brdme")]
 position = Vector2(820, 576)

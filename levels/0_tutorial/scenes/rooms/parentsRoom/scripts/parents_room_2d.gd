@@ -4,7 +4,7 @@ var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	SignalBus.inventory_updated.connect(_on_inventory_updated)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,3 +33,7 @@ func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
 				player.are_movements_disabled = false
 				_chat_box._hide_chat_box(chat_box)
 	
+func _on_inventory_updated(items: Array):
+	if !LevelProgess.is_completed(level.name, level.interactions.get_food.key):
+		if Inventory.has_required_items(level.interactions.get_food.items_equired):
+			LevelProgess.mark_as_completed(level.name, level.interactions.get_food.key)

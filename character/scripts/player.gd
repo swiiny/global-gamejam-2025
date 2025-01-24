@@ -20,11 +20,19 @@ func _ready() -> void:
 	add_to_group("player")
 	# init player aura
 	_initAura()
+	_set_collisions()
 
 func _draw() -> void:
 	var collision_shape = $AuraArea2D/CollisionShape2D.shape
 	var radius = collision_shape.radius
 	draw_circle(Vector2(), radius, Color.WHITE, false, 1.0, true)
+	
+func _set_collisions():
+	# collectibles
+	self.set_collision_layer_value(12, true)
+
+	# player's aura
+	$AuraArea2D.set_collision_layer_value(9, true)
 
 func _process(delta: float) -> void:
 	# Get movement direction and velocity
