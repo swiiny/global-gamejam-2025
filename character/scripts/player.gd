@@ -46,19 +46,19 @@ func _process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.stop()
 	
-	# dev only
-	if Input.is_key_pressed(KEY_S):
-		speed = 1200
-	else:
-		speed = normal_speed
 		
-	if Input.is_action_pressed('ui_sneaky'):
-		speed = slow_speed
-		noise_level = sneaky_noise_level
+	if Input.is_action_just_pressed('ui_sneaky'):
+		if speed != slow_speed:
+			speed = slow_speed
+		if noise_level != sneaky_noise_level:
+			noise_level = sneaky_noise_level
+	elif Input.is_action_just_released('ui_sneaky'):
+		if speed != normal_speed:
+			speed = normal_speed
+		if noise_level != default_noise_level:
+			noise_level = default_noise_level
+			
 		
-	if Input.is_action_just_released('ui_sneaky'):
-		speed = normal_speed
-		noise_level = default_noise_level
 
 # return played direction
 func _player_direction() -> Vector2:

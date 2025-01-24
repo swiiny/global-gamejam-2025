@@ -11,6 +11,8 @@ var hitbox: Hitbox = get_node("../Hitbox")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#hitbox.collision_layer = 9 # the collision layer of the player's aura
+	#hitbox.collision_mask = 9
 	hitbox.player_detected.connect(_on_player_detected)
 	hitbox.player_lost.connect(_on_player_lost)
 

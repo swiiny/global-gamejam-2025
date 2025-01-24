@@ -17,7 +17,7 @@ polygon = PackedVector2Array(0, 0, 128, 0, 128, 64, 128, 64, 128, 192, 0, 192, 0
 
 [node name="Hitbox" type="Area2D" parent="." groups=["global_hitbox", "hitbox"]]
 collision_layer = 0
-collision_mask = 3
+collision_mask = 0
 monitorable = false
 script = ExtResource("1_fnjfx")
 

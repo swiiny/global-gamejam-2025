@@ -2,7 +2,7 @@ extends "res://common/hitbox.gd"
 
 # get level data 
 var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
-		
+
 func _on_noise_detector_wake_up() -> void:
 	if !LevelProgess.is_completed(level.name, level.interactions.wake_up_brother.key):
 		LevelProgess.mark_as_completed(level.name, level.interactions.wake_up_brother.key)

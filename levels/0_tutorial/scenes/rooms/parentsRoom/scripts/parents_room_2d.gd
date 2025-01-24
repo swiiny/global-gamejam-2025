@@ -12,13 +12,26 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_out_of_room_area_2d_area_entered(area: Area2D) -> void:
+func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
 	if LevelProgess.is_completed(level.name, level.interactions.get_food.key):
 		print("can continue")
 	else:
 		print("must get_food first")
-		
-		#var player = get_tree().current_scene.find_child("Player") as Player
-		
-		#if player:
-		#	player.position = Vector2(player.position.x, player.position.y - 64)
+		var player = get_tree().get_first_node_in_group("player") as Player
+			
+		if player:
+			# walk backward
+			player.position = Vector2(player.position.x, player.position.y - 20)
+			
+			var chat_box = player.find_child("ChatBox")
+			
+			if chat_box:
+				var _chat_box = ChatBox.new()
+				_chat_box.interact_with_chat(chat_box, "I'm hungry...", get_tree())
+				
+				player.are_movements_disabled = true
+				await get_tree().create_timer(1.5).timeout
+				
+				player.are_movements_disabled = false
+				_chat_box._hide_chat_box(chat_box)
+	
