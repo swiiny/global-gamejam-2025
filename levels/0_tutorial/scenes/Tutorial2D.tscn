@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=22 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scripts/parents_room_2d.gd" id="9_bbgtl"]
 [ext_resource type="PackedScene" uid="uid://b5oh64fstb4h7" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed2.tscn" id="11_bl455"]
 [ext_resource type="PackedScene" uid="uid://b5li1px22svbd" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scenes/StableRoom.tscn" id="12_brdme"]
+[ext_resource type="PackedScene" uid="uid://r0t8bfagke7f" path="res://collectibles/shared/scenes/Collectible.tscn" id="12_gq6ch"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scripts/stable_room.gd" id="13_o7x4w"]
 [ext_resource type="PackedScene" uid="uid://dg28s2v5p584x" path="res://levels/0_tutorial/scenes/characters/animals/scenes/Pig1.tscn" id="14_wh5oo"]
 
@@ -141,6 +142,11 @@ position = Vector2(-351, -425)
 
 [node name="Bed2" parent="Rooms/ParentsRoom2d" instance=ExtResource("11_bl455")]
 position = Vector2(-153, -428)
+
+[node name="CollectibleKey" parent="Rooms/ParentsRoom2d" instance=ExtResource("12_gq6ch")]
+z_index = 5
+position = Vector2(-932, -142)
+item_name = "item-key"
 
 [node name="StableRoom" parent="Rooms" instance=ExtResource("12_brdme")]
 position = Vector2(820, 576)

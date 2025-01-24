@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://bwwv1ejgaflq8"]
+[gd_scene load_steps=2 format=3 uid="uid://bwwv1ejgaflq8"]
+
+[ext_resource type="Script" path="res://menus/inventory/scripts/inventory.gd" id="1_sk3ax"]
 
 [node name="InventoryUi" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_sk3ax")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(128, 64)

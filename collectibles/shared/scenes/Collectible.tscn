@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://r0t8bfagke7f"]
+
+[ext_resource type="Script" path="res://collectibles/shared/scripts/collectible.gd" id="1_qcp30"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1c41"]
+
+[node name="Collectible" type="Area2D"]
+collision_layer = 2048
+collision_mask = 0
+script = ExtResource("1_qcp30")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u1c41")
+disabled = true
