@@ -21,83 +21,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
 size = Vector2(685, 479.5)
 
-[sub_resource type="Animation" id="Animation_l5lml"]
-resource_name = "sleep animation"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Zzz:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(8, 40), Vector2(16, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Zzz:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(0.3, 0.3), Vector2(0.2, 0.2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/Zzz:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.733333, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node2D/Zzz2:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(4, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/Zzz2:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(8, 40), Vector2(16, 20)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Node2D/Zzz2:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1, 3, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(0.4, 0.4), Vector2(0.2, 0.2)]
-}
-
 [sub_resource type="Animation" id="Animation_quqrx"]
 length = 0.001
 tracks/0/type = "value"
@@ -139,26 +62,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Node2D/Zzz2:modulate")
+tracks/3/path = NodePath("Node2D/Zzz2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(16, 20)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/Zzz2:position")
+tracks/4/path = NodePath("Node2D/Zzz2:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(8, 40)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -173,9 +96,91 @@ tracks/5/keys = {
 "values": [Vector2(0.2, 0.2)]
 }
 
+[sub_resource type="Animation" id="Animation_l5lml"]
+resource_name = "sleep animation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Zzz:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, 40), Vector2(16, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Zzz:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.3, 0.3), Vector2(0.2, 0.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Zzz:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_35mrr"]
+resource_name = "Sleep delay"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Zzz2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, 40), Vector2(16, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Zzz2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Zzz2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.3, 0.3), Vector2(0.2, 0.2)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8aly7"]
 _data = {
 "RESET": SubResource("Animation_quqrx"),
+"Sleep delay": SubResource("Animation_35mrr"),
 "sleep animation": SubResource("Animation_l5lml")
 }
 
@@ -202,7 +207,7 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(1086, 968)
+position = Vector2(715, 331)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
 position = Vector2(269, 269)
