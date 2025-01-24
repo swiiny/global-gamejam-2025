@@ -5,6 +5,9 @@ signal player_lost
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# the collision layer of the Player's aura
+	self.set_collision_mask_value(9, true)
+	
 	add_to_group("global_hitbox")
 	if !get_meta("Friendly", false):
 		area_entered.connect(_on_enemy_entered)

@@ -18,7 +18,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"crouch",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -37,7 +37,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pwpf"]
@@ -58,10 +58,10 @@ script = ExtResource("1_s8ni6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_0mbf3")
-animation = &"walk"
+animation = &"crouch"
+frame_progress = 0.574531
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-visible = false
 position = Vector2(0, 32)
 shape = SubResource("CapsuleShape2D_8pwpf")
 
@@ -74,6 +74,7 @@ limit_smoothed = true
 [node name="AuraArea2D" type="Area2D" parent="Player"]
 show_behind_parent = true
 z_as_relative = false
+collision_layer = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AuraArea2D"]
 shape = SubResource("CircleShape2D_tyut3")

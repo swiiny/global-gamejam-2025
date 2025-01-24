@@ -18,7 +18,7 @@ func _on_out_of_room_area_2d_area_entered(area: Area2D) -> void:
 	else:
 		print("must get_food first")
 		
-		#var player = get_tree().current_scene.find_child("Player") as Player
-		
-		#if player:
-		#	player.position = Vector2(player.position.x, player.position.y - 64)
+		var player = get_tree().current_scene.find_child("Player") as Player
+			
+		if player:
+			player.position = Vector2(player.position.x, player.position.y - 64)
