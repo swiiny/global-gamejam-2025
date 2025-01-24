@@ -1,5 +1,7 @@
 extends Node
 
+signal inventory_updated
+
 # Array to store inventory items
 var items: Array = []
 
@@ -29,3 +31,11 @@ func has_item(item: String) -> bool:
 # Debug: Print the inventory
 func print_inventory() -> void:
 	print("Current Inventory:", items)
+
+# Check if some items are in the user's inventory
+func has_required_items(required_items: Array) -> bool:
+	# Check if all elements in `required_items` exist in `items`
+	for item in required_items:
+		if item not in items:
+			return false
+	return true

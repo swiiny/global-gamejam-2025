@@ -19,6 +19,7 @@
 	"get_food": {
 		"key": "get_food",
 		"is_checkpoint": false,
+		"items_equired": ["item-key"]
 	},
 	# if wake up animals then game over
 	# -> once this step is validated, the player is automatically moved to the picnic location and the end level cut scenes are triggered
