@@ -61,7 +61,7 @@ script = ExtResource("1_s8ni6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_0mbf3")
 animation = &"walk"
-frame_progress = 0.976806
+frame_progress = 0.00645698
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 32)
@@ -72,18 +72,6 @@ zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
-
-[node name="AuraArea2D" type="Area2D" parent="Player"]
-show_behind_parent = true
-z_as_relative = false
-collision_layer = 256
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AuraArea2D"]
-shape = SubResource("CircleShape2D_tyut3")
-debug_color = Color(0.979457, 0, 0.387882, 0.42)
-
-[node name="AuraSprite" type="Sprite2D" parent="Player/AuraArea2D"]
-texture = ExtResource("6_1cwps")
 
 [node name="ChatBox" type="Panel" parent="Player"]
 visible = false
@@ -108,3 +96,15 @@ offset_right = 144.0
 offset_bottom = 56.0
 autowrap_mode = 2
 clip_text = true
+
+[node name="AuraArea2D" type="Area2D" parent="Player"]
+show_behind_parent = true
+z_as_relative = false
+collision_layer = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AuraArea2D"]
+shape = SubResource("CircleShape2D_tyut3")
+debug_color = Color(0.979457, 0, 0.387882, 0.42)
+
+[node name="AuraSprite" type="Sprite2D" parent="Player/AuraArea2D"]
+texture = ExtResource("6_1cwps")
