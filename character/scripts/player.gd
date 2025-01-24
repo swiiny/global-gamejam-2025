@@ -45,8 +45,8 @@ func _process(delta: float) -> void:
 		_animate(direction)
 	else:
 		$AnimatedSprite2D.stop()
-	
-		
+
+
 	if Input.is_action_just_pressed('ui_sneaky'):
 		if speed != slow_speed:
 			speed = slow_speed
@@ -57,8 +57,8 @@ func _process(delta: float) -> void:
 			speed = normal_speed
 		if noise_level != default_noise_level:
 			noise_level = default_noise_level
-			
-		
+
+
 
 # return played direction
 func _player_direction() -> Vector2:
@@ -80,15 +80,15 @@ func _animate(direction: Vector2) -> void:
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
-	
-	var move_animation = "walk"	
-	
+
+	var move_animation = "walk"
+
 	if Input.is_action_pressed('ui_sneaky'):
 		move_animation = "crouch"
-		
+
 	if Input.is_action_just_released('ui_sneaky'):
 		move_animation = "crouch"
-	
+
 
 	if direction.x != 0:
 		$AnimatedSprite2D.animation = move_animation
@@ -103,18 +103,18 @@ func _animate(direction: Vector2) -> void:
 func _initAura() -> void:
 	var collision_shape = $AuraArea2D/CollisionShape2D.shape
 	var radius = collision_shape.radius
-	
+
 	# Ensure aura is invisible initially
 	aura_sprite.modulate = Color(1, 1, 1, 0)
-	
+
 	# we know the collision shape Circle
 	var texture_size = aura_sprite.texture.get_size()  # Size of the texture
 	aura_sprite.scale = Vector2(radius * 2, radius * 2) / texture_size
-	
+
 	# set aura z index below the walls
 	$AuraArea2D.z_as_relative = false
 	$AuraArea2D.z_index = 0
-	
+
 # update aura background visibility depending on user's movements
 func _update_aura_opacity(moving: bool) -> void:
 	# Stop any previous tween
@@ -130,8 +130,8 @@ func _update_aura_opacity(moving: bool) -> void:
 	else:
 		# Fade out to 0 opacity over 0.1 seconds
 		current_tween.tween_property(aura_sprite, "modulate:a", 0.0, 0.1)
-		
+
 func _update_noise_level(velocity: float) -> void:
 	var moving_coeff = 1 if velocity > 0 else -1
 	noise_level = moving_coeff * velocity
-	
+
