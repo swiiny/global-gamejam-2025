@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bwwv1ejgaflq8"]
+
+[node name="InventoryUi" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 0
+offset_right = 379.0
+offset_bottom = 149.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 379.0
+offset_bottom = 151.0
+columns = 4

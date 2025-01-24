@@ -24,12 +24,20 @@ func _on_player_lost() -> void:
 func _process(delta: float) -> void:
 	if (player_detected):
 		detection_level += _detection_delta(delta)
+		
 		if (detection_level > 100):
 			emit_signal("wake_up")
 	else:
 		detection_level -= _detection_delta(delta)
 		detection_level = max(detection_level, 0)
+	
+	var label = get_parent().find_child("Label")
+	if label:
+		label.text = str(int(detection_level))
 
-func _detection_delta(delta: float) -> int:
+func _detection_delta(delta: float) -> float:
 	var player = get_tree().get_first_node_in_group("player") as Player
-	return player.noise_level * detection_rate * delta
+	if player:
+		return player.noise_level * detection_rate * delta
+	else:
+		return 0
