@@ -41,8 +41,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pwpf"]
-radius = 32.0
-height = 64.0
+radius = 24.0
+height = 48.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tyut3"]
 radius = 193.494
@@ -58,10 +58,11 @@ script = ExtResource("1_s8ni6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_0mbf3")
-animation = &"neutral"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 8)
+visible = false
+position = Vector2(0, 32)
 shape = SubResource("CapsuleShape2D_8pwpf")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

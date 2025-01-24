@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 var speed = 300  # Movement speed in pixels/sec.
 var normal_speed = 300
-var slow_speed = 150
+var slow_speed = 100
 var default_noise_level = 1
 var sneaky_noise_level = default_noise_level * 0.6
 
@@ -96,8 +96,8 @@ func _animate(direction: Vector2) -> void:
 		$AnimatedSprite2D.flip_h = direction.x < 0
 	elif direction.y != 0:
 		$AnimatedSprite2D.animation = move_animation
-	else:
-		$AnimatedSprite2D.animation = "neutral"
+	#else:
+		#$AnimatedSprite2D.animation = "neutral"
 
 # draw a circle around the player & set the circle backouground size to be the same as the aura collision shape
 func _initAura() -> void:

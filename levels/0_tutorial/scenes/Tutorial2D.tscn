@@ -29,11 +29,11 @@ script = ExtResource("1_vechb")
 [node name="Character2d" parent="." instance=ExtResource("1_ruvi1")]
 light_mask = 3
 visibility_layer = 3
-z_index = 2
+z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(632, 128)
+position = Vector2(630, 155)
 
 [node name="TileMaps" type="Node2D" parent="."]
 
