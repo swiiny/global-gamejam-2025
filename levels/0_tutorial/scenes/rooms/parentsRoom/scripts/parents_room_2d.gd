@@ -21,6 +21,12 @@ func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
 			# walk backward
 			player.position = Vector2(player.position.x, player.position.y - 20)
 			
+			
+			var player_animation = player.find_child("AnimatedSprite2D") as AnimatedSprite2D
+			print(player_animation)
+			if player_animation:
+				player_animation.animation = "walk_up"
+			
 			var chat_box = player.find_child("ChatBox")
 			
 			if chat_box:
