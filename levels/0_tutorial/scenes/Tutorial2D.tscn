@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=21 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b5oh64fstb4h7" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed2.tscn" id="11_bl455"]
 [ext_resource type="PackedScene" uid="uid://b5li1px22svbd" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scenes/StableRoom.tscn" id="12_brdme"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scripts/stable_room.gd" id="13_o7x4w"]
+[ext_resource type="PackedScene" uid="uid://dg28s2v5p584x" path="res://levels/0_tutorial/scenes/characters/animals/scenes/Pig1.tscn" id="14_wh5oo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
 size = Vector2(685, 479.5)
@@ -41,10 +42,10 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(641, 181)
+position = Vector2(1086, 968)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
-position = Vector2(277, 256)
+position = Vector2(269, 269)
 
 [node name="TileMaps" type="Node2D" parent="."]
 
@@ -206,6 +207,9 @@ collision_mask = 128
 position = Vector2(-6, 412.5)
 shape = SubResource("RectangleShape2D_fwprf")
 debug_color = Color(0.831943, 0.391622, 1.15514e-06, 0.42)
+
+[node name="Pig1" parent="Rooms/StableRoom" instance=ExtResource("14_wh5oo")]
+position = Vector2(512, 671)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

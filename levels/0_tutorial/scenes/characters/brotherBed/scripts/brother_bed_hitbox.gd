@@ -25,7 +25,7 @@ func _on_noise_detector_wake_up() -> void:
 					# re-activate player's movementst
 					player.are_movements_disabled = false
 					# hide the chatbox
-					chat_box.visible = false;
+					chat_box.visible = false
 			
 		
 				
