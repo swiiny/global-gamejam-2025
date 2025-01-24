@@ -27,8 +27,9 @@ func _process(delta: float) -> void:
 	if (player_detected):
 		detection_level += _detection_delta(delta)
 		
-		if (detection_level > 100):
+		if (detection_level >= 100):
 			emit_signal("wake_up")
+			detection_level = 100
 	else:
 		detection_level -= _detection_delta(delta)
 		detection_level = max(detection_level, 0)
