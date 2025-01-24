@@ -99,11 +99,15 @@ func _animate(direction: Vector2) -> void:
 
 
 	if direction.x != 0:
-		$AnimatedSprite2D.animation = move_animation
+		$AnimatedSprite2D.animation = move_animation + "_horizonal"
 		$AnimatedSprite2D.flip_v = false
 		$AnimatedSprite2D.flip_h = direction.x < 0
 	elif direction.y != 0:
-		$AnimatedSprite2D.animation = move_animation
+		var up_or_down = "_up"
+		if direction.y > 0:
+			up_or_down = "_down"
+			
+		$AnimatedSprite2D.animation = move_animation  + up_or_down
 	#else:
 		#$AnimatedSprite2D.animation = "neutral"
 
@@ -142,4 +146,3 @@ func _update_aura_opacity(moving: bool) -> void:
 func _update_noise_level(velocity: float) -> void:
 	var moving_coeff = 1 if velocity > 0 else -1
 	noise_level = moving_coeff * velocity
-
