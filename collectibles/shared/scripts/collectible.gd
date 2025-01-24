@@ -42,5 +42,4 @@ func _on_body_entered(body: Node2D) -> void:
 func collect_item() -> void:
 	# Add the item to the inventory
 	Inventory.add_item(item_name)
-	print("Collected item:", item_name)
 	queue_free()  # Remove the collectible

@@ -44,7 +44,7 @@ func _spawn():
 
 	
 func _set_ui():
-	$CanvasLayer/InventoryUi.visible = false
+	#$CanvasLayer/InventoryUi.visible = false
 	$Rooms/ChildrenRoom/BrotherBed/ChatBox.visible = false
 	
 # set the camera limits for this level

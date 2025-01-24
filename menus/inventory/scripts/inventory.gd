@@ -1,8 +1,7 @@
 extends Control
 
-
-
 @onready var grid = $Panel/GridContainer
+
 
 func populate_inventory(items: Array):
 	clear_children()
