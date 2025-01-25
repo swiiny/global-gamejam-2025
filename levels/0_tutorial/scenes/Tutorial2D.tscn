@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=29 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -8,10 +8,8 @@
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/childrenRoom/scripts/children_room_2d.gd" id="5_7ro6k"]
 [ext_resource type="PackedScene" uid="uid://cywiwkxb0ofbh" path="res://levels/0_tutorial/scenes/characters/brotherBed/BrotherBed.tscn" id="6_0mwjl"]
 [ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="6_0pp0o"]
-[ext_resource type="Script" path="res://levels/0_tutorial/scenes/characters/brotherBed/brother_bed.gd" id="6_anpgk"]
 [ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="7_jx2bf"]
 [ext_resource type="PackedScene" uid="uid://ot0a0l8xrcl5" path="res://levels/0_tutorial/scenes/characters/playerBed/PlayerBed.tscn" id="7_mlrqq"]
-[ext_resource type="Texture2D" uid="uid://c8cxcje6pxneg" path="res://menus/main/assets/ZZZ.png" id="8_73kp5"]
 [ext_resource type="PackedScene" uid="uid://c47pgf5v7tf7u" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed.tscn" id="8_e8s3d"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scripts/parents_room_2d.gd" id="9_bbgtl"]
 [ext_resource type="PackedScene" uid="uid://b5oh64fstb4h7" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed2.tscn" id="11_bl455"]
@@ -25,169 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/Scenes/Fade Transition.tscn" id="23_gafcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
-
-[sub_resource type="Animation" id="Animation_quqrx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Zzz:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(16, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Zzz:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.2, 0.2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/Zzz:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node2D/Zzz2:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(16, 20)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/Zzz2:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Node2D/Zzz2:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.2, 0.2)]
-}
-
-[sub_resource type="Animation" id="Animation_35mrr"]
-resource_name = "Sleep delay"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Zzz2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(8, 40), Vector2(16, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Zzz2:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/Zzz2:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(0.3, 0.3), Vector2(0.2, 0.2)]
-}
-
-[sub_resource type="Animation" id="Animation_l5lml"]
-resource_name = "sleep animation"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Zzz:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(8, 40), Vector2(16, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Zzz:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(0.3, 0.3), Vector2(0.2, 0.2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/Zzz:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8aly7"]
-_data = {
-"RESET": SubResource("Animation_quqrx"),
-"Sleep delay": SubResource("Animation_35mrr"),
-"sleep animation": SubResource("Animation_l5lml")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxah4"]
 size = Vector2(140, 15)
@@ -256,17 +91,21 @@ position = Vector2(904.5, 285.75)
 shape = SubResource("RectangleShape2D_cp0vr")
 debug_color = Color(0, 0.553191, 0.912511, 0.42)
 
+[node name="PlayerBed" parent="Rooms/ChildrenRoom" instance=ExtResource("7_mlrqq")]
+position = Vector2(111, -549)
+collision_layer = 0
+collision_mask = 128
+
 [node name="BrotherBed" parent="Rooms/ChildrenRoom" instance=ExtResource("6_0mwjl")]
-z_index = 2
-position = Vector2(317, -543)
-script = ExtResource("6_anpgk")
+position = Vector2(333, -543)
+noise_tolerance = 10.0
 
 [node name="ChatBox" type="Panel" parent="Rooms/ChildrenRoom/BrotherBed"]
 z_index = 5
-offset_left = 37.0
-offset_top = -96.0
-offset_right = 190.0
-offset_bottom = -36.0
+offset_left = 21.0
+offset_top = -99.0
+offset_right = 174.0
+offset_bottom = -39.0
 
 [node name="TextureRect" type="TextureRect" parent="Rooms/ChildrenRoom/BrotherBed/ChatBox"]
 layout_mode = 0
@@ -283,31 +122,6 @@ offset_right = 144.0
 offset_bottom = 56.0
 autowrap_mode = 2
 clip_text = true
-
-[node name="Node2D" type="Node2D" parent="Rooms/ChildrenRoom/BrotherBed"]
-
-[node name="Zzz" type="Sprite2D" parent="Rooms/ChildrenRoom/BrotherBed/Node2D"]
-position = Vector2(16, 20)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("8_73kp5")
-
-[node name="Zzz2" type="Sprite2D" parent="Rooms/ChildrenRoom/BrotherBed/Node2D"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(16, 20)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("8_73kp5")
-
-[node name="ZZZ animation" type="AnimationPlayer" parent="Rooms/ChildrenRoom/BrotherBed/Node2D"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_8aly7")
-}
-autoplay = "sleep animation"
-
-[node name="PlayerBed" parent="Rooms/ChildrenRoom" instance=ExtResource("7_mlrqq")]
-position = Vector2(111, -549)
-collision_layer = 0
-collision_mask = 128
 
 [node name="ParentsRoom2d" parent="Rooms" instance=ExtResource("4_vwsie")]
 position = Vector2(1977, 584)
