@@ -149,7 +149,8 @@ func _trigger_game_over() -> void:
 	var player = get_tree().current_scene.find_child("Player") as Player
 
 	player.are_movements_disabled = true
-	playet._animate(Vector2(0, 0))  # Stop animation
+	player._animate(Vector2(0, 0))  # Stop animation
+	LevelProgess.reset_progress()
 
 	$FadeTransition._move_to_scene("res://levels/0_tutorial/scenes/Tutorial2D.tscn")
 
