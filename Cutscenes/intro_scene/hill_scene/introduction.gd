@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	pass
 
 func end_cutscene() -> void:
-		get_tree().change_scene_to_file("res://levels/0_tutorial/scenes/Tutorial2D.tscn")
+	get_tree().change_scene_to_file("res://levels/0_tutorial/scenes/Tutorial2D.tscn")
 
 func start_angry_parent() -> void:
 	print("starting angry parent animation")

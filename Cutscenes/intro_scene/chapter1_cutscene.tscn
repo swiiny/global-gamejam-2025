@@ -10,7 +10,7 @@ length = 30.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Container/Parentscene")
+tracks/0/path = NodePath("Parentscene")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Container/MonasteryIntro")
+tracks/1/path = NodePath("MonasteryIntro")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -43,23 +43,16 @@ _data = {
 
 [node name="Chapter1Cutscene" type="Node2D"]
 
-[node name="Container" type="Container" parent="."]
-clip_contents = true
-custom_minimum_size = Vector2(1920, 1080)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MonasteryIntro" parent="." instance=ExtResource("1_qqm66")]
+position = Vector2(-960, -540)
 
-[node name="MonasteryIntro" parent="Container" instance=ExtResource("1_qqm66")]
+[node name="Parentscene" parent="." instance=ExtResource("2_a1i84")]
+position = Vector2(-960, -540)
 
-[node name="Parentscene" parent="Container" instance=ExtResource("2_a1i84")]
+[node name="Introduction" parent="." instance=ExtResource("3_lvurr")]
+position = Vector2(-960, -540)
 
-[node name="Introduction" parent="Container" instance=ExtResource("3_lvurr")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Container"]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_jfmst")
 }
