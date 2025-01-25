@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5oh64fstb4h7"]
 
-[ext_resource type="Script" path="res://common/hitbox.gd" id="1_ew54u"]
-[ext_resource type="Texture2D" uid="uid://ccvoqxx0p76ao" path="res://levels/0_tutorial/scenes/characters/parentsBed/assets/sleeper-father-0.png" id="2_lw48q"]
-[ext_resource type="Texture2D" uid="uid://dsj1ajrr6lcqn" path="res://levels/0_tutorial/scenes/characters/assets/BedFarm.png" id="3_ibubd"]
+[ext_resource type="Script" path="res://common/script/hitbox.gd" id="1_ew54u"]
+[ext_resource type="Texture2D" uid="uid://bwus7pifuo87c" path="res://levels/0_tutorial/scenes/characters/parentsBed/assets/sleeper-father-0.png" id="2_lw48q"]
+[ext_resource type="Texture2D" uid="uid://c6u8jepv3y4xq" path="res://levels/0_tutorial/scenes/characters/assets/BedFarm.png" id="3_ibubd"]
 [ext_resource type="PackedScene" uid="uid://yj71flnek1f5" path="res://common/scenes/detectionLevelIndicator/scenes/DetectionLevelIndicator.tscn" id="4_7ldb5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rk7j4"]

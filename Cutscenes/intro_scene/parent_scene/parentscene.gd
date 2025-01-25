@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 func run_anim() -> void:
 	print("running animation animation track")
-	$AnimationPlayer.play("animate_parent")
+	$AnimationPlayer.play("animate_parent", -1, 1.5)
 	pass
