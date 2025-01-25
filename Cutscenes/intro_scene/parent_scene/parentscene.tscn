@@ -1,11 +1,86 @@
 [gd_scene load_steps=10 format=3 uid="uid://degvauhp5t03j"]
 
-[ext_resource type="Texture2D" uid="uid://cvobfea4ratgb" path="res://Cutscenes/Assets/Cutscene1_angry_parent/Chap1_Cutscene2_Sky.png" id="1_50ooo"]
-[ext_resource type="Script" path="res://Cutscenes/intro_scene/parentscene.gd" id="1_rv2rn"]
-[ext_resource type="Texture2D" uid="uid://1vy7m3daw1bk" path="res://Cutscenes/Assets/Cutscene1_angry_parent/Chap1_Cutscene2_Stars.png" id="2_0i6kn"]
-[ext_resource type="Texture2D" uid="uid://0dh0i6bknepx" path="res://Cutscenes/Assets/Cutscene1_angry_parent/Chap1_Cutscene2_House.png" id="3_dl5n4"]
-[ext_resource type="Texture2D" uid="uid://bvve2rpg55y4v" path="res://Cutscenes/Assets/Cutscene1_angry_parent/Chap1_Cutscene2_Hills.png" id="4_4n3dw"]
-[ext_resource type="Texture2D" uid="uid://dh2ecmiqkgnob" path="res://Cutscenes/Assets/Cutscene1_angry_parent/Chap1_Cutscene2_Characters.png" id="5_ivdb7"]
+[ext_resource type="Texture2D" uid="uid://cvobfea4ratgb" path="res://Cutscenes/assets/cutscene1_angry_parent/Chap1_Cutscene2_Sky.png" id="1_50ooo"]
+[ext_resource type="Script" path="res://Cutscenes/intro_scene/parent_scene/parentscene.gd" id="1_rv2rn"]
+[ext_resource type="Texture2D" uid="uid://1vy7m3daw1bk" path="res://Cutscenes/assets/cutscene1_angry_parent/Chap1_Cutscene2_Stars.png" id="2_0i6kn"]
+[ext_resource type="Texture2D" uid="uid://0dh0i6bknepx" path="res://Cutscenes/assets/cutscene1_angry_parent/Chap1_Cutscene2_House.png" id="3_dl5n4"]
+[ext_resource type="Texture2D" uid="uid://bvve2rpg55y4v" path="res://Cutscenes/assets/cutscene1_angry_parent/Chap1_Cutscene2_Hills.png" id="4_4n3dw"]
+[ext_resource type="Texture2D" uid="uid://dh2ecmiqkgnob" path="res://Cutscenes/assets/cutscene1_angry_parent/Chap1_Cutscene2_Characters.png" id="5_ivdb7"]
+
+[sub_resource type="Animation" id="Animation_6utm6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chap1Cutscene2Characters:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1238, 631)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chap1Cutscene2Characters:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Chap1Cutscene2House:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1130, 440)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Chap1Cutscene2House:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.95, 0.95)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Chap1Cutscene2Hills:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(690, 551)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_lq5y4"]
 resource_name = "animate_parent"
@@ -81,81 +156,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_6utm6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Chap1Cutscene2Characters:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1238, 631)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Chap1Cutscene2Characters:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Chap1Cutscene2House:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1130, 440)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Chap1Cutscene2House:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.95, 0.95)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Chap1Cutscene2Hills:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(690, 551)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5eddf"]
