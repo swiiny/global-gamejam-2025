@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=35 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -22,9 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="19_srex6"]
 [ext_resource type="AudioStream" uid="uid://b6lfyrmhbqy24" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="21_qf7a4"]
+[ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/Scenes/Fade Transition.tscn" id="23_gafcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
-size = Vector2(685, 479.5)
 
 [sub_resource type="Animation" id="Animation_quqrx"]
 length = 0.001
@@ -221,7 +221,7 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(1909, 421)
+position = Vector2(682, 202)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
 position = Vector2(269, 269)
@@ -414,6 +414,9 @@ position = Vector2(-21, 15)
 stream = ExtResource("20_2yjy1")
 autoplay = false
 parameters/looping = true
+
+[node name="FadeTransition" parent="." instance=ExtResource("23_gafcm")]
+z_index = 200
 
 [node name="Paths" type="Node2D" parent="."]
 position = Vector2(-8, 81)

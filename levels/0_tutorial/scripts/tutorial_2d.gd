@@ -129,4 +129,4 @@ func _on_danger_zone_exited(body: Node2D):
 # Trigger when entering the end of level
 func _on_enter_end_level(body: Node2D) -> void:
 	print("end of level")
-	get_tree().change_scene_to_file("res://Cutscenes/intro_scene/introduction.tscn")
+	$FadeTransition._move_to_scene("res://Cutscenes/intro_scene/introduction.tscn")
