@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b28c3520gerff"]
+
+[ext_resource type="AudioStream" uid="uid://3qg4wrtakb25" path="res://levels/0_tutorial/audio/assets/main_loop_tutorial.mp3" id="1_4s5fc"]
+
+[node name="MainLoopAudio" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_4s5fc")
+autoplay = true
