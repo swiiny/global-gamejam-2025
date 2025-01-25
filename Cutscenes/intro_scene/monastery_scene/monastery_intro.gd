@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#$AnimationPlayer.play('monastery entrance')
 	pass # Replace with function body.
 
 
@@ -12,4 +13,4 @@ func _process(delta: float) -> void:
 
 func run_animation() -> void:
 	print("running monastery scene")
-	$AnimationPlayer.play("monastery entrance")
+	$AnimationPlayer.play('monastery entrance')
