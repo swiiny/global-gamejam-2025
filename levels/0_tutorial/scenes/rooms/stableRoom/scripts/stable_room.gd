@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var is_danger: bool = true
+
 var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
 
 # Called when the node enters the scene tree for the first time.

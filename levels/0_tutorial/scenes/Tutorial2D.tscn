@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=32 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="2_c7boc"]
 [ext_resource type="PackedScene" uid="uid://bhxvnljyvvk7o" path="res://levels/0_tutorial/scenes/rooms/childrenRoom/scenes/ChildrenRoom2D.tscn" id="3_628ec"]
 [ext_resource type="PackedScene" uid="uid://bty203e3e4e6m" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scenes/ParentsRoom2D.tscn" id="4_vwsie"]
+[ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/childrenRoom/scripts/children_room_2d.gd" id="5_7ro6k"]
 [ext_resource type="PackedScene" uid="uid://cywiwkxb0ofbh" path="res://levels/0_tutorial/scenes/characters/brotherBed/BrotherBed.tscn" id="6_0mwjl"]
 [ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="6_0pp0o"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/characters/brotherBed/brother_bed.gd" id="6_anpgk"]
@@ -18,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://r0t8bfagke7f" path="res://collectibles/shared/scenes/Collectible.tscn" id="12_gq6ch"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scripts/stable_room.gd" id="13_o7x4w"]
 [ext_resource type="PackedScene" uid="uid://dg28s2v5p584x" path="res://levels/0_tutorial/scenes/characters/animals/scenes/Pig1.tscn" id="14_wh5oo"]
+[ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="19_srex6"]
+[ext_resource type="AudioStream" uid="uid://b6lfyrmhbqy24" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
+[ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="21_qf7a4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
 size = Vector2(685, 479.5)
@@ -208,7 +212,7 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(673, 206)
+position = Vector2(715, 208)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
 position = Vector2(269, 269)
@@ -231,6 +235,7 @@ collision_enabled = false
 
 [node name="ChildrenRoom" parent="Rooms" instance=ExtResource("3_628ec")]
 position = Vector2(704, 704)
+script = ExtResource("5_7ro6k")
 
 [node name="Area2D" type="Area2D" parent="Rooms/ChildrenRoom"]
 position = Vector2(-704, -704)
@@ -380,6 +385,17 @@ offset_top = -187.0
 offset_right = 64.0
 offset_bottom = -187.0
 grow_vertical = 0
+
+[node name="MainLoopAudio" parent="." instance=ExtResource("19_srex6")]
+position = Vector2(-8, 0)
+autoplay = false
+parameters/looping = true
+
+[node name="DangerLoopAudio" parent="." instance=ExtResource("21_qf7a4")]
+position = Vector2(-21, 15)
+stream = ExtResource("20_2yjy1")
+autoplay = false
+parameters/looping = true
 
 [connection signal="body_entered" from="Rooms/ParentsRoom2d/OutOfRoomArea2D" to="Rooms/ParentsRoom2d" method="_on_out_of_room_area_2d_body_entered"]
 [connection signal="body_entered" from="Rooms/StableRoom/OutOfRoomArea2D" to="Rooms/StableRoom" method="_on_out_of_room_area_2d_body_entered"]
