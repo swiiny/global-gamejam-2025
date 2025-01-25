@@ -30,6 +30,8 @@ func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
 			if end_level_path:
 				player.start_auto_control(end_level_path)
 		
+		SignalBus.level_ending_sequence.emit()
+
 		print("you finished the level!!")
 		
 		# run the end of level logic here

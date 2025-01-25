@@ -4,3 +4,5 @@ extends Node
 signal inventory_updated(items)
 
 signal enemy_triggered(type: String)
+
+signal level_ending_sequence()

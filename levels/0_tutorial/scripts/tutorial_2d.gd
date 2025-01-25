@@ -8,6 +8,7 @@ var inventory_open = false
 var is_in_danger_room = false
 @onready var main_audio = $MainLoopAudio as AudioStreamPlayer2D
 @onready var danger_audio = $DangerLoopAudio as AudioStreamPlayer2D
+@onready var cutscene_audio = $CutsceneAudio as AudioStreamPlayer2D
 var fade_duration = 2.0  # Duration of the fade in seconds
 
 var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
@@ -19,7 +20,7 @@ func _ready() -> void:
 	_set_camera()
 	_set_events()
 	_set_ui()
-	#_init_audio()
+	_init_audio()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -68,13 +69,21 @@ func _set_camera():
 
 func _set_events():
 	SignalBus.enemy_triggered.connect(_on_enemy_triggered)
-	
+	SignalBus.level_ending_sequence.connect(_on_level_ending_sequence)
+
 	# Connect `body_entered` signals for all rooms
 	for room in $Rooms.get_children():
 		# the area 2D of the room node
 		var area = room.get_node("Area2D")
 		if area:
 			area.connect("body_entered", Callable(self, "_on_area_body_entered").bind(room))
+
+func _on_level_ending_sequence():
+	print("starting level ending sequence")
+	fade_audios(null, main_audio)
+	fade_audios(null, danger_audio)
+	cutscene_audio.play()
+
 
 func _on_area_body_entered(body, room):
 	if body.name == "Player":
