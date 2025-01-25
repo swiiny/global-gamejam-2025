@@ -264,3 +264,6 @@ libraries = {
 "": SubResource("AnimationLibrary_o22rb")
 }
 autoplay = "parallax"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(977, 533)

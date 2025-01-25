@@ -3,6 +3,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Camera2D.zoom = Vector2(2,2)
+	$Camera2D.position = Vector2(0,0);
+	$Camera2D.offset = get_viewport_rect().size / 4
+	$Camera2D.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
 	pass # Replace with function body.
 
 
