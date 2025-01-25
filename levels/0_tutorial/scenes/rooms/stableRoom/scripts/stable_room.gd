@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var is_danger: bool = true
+
 var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
 
 # Called when the node enters the scene tree for the first time.
@@ -20,7 +22,7 @@ func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
 		
 		LevelProgess.mark_as_completed(level.name, level.interactions.reach_outside.key)
 		
-		player.start_auto_control([Vector3(-1, 0, 2), Vector3(0, -1, 3)])
+		player.start_auto_control([Vector3(-1, 0, 4), Vector3(0, -1, 6)])
 		
 		print("you finished the level!!")
 		

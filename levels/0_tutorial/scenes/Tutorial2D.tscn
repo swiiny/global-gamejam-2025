@@ -1,22 +1,27 @@
-[gd_scene load_steps=28 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=33 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="2_c7boc"]
 [ext_resource type="PackedScene" uid="uid://bhxvnljyvvk7o" path="res://levels/0_tutorial/scenes/rooms/childrenRoom/scenes/ChildrenRoom2D.tscn" id="3_628ec"]
 [ext_resource type="PackedScene" uid="uid://bty203e3e4e6m" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scenes/ParentsRoom2D.tscn" id="4_vwsie"]
+[ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/childrenRoom/scripts/children_room_2d.gd" id="5_7ro6k"]
 [ext_resource type="PackedScene" uid="uid://cywiwkxb0ofbh" path="res://levels/0_tutorial/scenes/characters/brotherBed/BrotherBed.tscn" id="6_0mwjl"]
-[ext_resource type="Texture2D" uid="uid://cj6ms3bku0dew" path="res://menus/main/assets/main-bg.png" id="6_0pp0o"]
+[ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="6_0pp0o"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/characters/brotherBed/brother_bed.gd" id="6_anpgk"]
 [ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="7_jx2bf"]
 [ext_resource type="PackedScene" uid="uid://ot0a0l8xrcl5" path="res://levels/0_tutorial/scenes/characters/playerBed/PlayerBed.tscn" id="7_mlrqq"]
-[ext_resource type="Texture2D" uid="uid://co26tgwf08jjh" path="res://menus/main/assets/ZZZ.png" id="8_73kp5"]
+[ext_resource type="Texture2D" uid="uid://c8cxcje6pxneg" path="res://menus/main/assets/ZZZ.png" id="8_73kp5"]
 [ext_resource type="PackedScene" uid="uid://c47pgf5v7tf7u" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed.tscn" id="8_e8s3d"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scripts/parents_room_2d.gd" id="9_bbgtl"]
 [ext_resource type="PackedScene" uid="uid://b5oh64fstb4h7" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed2.tscn" id="11_bl455"]
 [ext_resource type="PackedScene" uid="uid://b5li1px22svbd" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scenes/StableRoom.tscn" id="12_brdme"]
+[ext_resource type="PackedScene" uid="uid://r0t8bfagke7f" path="res://collectibles/shared/scenes/Collectible.tscn" id="12_gq6ch"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scripts/stable_room.gd" id="13_o7x4w"]
 [ext_resource type="PackedScene" uid="uid://dg28s2v5p584x" path="res://levels/0_tutorial/scenes/characters/animals/scenes/Pig1.tscn" id="14_wh5oo"]
+[ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="19_srex6"]
+[ext_resource type="AudioStream" uid="uid://b6lfyrmhbqy24" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
+[ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="21_qf7a4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
 size = Vector2(685, 479.5)
@@ -210,18 +215,12 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(991, 1002)
+position = Vector2(690, 215)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
 position = Vector2(269, 269)
 
 [node name="TileMaps" type="Node2D" parent="."]
-
-[node name="TileMapLayerItems" type="TileMapLayer" parent="TileMaps"]
-z_index = 11
-position = Vector2(-8, -20)
-tile_map_data = PackedByteArray("AAAgAAMAAAAOAAIAAAA=")
-tile_set = ExtResource("2_c7boc")
 
 [node name="TileMapLayerBgTop" type="TileMapLayer" parent="TileMaps"]
 z_index = 10
@@ -239,6 +238,7 @@ collision_enabled = false
 
 [node name="ChildrenRoom" parent="Rooms" instance=ExtResource("3_628ec")]
 position = Vector2(704, 704)
+script = ExtResource("5_7ro6k")
 
 [node name="Area2D" type="Area2D" parent="Rooms/ChildrenRoom"]
 position = Vector2(-704, -704)
@@ -328,54 +328,13 @@ shape = SubResource("RectangleShape2D_lfh1k")
 [node name="Bed" parent="Rooms/ParentsRoom2d" instance=ExtResource("8_e8s3d")]
 position = Vector2(-351, -425)
 
-[node name="ChatBox" type="Panel" parent="Rooms/ParentsRoom2d/Bed"]
-z_index = 5
-offset_left = 37.0
-offset_top = -96.0
-offset_right = 190.0
-offset_bottom = -36.0
-
-[node name="TextureRect" type="TextureRect" parent="Rooms/ParentsRoom2d/Bed/ChatBox"]
-layout_mode = 0
-offset_right = 154.0
-offset_bottom = 61.0
-texture = ExtResource("6_0pp0o")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Rooms/ParentsRoom2d/Bed/ChatBox"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 144.0
-offset_bottom = 56.0
-autowrap_mode = 2
-clip_text = true
-
 [node name="Bed2" parent="Rooms/ParentsRoom2d" instance=ExtResource("11_bl455")]
 position = Vector2(-153, -428)
 
-[node name="ChatBox" type="Panel" parent="Rooms/ParentsRoom2d/Bed2"]
-z_index = 5
-offset_left = 37.0
-offset_top = -96.0
-offset_right = 190.0
-offset_bottom = -36.0
-
-[node name="TextureRect" type="TextureRect" parent="Rooms/ParentsRoom2d/Bed2/ChatBox"]
-layout_mode = 0
-offset_right = 154.0
-offset_bottom = 61.0
-texture = ExtResource("6_0pp0o")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Rooms/ParentsRoom2d/Bed2/ChatBox"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 144.0
-offset_bottom = 56.0
-autowrap_mode = 2
-clip_text = true
+[node name="CollectibleKey" parent="Rooms/ParentsRoom2d" instance=ExtResource("12_gq6ch")]
+z_index = 11
+position = Vector2(99, -398)
+item_name = "item-key"
 
 [node name="StableRoom" parent="Rooms" instance=ExtResource("12_brdme")]
 position = Vector2(820, 576)
@@ -438,6 +397,17 @@ offset_top = -187.0
 offset_right = 64.0
 offset_bottom = -187.0
 grow_vertical = 0
+
+[node name="MainLoopAudio" parent="." instance=ExtResource("19_srex6")]
+position = Vector2(-8, 0)
+autoplay = false
+parameters/looping = true
+
+[node name="DangerLoopAudio" parent="." instance=ExtResource("21_qf7a4")]
+position = Vector2(-21, 15)
+stream = ExtResource("20_2yjy1")
+autoplay = false
+parameters/looping = true
 
 [connection signal="body_entered" from="Rooms/ParentsRoom2d/OutOfRoomArea2D" to="Rooms/ParentsRoom2d" method="_on_out_of_room_area_2d_body_entered"]
 [connection signal="body_entered" from="Rooms/StableRoom/OutOfRoomArea2D" to="Rooms/StableRoom" method="_on_out_of_room_area_2d_body_entered"]

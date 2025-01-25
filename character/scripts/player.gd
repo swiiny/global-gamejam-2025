@@ -1,10 +1,10 @@
 class_name Player extends CharacterBody2D
 
-var speed = 300  # Movement speed in pixels/sec.
-var normal_speed = 300
-var slow_speed = 100
+var speed = 150  # Movement speed in pixels/sec.
+var normal_speed = 150
+var slow_speed = 50
 var default_noise_level = 1
-var sneaky_noise_level = default_noise_level * 0.6
+var sneaky_noise_level = default_noise_level * 0.2
 
 @export var noise_level = default_noise_level
 var currently_moving := false
@@ -43,7 +43,6 @@ func _process(delta: float) -> void:
 	# Move the character
 	if not is_player_controlled:
 		move_and_collide(direction * speed * delta)
-		print("moving towards: %v" , direction)
 
 	elif not are_movements_disabled:
 		direction = _player_direction()
@@ -157,7 +156,9 @@ func start_auto_control(instructions: Array) -> void:
 	for i in instructions:
 		var next_direction = Vector2(i.x, i.y)
 		direction = next_direction
-		print("moving towards %v", next_direction)
+		
+		_animate(direction)
+
 		await get_tree().create_timer(i.z).timeout
 	direction = Vector2(0,0)
 	$AnimatedSprite2D.stop()
