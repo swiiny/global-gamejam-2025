@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-var normal_speed = 300
+var normal_speed = 150
 var speed = normal_speed  # Movement speed in pixels/sec.
 var slow_speed = 50
 var default_noise_level = 1
