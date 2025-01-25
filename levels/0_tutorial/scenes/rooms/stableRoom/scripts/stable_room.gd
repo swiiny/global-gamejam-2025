@@ -20,6 +20,8 @@ func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
 		
 		LevelProgess.mark_as_completed(level.name, level.interactions.reach_outside.key)
 		
+		player.start_auto_control([Vector3(-1, 0, 2), Vector3(0, -1, 3)])
+		
 		print("you finished the level!!")
 		
 		# run the end of level logic here
