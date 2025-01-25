@@ -45,6 +45,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_88x4h"]
 resource_name = "fade out"
@@ -104,6 +116,18 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": PackedStringArray("parallax"),
 "times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5tmji"]
@@ -267,3 +291,9 @@ autoplay = "parallax"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(977, 533)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 4096
+offset_right = 2462.0
+offset_bottom = 1758.0
+color = Color(0, 0, 0, 1)
