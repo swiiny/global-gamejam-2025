@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 
 func run_animation() -> void:
 	print("running monastery scene")
-	$AnimationPlayer.play('monastery entrance')
+	$AnimationPlayer.play('monastery entrance', -1, 1.5)
