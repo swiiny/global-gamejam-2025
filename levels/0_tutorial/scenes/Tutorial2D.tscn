@@ -160,8 +160,8 @@ position = Vector2(-108, -463)
 
 [node name="CollectibleKey" parent="Rooms/ParentsRoom2d" instance=ExtResource("12_gq6ch")]
 z_index = 11
-position = Vector2(99, -398)
-item_name = "item-key"
+position = Vector2(84, -408)
+item_name = "la-miche-de-pain"
 
 [node name="StableRoom" parent="Rooms" instance=ExtResource("12_brdme")]
 position = Vector2(820, 576)
@@ -245,6 +245,16 @@ position = Vector2(-8, 81)
 [node name="EndLeveLPath" type="Path2D" parent="Paths"]
 position = Vector2(-29, -74)
 curve = SubResource("Curve2D_47rij")
+
+[node name="CollectibleKey" parent="." instance=ExtResource("12_gq6ch")]
+z_index = 11
+position = Vector2(666, 322)
+item_name = "la-miche-de-pain"
+
+[node name="CollectibleKey2" parent="." instance=ExtResource("12_gq6ch")]
+z_index = 11
+position = Vector2(689, 382)
+item_name = "la-toupie-mon-pauvre-ami"
 
 [connection signal="body_entered" from="Rooms/ParentsRoom2d/OutOfRoomArea2D" to="Rooms/ParentsRoom2d" method="_on_out_of_room_area_2d_body_entered"]
 [connection signal="body_entered" from="Rooms/StableRoom/OutOfRoomArea2D" to="Rooms/StableRoom" method="_on_out_of_room_area_2d_body_entered"]

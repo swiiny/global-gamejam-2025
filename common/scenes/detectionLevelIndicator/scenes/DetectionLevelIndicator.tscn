@@ -1,10 +1,10 @@
 [gd_scene load_steps=91 format=3 uid="uid://yj71flnek1f5"]
 
 [ext_resource type="Script" path="res://common/scenes/detectionLevelIndicator/scripts/detection_level_indicator.gd" id="1_mx734"]
-[ext_resource type="Texture2D" uid="uid://b5bvtw2y17s1e" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/bubble-0-1.png" id="2_nlbu4"]
-[ext_resource type="Texture2D" uid="uid://prfwucaheojl" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/bubble-0-2.png" id="3_rjhm5"]
-[ext_resource type="Texture2D" uid="uid://doknajb0l6klk" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/bubble-0-3.png" id="4_0730r"]
-[ext_resource type="Texture2D" uid="uid://dlhnfcej46myu" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/bubble-0-4.png" id="5_gljco"]
+[ext_resource type="Texture2D" uid="uid://cqal18vkmka20" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/transparent-bubble-0-1.png" id="2_0oora"]
+[ext_resource type="Texture2D" uid="uid://bvxnv8w80n21k" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/transparent-bubble-0-2.png" id="3_yd81p"]
+[ext_resource type="Texture2D" uid="uid://cbv18vxtya377" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/transparent-bubble-0-3.png" id="4_fyhe4"]
+[ext_resource type="Texture2D" uid="uid://c2gd46urxrq8g" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/transparent-bubble-0-4.png" id="5_rt7jx"]
 [ext_resource type="Texture2D" uid="uid://cx2tdiosmjwkg" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/bubble-1-1.png" id="6_dt7et"]
 [ext_resource type="Texture2D" uid="uid://bs41sck1t0hj7" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/bubble-1-2.png" id="7_tqb51"]
 [ext_resource type="Texture2D" uid="uid://cn2crdfj0870g" path="res://common/scenes/detectionLevelIndicator/assets/bubbles/bubble-1-3.png" id="8_j4otq"]
@@ -94,16 +94,16 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nlbu4")
+"texture": ExtResource("2_0oora")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_rjhm5")
+"texture": ExtResource("3_yd81p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_0730r")
+"texture": ExtResource("4_fyhe4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_gljco")
+"texture": ExtResource("5_rt7jx")
 }],
 "loop": true,
 "name": &"indicator-0",
@@ -472,4 +472,5 @@ script = ExtResource("1_mx734")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wbn31")
-animation = &"indicator-2"
+animation = &"indicator-0"
+frame_progress = 0.463868

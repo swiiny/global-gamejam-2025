@@ -7,7 +7,8 @@ custom_minimum_size = Vector2(128, 128)
 script = ExtResource("1_kgcac")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
+stretch_mode = 5
