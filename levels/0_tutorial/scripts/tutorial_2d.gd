@@ -20,6 +20,7 @@ func _ready() -> void:
 	_set_events()
 	_set_ui()
 	_init_audio()
+	$CanvasLayer/AnimationPlayer.play("fadein")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -164,11 +165,14 @@ func _on_enemy_triggered(type: String):
 						player.are_movements_disabled = false
 						# hide the chatbox
 						chat_box.visible = false
-	if type == 'parent' or type == 'pig':
-		_trigger_game_over()
+	if type == 'parent':
+		_trigger_game_over("What are you doing here? Go back to bed")
+	elif type == 'pig':
+		_trigger_game_over("Oink!")
+
 			
 
-func _trigger_game_over() -> void:
+func _trigger_game_over(msg : String) -> void:
 	print("Game Over, respawning")
 	var player = get_tree().current_scene.find_child("Player") as Player
 
@@ -176,7 +180,7 @@ func _trigger_game_over() -> void:
 	player._animate(Vector2(0, 0))  # Stop animation
 	LevelProgess.reset_progress()
 
-	$FadeTransition._move_to_scene("res://levels/0_tutorial/scenes/Tutorial2D.tscn")
+	$GameoverTransition._trigger_game_over("res://levels/0_tutorial/scenes/Tutorial2D.tscn", msg)
 
 # Fade out the specified audio
 func fade_audios(in_audio: AudioStreamPlayer2D, out_audio: AudioStreamPlayer2D):

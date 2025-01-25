@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://cfage7dkxkusm"]
 
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="1_qugii"]
-[ext_resource type="PackedScene" uid="uid://cbha22u32c0ni" path="res://Cutscenes/intro_scene/introduction.tscn" id="2_7urt7"]
+[ext_resource type="PackedScene" uid="uid://cbha22u32c0ni" path="res://Cutscenes/intro_scene/hill_scene/introduction_cutscene.tscn" id="2_7urt7"]
 
 [node name="MonasteryScene" type="Node2D"]
 
