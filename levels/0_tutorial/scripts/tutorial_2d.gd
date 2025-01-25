@@ -141,9 +141,17 @@ func _on_enemy_triggered(type: String):
 						# hide the chatbox
 						chat_box.visible = false
 	if type == 'parent' or type == 'pig':
-		print("Game Over")
+		_trigger_game_over()
 			
 
+func _trigger_game_over() -> void:
+	print("Game Over, respawning")
+	var player = get_tree().current_scene.find_child("Player") as Player
+
+	player.are_movements_disabled = true
+	playet._animate(Vector2(0, 0))  # Stop animation
+
+	$FadeTransition._move_to_scene("res://levels/0_tutorial/scenes/Tutorial2D.tscn")
 
 # Fade out the specified audio
 func fade_audios(in_audio: AudioStreamPlayer2D, out_audio: AudioStreamPlayer2D):
