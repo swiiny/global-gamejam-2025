@@ -11,7 +11,7 @@ var sneaky_noise_level = default_noise_level * (0.2 / (normal_speed/slow_speed))
 var currently_moving := false
 
 @onready var dynamic_collision_shape = $AuraArea2D/CollisionShape2D
-@onready var aura_sprite = $AuraArea2D/AuraSprite
+@onready var aura_sprite = $AuraArea2D/AuraSprite as Sprite2D
 
 # used in enemies
 var is_moving = false
@@ -29,17 +29,13 @@ func _ready() -> void:
 	_initAura()
 	_set_collisions()
 
-func _draw() -> void:
-	var collision_shape = $AuraArea2D/CollisionShape2D.shape
-	var radius = collision_shape.radius
-	draw_circle($AuraArea2D.position, radius, Color.WHITE, false, 1.0, true)
-
 func _set_collisions():
 	# collectibles
 	self.set_collision_layer_value(12, true)
 
 	# player's aura
 	$AuraArea2D.set_collision_layer_value(9, true)
+	aura_sprite.z_index = 0
 
 func _process(delta: float) -> void:
 	# Get movement direction and velocity
@@ -59,7 +55,6 @@ func _process(delta: float) -> void:
 		if currently_moving != is_moving:
 			is_moving = currently_moving
 			_update_aura_opacity(is_moving)
-		#_update_noise_level(velocity)
 
 		_animate(direction)
 		
@@ -146,10 +141,6 @@ func _update_aura_opacity(moving: bool) -> void:
 	else:
 		# Fade out to 0 opacity over 0.1 seconds
 		current_tween.tween_property(aura_sprite, "modulate:a", 0.0, 0.1)
-
-#func _update_noise_level(velocity: float) -> void:
-#	var moving_coeff = 1 if velocity > 0 else -1
-#	noise_level = moving_coeff * velocity
 
 func stop_animation():
 	$AnimatedSprite2D.stop()
