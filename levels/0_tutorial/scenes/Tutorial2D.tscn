@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=33 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -18,8 +18,9 @@
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scripts/stable_room.gd" id="13_o7x4w"]
 [ext_resource type="PackedScene" uid="uid://dg28s2v5p584x" path="res://levels/0_tutorial/scenes/characters/animals/scenes/Pig1.tscn" id="14_wh5oo"]
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="19_srex6"]
-[ext_resource type="AudioStream" uid="uid://b6lfyrmhbqy24" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
+[ext_resource type="AudioStream" uid="uid://bl8cqg00y4nsr" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="21_qf7a4"]
+[ext_resource type="PackedScene" uid="uid://bwbp0h3ishbks" path="res://common/scenes/gameoverTransition/gameover_transition.tscn" id="22_j3wgk"]
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/scenes/fadeTransition/Fade Transition.tscn" id="23_gafcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
@@ -38,6 +39,42 @@ size = Vector2(26, 223)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eswo7"]
 size = Vector2(331.5, 152)
+
+[sub_resource type="Animation" id="Animation_iesq5"]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fadein:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3qn02"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fadein:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qk1dt"]
+_data = {
+"RESET": SubResource("Animation_3qn02"),
+"fadein": SubResource("Animation_iesq5")
+}
 
 [sub_resource type="Curve2D" id="Curve2D_47rij"]
 _data = {
@@ -215,6 +252,21 @@ shape = SubResource("RectangleShape2D_eswo7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="fadein" type="ColorRect" parent="CanvasLayer"]
+z_index = 3000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
 [node name="InventoryUi" parent="CanvasLayer" instance=ExtResource("7_jx2bf")]
 z_index = 100
 anchors_preset = 2
@@ -225,6 +277,11 @@ offset_top = -187.0
 offset_right = 64.0
 offset_bottom = -187.0
 grow_vertical = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_qk1dt")
+}
 
 [node name="MainLoopAudio" parent="." instance=ExtResource("19_srex6")]
 position = Vector2(-8, 0)
@@ -246,6 +303,9 @@ position = Vector2(-8, 81)
 [node name="EndLeveLPath" type="Path2D" parent="Paths"]
 position = Vector2(-29, -74)
 curve = SubResource("Curve2D_47rij")
+
+[node name="GameoverTransition" parent="." instance=ExtResource("22_j3wgk")]
+visible = false
 
 [connection signal="body_entered" from="Rooms/ParentsRoom2d/OutOfRoomArea2D" to="Rooms/ParentsRoom2d" method="_on_out_of_room_area_2d_body_entered"]
 [connection signal="body_entered" from="Rooms/StableRoom/OutOfRoomArea2D" to="Rooms/StableRoom" method="_on_out_of_room_area_2d_body_entered"]
