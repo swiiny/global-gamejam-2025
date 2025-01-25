@@ -28,6 +28,8 @@ func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
 			var end_level_path = paths.find_child("EndLeveLPath") 
 			print(end_level_path)
 			if end_level_path:
+				player.hide_aura()
+				get_tree().current_scene.hide_inventory()
 				player.start_auto_control(end_level_path)
 		
 		SignalBus.level_ending_sequence.emit()

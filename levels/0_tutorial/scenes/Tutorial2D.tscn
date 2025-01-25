@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cywiwkxb0ofbh" path="res://levels/0_tutorial/scenes/characters/brotherBed/BrotherBed.tscn" id="6_0mwjl"]
 [ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="6_0pp0o"]
 [ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="7_jx2bf"]
-[ext_resource type="PackedScene" uid="uid://ot0a0l8xrcl5" path="res://levels/0_tutorial/scenes/characters/playerBed/PlayerBed.tscn" id="7_mlrqq"]
+[ext_resource type="PackedScene" uid="uid://ot0a0l8xrcl5" path="res://levels/0_tutorial/scenes/characters/playerBed/scenes/PlayerBed.tscn" id="7_mlrqq"]
 [ext_resource type="PackedScene" uid="uid://c47pgf5v7tf7u" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed.tscn" id="8_e8s3d"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scripts/parents_room_2d.gd" id="9_bbgtl"]
 [ext_resource type="PackedScene" uid="uid://b5oh64fstb4h7" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed2.tscn" id="11_bl455"]
@@ -56,7 +56,7 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(665, 191)
+position = Vector2(717, 209)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
 position = Vector2(269, 269)
@@ -97,7 +97,8 @@ shape = SubResource("RectangleShape2D_cp0vr")
 debug_color = Color(0, 0.553191, 0.912511, 0.42)
 
 [node name="PlayerBed" parent="Rooms/ChildrenRoom" instance=ExtResource("7_mlrqq")]
-position = Vector2(111, -549)
+z_index = 9
+position = Vector2(112, -595)
 collision_layer = 0
 collision_mask = 128
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cywiwkxb0ofbh"]
 
 [ext_resource type="Script" path="res://common/script/hitbox.gd" id="1_8etgc"]
-[ext_resource type="Texture2D" uid="uid://dark43c0gepyo" path="res://levels/0_tutorial/scenes/characters/brotherBed/assets/SleeperYouth.png" id="2_d1dyi"]
-[ext_resource type="Texture2D" uid="uid://c6u8jepv3y4xq" path="res://levels/0_tutorial/scenes/characters/assets/BedFarm.png" id="2_vxmfo"]
+[ext_resource type="Texture2D" uid="uid://dd34yshyyakh7" path="res://levels/0_tutorial/scenes/characters/brotherBed/assets/SleeperYouth.png" id="2_d1dyi"]
+[ext_resource type="Texture2D" uid="uid://dsj1ajrr6lcqn" path="res://levels/0_tutorial/scenes/characters/assets/BedFarm.png" id="2_vxmfo"]
 [ext_resource type="PackedScene" uid="uid://yj71flnek1f5" path="res://common/scenes/detectionLevelIndicator/scenes/DetectionLevelIndicator.tscn" id="4_yioda"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n5ytg"]

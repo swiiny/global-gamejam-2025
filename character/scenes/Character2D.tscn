@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5e0os3qn5jp5"]
+[gd_scene load_steps=17 format=3 uid="uid://5e0os3qn5jp5"]
 
 [ext_resource type="Script" path="res://character/scripts/player.gd" id="1_s8ni6"]
 [ext_resource type="Texture2D" uid="uid://1dqvknar5ss4" path="res://character/assets/CrouchSide_1.png" id="2_y1la2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="7_ycl36"]
 [ext_resource type="Texture2D" uid="uid://dfo8a4q50l807" path="res://character/assets/WalkUp_1.png" id="8_cyp3f"]
 [ext_resource type="Texture2D" uid="uid://ck44xmasfla1c" path="res://character/assets/WalkUp_2.png" id="9_p30x4"]
+[ext_resource type="Script" path="res://character/scripts/aura_area_2d.gd" id="12_yxnx2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mbf3"]
 animations = [{
@@ -128,6 +129,7 @@ show_behind_parent = true
 z_as_relative = false
 position = Vector2(0, 40)
 collision_layer = 256
+script = ExtResource("12_yxnx2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AuraArea2D"]
 shape = SubResource("CircleShape2D_tyut3")
