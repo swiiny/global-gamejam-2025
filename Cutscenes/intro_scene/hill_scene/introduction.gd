@@ -7,8 +7,7 @@ func _ready() -> void:
 	$Camera2D.position = Vector2(0,0);
 	$Camera2D.offset = get_viewport_rect().size / 2
 	$Camera2D.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
-	pass # Replace with function body.
-
+	$"fade out bread".play("fade out", -1, 1.5)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

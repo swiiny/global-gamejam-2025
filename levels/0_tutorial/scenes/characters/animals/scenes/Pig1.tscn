@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dg28s2v5p584x"]
 
-[ext_resource type="Script" path="res://common/hitbox.gd" id="1_npbbu"]
-[ext_resource type="Texture2D" uid="uid://c8q4iy2slvqbm" path="res://levels/0_tutorial/scenes/characters/animals/assets/PigSleep.png" id="1_up6d5"]
+[ext_resource type="Script" path="res://common/script/hitbox.gd" id="1_npbbu"]
+[ext_resource type="Texture2D" uid="uid://cdsiggytbrxd7" path="res://levels/0_tutorial/scenes/characters/animals/assets/PigSleep.png" id="1_up6d5"]
 [ext_resource type="PackedScene" uid="uid://yj71flnek1f5" path="res://common/scenes/detectionLevelIndicator/scenes/DetectionLevelIndicator.tscn" id="3_thxyl"]
 
 [node name="Pig1" type="StaticBody2D"]
