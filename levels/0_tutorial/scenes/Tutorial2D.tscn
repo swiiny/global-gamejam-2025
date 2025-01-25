@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=35 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -20,12 +20,11 @@
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scripts/stable_room.gd" id="13_o7x4w"]
 [ext_resource type="PackedScene" uid="uid://dg28s2v5p584x" path="res://levels/0_tutorial/scenes/characters/animals/scenes/Pig1.tscn" id="14_wh5oo"]
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="19_srex6"]
-[ext_resource type="AudioStream" uid="uid://bl8cqg00y4nsr" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
+[ext_resource type="AudioStream" uid="uid://b6lfyrmhbqy24" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="21_qf7a4"]
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/Scenes/Fade Transition.tscn" id="23_gafcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
-size = Vector2(685, 479.5)
 
 [sub_resource type="Animation" id="Animation_quqrx"]
 length = 0.001
@@ -205,6 +204,12 @@ size = Vector2(26, 223)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eswo7"]
 size = Vector2(331.5, 152)
 
+[sub_resource type="Curve2D" id="Curve2D_47rij"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 812, 991, 0, 0, 0, 0, 546, 982, 0, 0, 0, 0, 464, 959, 0, 0, 0, 0, 415, 925, 0, 0, 0, 0, 367, 892, 0, 0, 0, 0, 349, 863, 0, 0, 0, 0, 321, 789, 0, 0, 0, 0, 324, 737, 0, 0, 0, 0, 326, 599, 0, 0, 0, 0, 328, 404, 0, 0, 0, 0, 327, 166)
+}
+point_count = 11
+
 [node name="Tutorial2d" type="Node2D"]
 position = Vector2(8, 8)
 script = ExtResource("1_vechb")
@@ -216,7 +221,7 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(690, 215)
+position = Vector2(682, 202)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
 position = Vector2(269, 269)
@@ -361,7 +366,7 @@ debug_color = Color(0.831943, 0.391622, 1.15514e-06, 0.42)
 position = Vector2(512, 671)
 
 [node name="Pig2" parent="Rooms/StableRoom" instance=ExtResource("14_wh5oo")]
-position = Vector2(138, 627)
+position = Vector2(117, 643)
 
 [node name="Pig3" parent="Rooms/StableRoom" instance=ExtResource("14_wh5oo")]
 position = Vector2(166, 160)
@@ -412,6 +417,13 @@ parameters/looping = true
 
 [node name="FadeTransition" parent="." instance=ExtResource("23_gafcm")]
 z_index = 200
+
+[node name="Paths" type="Node2D" parent="."]
+position = Vector2(-8, 81)
+
+[node name="EndLeveLPath" type="Path2D" parent="Paths"]
+position = Vector2(-29, -74)
+curve = SubResource("Curve2D_47rij")
 
 [connection signal="body_entered" from="Rooms/ParentsRoom2d/OutOfRoomArea2D" to="Rooms/ParentsRoom2d" method="_on_out_of_room_area_2d_body_entered"]
 [connection signal="body_entered" from="Rooms/StableRoom/OutOfRoomArea2D" to="Rooms/StableRoom" method="_on_out_of_room_area_2d_body_entered"]

@@ -22,7 +22,13 @@ func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
 		
 		LevelProgess.mark_as_completed(level.name, level.interactions.reach_outside.key)
 		
-		player.start_auto_control([Vector3(-1, 0, 4), Vector3(0, -1, 6)])
+		var paths = get_tree().current_scene.find_child("Paths")
+		
+		if paths:
+			var end_level_path = paths.find_child("EndLeveLPath") 
+			print(end_level_path)
+			if end_level_path:
+				player.start_auto_control(end_level_path)
 		
 		print("you finished the level!!")
 		
