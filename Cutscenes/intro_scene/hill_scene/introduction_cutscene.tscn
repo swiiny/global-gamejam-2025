@@ -1,18 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbha22u32c0ni"]
+[gd_scene load_steps=14 format=3 uid="uid://cbha22u32c0ni"]
 
-[ext_resource type="Texture2D" uid="uid://dwqigmmav4mye" path="res://Cutscenes/Assets/angry parent.png" id="1_ad6nh"]
-[ext_resource type="Script" path="res://Cutscenes/intro_scene/introduction.gd" id="1_c0unw"]
-[ext_resource type="Texture2D" uid="uid://m4u7i7ioqxl6" path="res://Cutscenes/Assets/monastery.png" id="2_ph470"]
-[ext_resource type="Texture2D" uid="uid://b2k64iafw6c8b" path="res://Cutscenes/Assets/player cutscene.png" id="4_fi71x"]
-[ext_resource type="Texture2D" uid="uid://cnql156xkoxxr" path="res://Cutscenes/Assets/lights and stars.png" id="5_12hnr"]
-[ext_resource type="Texture2D" uid="uid://rw0d8qhm0kwp" path="res://Cutscenes/Assets/background.png" id="6_vfgwr"]
+[ext_resource type="Script" path="res://Cutscenes/intro_scene/hill_scene/introduction.gd" id="1_c0unw"]
+[ext_resource type="Texture2D" uid="uid://b2k64iafw6c8b" path="res://Cutscenes/assets/player cutscene.png" id="4_fi71x"]
+[ext_resource type="Texture2D" uid="uid://cnql156xkoxxr" path="res://Cutscenes/assets/lights and stars.png" id="5_12hnr"]
+[ext_resource type="Texture2D" uid="uid://rw0d8qhm0kwp" path="res://Cutscenes/assets/background.png" id="6_vfgwr"]
 
 [sub_resource type="Animation" id="Animation_0u3j7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AngryParent:modulate")
+tracks/0/path = NodePath("Node2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,22 +22,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Monastery:modulate")
+tracks/1/path = NodePath("ColorRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -48,62 +34,50 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_88x4h"]
 resource_name = "fade out"
-length = 30.0
+length = 14.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AngryParent:modulate")
+tracks/0/path = NodePath("Node2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(8, 10),
+"times": PackedFloat32Array(11, 14),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/1/type = "value"
+tracks/1/type = "animation"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Monastery:modulate")
+tracks/1/path = NodePath("Node2D/blink lights")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(12, 14),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(4, 6.03333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "animation"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node2D/blink lights")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "clips": PackedStringArray("blink lights"),
 "times": PackedFloat32Array(0)
 }
-tracks/4/type = "animation"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/animate parallax")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/animate parallax")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "clips": PackedStringArray("parallax"),
 "times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5tmji"]
@@ -179,7 +153,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_qlw4q"]
 resource_name = "parallax"
-length = 6.0
+length = 14.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -187,7 +161,7 @@ tracks/0/path = NodePath("Node2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 6),
+"times": PackedFloat32Array(0, 14),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-100, 0)]
@@ -199,7 +173,7 @@ tracks/1/path = NodePath("PlayerCutscene:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 6),
+"times": PackedFloat32Array(0, 14),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(767, 587), Vector2(800, 587)]
@@ -214,22 +188,11 @@ _data = {
 [node name="Introduction" type="Node2D"]
 script = ExtResource("1_c0unw")
 
-[node name="AngryParent" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(956.5, 539.5)
-scale = Vector2(3.86089, 3.34472)
-texture = ExtResource("1_ad6nh")
-
 [node name="fade out bread" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_5tmji")
 }
 autoplay = "fade out"
-
-[node name="Monastery" type="Sprite2D" parent="."]
-position = Vector2(957, 543.5)
-scale = Vector2(3.9916, 3.52303)
-texture = ExtResource("2_ph470")
 
 [node name="Node2D" type="Node2D" parent="."]
 z_index = 2
@@ -264,3 +227,12 @@ libraries = {
 "": SubResource("AnimationLibrary_o22rb")
 }
 autoplay = "parallax"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(977, 533)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 4096
+offset_right = 2462.0
+offset_bottom = 1758.0
+color = Color(0, 0, 0, 1)
