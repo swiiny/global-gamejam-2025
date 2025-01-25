@@ -1,32 +1,33 @@
 [gd_scene load_steps=4 format=3 uid="uid://dg28s2v5p584x"]
 
+[ext_resource type="Script" path="res://common/hitbox.gd" id="1_npbbu"]
 [ext_resource type="Texture2D" uid="uid://c8q4iy2slvqbm" path="res://levels/0_tutorial/scenes/characters/animals/assets/PigSleep.png" id="1_up6d5"]
-[ext_resource type="Script" path="res://common/noise_detector.gd" id="2_dgfo4"]
-[ext_resource type="Script" path="res://levels/0_tutorial/scenes/characters/animals/scripts/pig1_hit_box.gd" id="2_nus2f"]
+[ext_resource type="PackedScene" uid="uid://yj71flnek1f5" path="res://common/scenes/detectionLevelIndicator/scenes/DetectionLevelIndicator.tscn" id="3_thxyl"]
 
 [node name="Pig1" type="StaticBody2D"]
 collision_layer = 0
 collision_mask = 256
+script = ExtResource("1_npbbu")
+enemy_type = "pig"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_up6d5")
+flip_h = true
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
-position = Vector2(-64, -96)
+position = Vector2(64, -96)
+scale = Vector2(-1, 1)
 polygon = PackedVector2Array(95, 117, 85, 118, 77, 115, 74, 111, 59, 116, 50, 120, 47, 125, 35, 119, 22, 118, 14, 115, 12, 106, 25, 106, 24, 102, 16, 100, 16, 96, 26, 94, 34, 84, 46, 75, 61, 69, 90, 69, 104, 71, 114, 79, 116, 94, 112, 105, 103, 108, 97, 108)
 
 [node name="Hitbox" type="Area2D" parent="." groups=["global_hitbox", "hitbox"]]
+scale = Vector2(-1, 1)
 collision_layer = 0
 collision_mask = 0
 monitorable = false
-script = ExtResource("2_nus2f")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
 position = Vector2(-64, -96)
 polygon = PackedVector2Array(95, 117, 85, 118, 77, 115, 74, 111, 59, 116, 50, 120, 47, 125, 35, 119, 22, 118, 14, 115, 12, 106, 25, 106, 24, 102, 16, 100, 16, 96, 26, 94, 34, 84, 46, 75, 61, 69, 90, 69, 104, 71, 114, 79, 116, 94, 112, 105, 103, 108, 97, 108)
-
-[node name="Noise_Detector" type="Node" parent="."]
-script = ExtResource("2_dgfo4")
 
 [node name="Label" type="Label" parent="."]
 z_index = 2
@@ -35,5 +36,5 @@ offset_top = -51.0
 offset_right = 35.0
 offset_bottom = -28.0
 
-[connection signal="player_lost" from="Hitbox" to="Hitbox" method="_on_player_lost"]
-[connection signal="wake_up" from="Noise_Detector" to="Hitbox" method="_on_noise_detector_wake_up"]
+[node name="DetectionLevelIndicator" parent="." instance=ExtResource("3_thxyl")]
+position = Vector2(114, 6)

@@ -10,6 +10,8 @@ var is_in_danger_room = false
 @onready var danger_audio = $DangerLoopAudio as AudioStreamPlayer2D
 var fade_duration = 2.0  # Duration of the fade in seconds
 
+var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# the following functions must be called at the beginning of every levels
@@ -17,7 +19,7 @@ func _ready() -> void:
 	_set_camera()
 	_set_events()
 	_set_ui()
-	_init_audio()
+	#_init_audio()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -65,6 +67,8 @@ func _set_camera():
 	camera.limit_bottom = 24 * 64
 
 func _set_events():
+	SignalBus.enemy_triggered.connect(_on_enemy_triggered)
+	
 	# Connect `body_entered` signals for all rooms
 	for room in $Rooms.get_children():
 		# the area 2D of the room node
@@ -103,13 +107,42 @@ func _init_audio():
 	# activate fade in for main_audio
 	fade_audios(main_audio, null)
 	
-	
+# event emitted by the hitbox script
+func _on_enemy_triggered(type: String):	
+	if type == 'brother':
+		if !LevelProgess.is_completed(level.name, level.interactions.wake_up_brother.key):
+			LevelProgess.mark_as_completed(level.name, level.interactions.wake_up_brother.key)
+			
+			var brotherBed = get_tree().current_scene.find_child("BrotherBed") as Node2D
+			
+			if brotherBed:
+				var chat_box = brotherBed.find_child("ChatBox") as Panel
+				
+				if chat_box:				
+					var player = get_tree().current_scene.find_child("Player") as Player
+					if player:
+						player.are_movements_disabled = true
+						
+						# start the chat
+						ChatBox.new().interact_with_chat(chat_box, "Go back to bed ! The parents gonna be mad if they wake up.", get_tree())
+						
+						# replace my key press trigger
+						await get_tree().create_timer(3).timeout
+						# re-activate player's movementst
+						player.are_movements_disabled = false
+						# hide the chatbox
+						chat_box.visible = false
+	if type == 'parent' or type == 'pig':
+		print("Game Over")
+			
+
 
 # Fade out the specified audio
 func fade_audios(in_audio: AudioStreamPlayer2D, out_audio: AudioStreamPlayer2D):
 	# Start a fade-in from the current volume level
-	var tweenIn = create_tween()
-	tweenIn.tween_property(in_audio, "volume_db", 0, fade_duration / 2)  # Fade to normal volume (0 dB)
+	if in_audio:
+		var tweenIn = create_tween()
+		tweenIn.tween_property(in_audio, "volume_db", 0, fade_duration / 2)  # Fade to normal volume (0 dB)
 	
 	if out_audio:
 		# Start a fade-out to silent, stopping playback after the fade
@@ -129,4 +162,8 @@ func _on_danger_zone_exited(body: Node2D):
 # Trigger when entering the end of level
 func _on_enter_end_level(body: Node2D) -> void:
 	print("end of level")
+
 	$FadeTransition._move_to_scene("res://levels/1_monastery/MonasteryScene.tscn")
+	fade_audios(null, main_audio)
+	fade_audios(null, danger_audio)
+

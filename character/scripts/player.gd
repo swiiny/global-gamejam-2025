@@ -1,10 +1,11 @@
 class_name Player extends CharacterBody2D
 
-var normal_speed = 300
+var normal_speed = 150
 var speed = normal_speed  # Movement speed in pixels/sec.
 var slow_speed = 50
 var default_noise_level = 1
-var sneaky_noise_level = default_noise_level * 0.2
+# the sneaky emits 80% less noise
+var sneaky_noise_level = default_noise_level * (0.2 / (normal_speed/slow_speed))
 
 @export var noise_level = default_noise_level
 var currently_moving := false
@@ -12,6 +13,7 @@ var currently_moving := false
 @onready var dynamic_collision_shape = $AuraArea2D/CollisionShape2D
 @onready var aura_sprite = $AuraArea2D/AuraSprite
 
+# used in enemies
 var is_moving = false
 var current_tween: Tween = null  # To manage a single active tween
 var are_movements_disabled = false # True when collision is detected to stop any movement
@@ -19,6 +21,7 @@ var are_movements_disabled = false # True when collision is detected to stop any
 @export var is_player_controlled_by_the_user = true
 var is_player_following_a_path = false
 var direction = Vector2()
+
 
 func _ready() -> void:
 	add_to_group("player")
@@ -56,7 +59,7 @@ func _process(delta: float) -> void:
 		if currently_moving != is_moving:
 			is_moving = currently_moving
 			_update_aura_opacity(is_moving)
-		_update_noise_level(velocity)
+		#_update_noise_level(velocity)
 
 		_animate(direction)
 		
@@ -144,9 +147,9 @@ func _update_aura_opacity(moving: bool) -> void:
 		# Fade out to 0 opacity over 0.1 seconds
 		current_tween.tween_property(aura_sprite, "modulate:a", 0.0, 0.1)
 
-func _update_noise_level(velocity: float) -> void:
-	var moving_coeff = 1 if velocity > 0 else -1
-	noise_level = moving_coeff * velocity
+#func _update_noise_level(velocity: float) -> void:
+#	var moving_coeff = 1 if velocity > 0 else -1
+#	noise_level = moving_coeff * velocity
 
 func stop_animation():
 	$AnimatedSprite2D.stop()
@@ -160,7 +163,8 @@ func start_auto_control_with_instructions(instructions: Array) -> void:
 		direction = next_direction
 
 		await get_tree().create_timer(i.z).timeout
-	direction = Vector2(0,0)
+		
+	direction = Vector2(0, 0)
 	$AnimatedSprite2D.stop()
 	
 	are_movements_disabled = false
