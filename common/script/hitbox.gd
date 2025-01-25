@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 			
 			# make it dynamic
 			if current_tolerance > 0:
-				current_tolerance -= delta * 100
+				current_tolerance -= delta * 40
 			else:
 				current_tolerance = 0
 			
@@ -59,22 +59,37 @@ func _process(delta: float) -> void:
 	
 func _update_detection_level_indicator(current_level: int):
 	if detection_level_indicator:
-		
 		if animated_sprite:
 			var new_animation = "indicator-"
-			
 			var adjusted_value = current_level
-			
+
 			if adjusted_value > 0:
 				adjusted_value = adjusted_value + 10
-				
+
 			var animation_index = int(adjusted_value / 5)
-			
-			
 			new_animation = new_animation + str(animation_index)
-			
+
+			# If changing animation, adjust starting frame and progress
 			if animated_sprite.animation != new_animation:
-				animated_sprite.animation = new_animation
+				# Save the current frame and progress
+				var current_frame = animated_sprite.get_frame()
+				var current_progress = animated_sprite.get_frame_progress()
+
+				animated_sprite.play(new_animation)  # Switch animation
+				
+				# Adjust frame
+				var max_frames = animated_sprite.sprite_frames.get_frame_count(new_animation)
+				if max_frames > 0:
+					var next_frame = current_frame + 1
+					if next_frame < max_frames:  # If within bounds
+						current_frame = next_frame
+					else:  # Wrap around to frame 1
+						current_frame = 1
+						
+				# Set the adjusted frame and progress
+				animated_sprite.set_frame_and_progress(current_frame - 1, current_progress + 0.15)
+				
+
 
 func _on_aura_entered(area: Area2D) -> void:
 	if area.name == "AuraArea2D":
