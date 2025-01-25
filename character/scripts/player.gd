@@ -19,11 +19,6 @@ var are_movements_disabled = false # True when collision is detected to stop any
 @export var is_player_controlled = true
 var direction = Vector2()
 
-func _move_to_position(positions : Array) -> void:
-	for n in positions:
-		print(n)
-	pass
-
 func _ready() -> void:
 	add_to_group("player")
 	# init player aura
@@ -165,3 +160,4 @@ func start_auto_control(instructions: Array) -> void:
 		print("moving towards %v", next_direction)
 		await get_tree().create_timer(i.z).timeout
 	direction = Vector2(0,0)
+	$AnimatedSprite2D.stop()

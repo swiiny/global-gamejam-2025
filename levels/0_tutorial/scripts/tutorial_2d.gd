@@ -63,8 +63,8 @@ func _set_events():
 	for room in $Rooms.get_children():
 		# the area 2D of the room node
 		var area = room.get_node("Area2D")
-		area.connect("body_entered", Callable(self, "_on_area_body_entered").bind(room))
-		
+		if area:
+			area.connect("body_entered", Callable(self, "_on_area_body_entered").bind(room))
 
 
 func _on_area_body_entered(body, room):
@@ -75,3 +75,10 @@ func _on_area_body_entered(body, room):
 			# Enable the new room
 			current_room = room
 		
+
+
+func _on_enter_end_level(body: Node2D) -> void:
+	print("end of level")
+	get_tree().change_scene_to_file("res://Cutscenes/intro_scene/introduction.tscn")
+
+	pass # Replace with function body.
