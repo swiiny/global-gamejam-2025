@@ -8,7 +8,6 @@ var inventory_open = false
 var is_in_danger_room = false
 @onready var main_audio = $MainLoopAudio as AudioStreamPlayer2D
 @onready var danger_audio = $DangerLoopAudio as AudioStreamPlayer2D
-@onready var cutscene_audio = $CutsceneAudio as AudioStreamPlayer2D
 var fade_duration = 2.0  # Duration of the fade in seconds
 
 var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
@@ -82,7 +81,7 @@ func _on_level_ending_sequence():
 	print("starting level ending sequence")
 	fade_audios(null, main_audio)
 	fade_audios(null, danger_audio)
-	cutscene_audio.play()
+	AudioSingleton.music_player.play()
 
 
 func _on_area_body_entered(body, room):

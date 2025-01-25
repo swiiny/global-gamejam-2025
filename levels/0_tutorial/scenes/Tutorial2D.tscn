@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=29 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="19_srex6"]
 [ext_resource type="AudioStream" uid="uid://bl8cqg00y4nsr" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="21_qf7a4"]
-[ext_resource type="AudioStream" uid="uid://rp5oi0babgvm" path="res://common/audio/CUTSCENE 1 V2.mp3" id="22_2axlk"]
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/scenes/fadeTransition/Fade Transition.tscn" id="23_gafcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
@@ -246,9 +245,6 @@ position = Vector2(-8, 81)
 [node name="EndLeveLPath" type="Path2D" parent="Paths"]
 position = Vector2(-29, -74)
 curve = SubResource("Curve2D_47rij")
-
-[node name="CutsceneAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("22_2axlk")
 
 [connection signal="body_entered" from="Rooms/ParentsRoom2d/OutOfRoomArea2D" to="Rooms/ParentsRoom2d" method="_on_out_of_room_area_2d_body_entered"]
 [connection signal="body_entered" from="Rooms/StableRoom/OutOfRoomArea2D" to="Rooms/StableRoom" method="_on_out_of_room_area_2d_body_entered"]

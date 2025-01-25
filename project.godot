@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 LevelProgess="*res://levels/scripts/level_progess.gd"
 Inventory="*res://levels/scripts/inventory.gd"
 SignalBus="*res://common/script/signal_bus.gd"
+AudioSingleton="*res://common/script/audio_singleton.gd"
 
 [display]
 
