@@ -12,6 +12,7 @@ var is_alerted: bool = false  # Whether the enemy has been triggered
 @onready var hitbox = $Hitbox
 @onready var collision_shape = $Hitbox/CollisionPolygon2D
 @onready var detection_level_indicator = $DetectionLevelIndicator
+@onready var animated_sprite = detection_level_indicator.find_child("AnimatedSprite2D") as AnimatedSprite2D
 
 func _ready() -> void:
 	# the collision layer of the Player's aura
@@ -24,25 +25,31 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	if player and not is_alerted:
-		if player.is_moving:
-			# Calculate the distance between the player and the enemy
-			var distance = global_position.distance_to(player.global_position)
+	# can't run if is alerted, see for specific reset condition
+	if !is_alerted:
+		if player:
+			if player.is_moving:
+				# Calculate the distance between the player and the enemy
+				var distance = global_position.distance_to(player.global_position)
 
-			# Calculate the noise impact based on distance
-			var noise_emitted = player.noise_level / max(1.0, distance)
-			current_tolerance += noise_emitted * noise_fill_rate * delta * 8000
+				# Calculate the noise impact based on distance
+				var noise_emitted = player.noise_level / max(1.0, distance)
+				current_tolerance += noise_emitted * noise_fill_rate * delta * 8000
+				
+				# Trigger reaction if tolerance exceeds the threshold
+				if current_tolerance >= noise_tolerance:
+					_trigger_alert()
+		elif !player:
+			# Reset tolerance if no player or already alerted
 			
-			# Trigger reaction if tolerance exceeds the threshold
-			if current_tolerance >= noise_tolerance:
-				_trigger_alert()
-	elif !player:
-		# Reset tolerance if no player or already alerted
-		# make it dynamic
-		current_tolerance = 0.0
-		
-		# reset alerted state
-		is_alerted = false
+			# make it dynamic
+			if current_tolerance > 0:
+				current_tolerance -= delta * 100
+			else:
+				current_tolerance = 0
+			
+			# reset the last animation
+			animated_sprite.play()
 		
 	_update_detection_level_indicator(current_tolerance)
 		
@@ -52,16 +59,17 @@ func _process(delta: float) -> void:
 	
 func _update_detection_level_indicator(current_level: int):
 	if detection_level_indicator:
-		var animated_sprite = detection_level_indicator.find_child("AnimatedSprite2D") as AnimatedSprite2D
+		
 		if animated_sprite:
 			var new_animation = "indicator-"
 			
 			var adjusted_value = current_level
 			
 			if adjusted_value > 0:
-				adjusted_value = adjusted_value + 5
+				adjusted_value = adjusted_value + 10
 				
 			var animation_index = int(adjusted_value / 5)
+			
 			
 			new_animation = new_animation + str(animation_index)
 			

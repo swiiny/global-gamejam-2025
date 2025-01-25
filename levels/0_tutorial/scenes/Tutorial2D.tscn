@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scripts/stable_room.gd" id="13_o7x4w"]
 [ext_resource type="PackedScene" uid="uid://dg28s2v5p584x" path="res://levels/0_tutorial/scenes/characters/animals/scenes/Pig1.tscn" id="14_wh5oo"]
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="19_srex6"]
-[ext_resource type="AudioStream" uid="uid://bl8cqg00y4nsr" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
+[ext_resource type="AudioStream" uid="uid://b6lfyrmhbqy24" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="21_qf7a4"]
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/scenes/fadeTransition/Fade Transition.tscn" id="23_gafcm"]
 
@@ -160,8 +160,8 @@ position = Vector2(-108, -463)
 
 [node name="CollectibleKey" parent="Rooms/ParentsRoom2d" instance=ExtResource("12_gq6ch")]
 z_index = 11
-position = Vector2(99, -398)
-item_name = "item-key"
+position = Vector2(96, -408)
+item_name = "la-miche-de-pain"
 
 [node name="StableRoom" parent="Rooms" instance=ExtResource("12_brdme")]
 position = Vector2(820, 576)
