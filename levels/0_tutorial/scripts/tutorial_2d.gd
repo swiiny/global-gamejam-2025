@@ -166,4 +166,3 @@ func _on_enter_end_level(body: Node2D) -> void:
 	$FadeTransition._move_to_scene("res://levels/1_monastery/MonasteryScene.tscn")
 	fade_audios(null, main_audio)
 	fade_audios(null, danger_audio)
-
