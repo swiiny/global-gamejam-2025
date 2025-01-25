@@ -14,7 +14,10 @@ var currently_moving := false
 
 var is_moving = false
 var current_tween: Tween = null  # To manage a single active tween
-var are_movements_disabled = false
+var are_movements_disabled = false # True when collision is detected to stop any movement
+
+@export var is_player_controlled = true
+var direction = Vector2()
 
 func _ready() -> void:
 	add_to_group("player")
@@ -26,7 +29,7 @@ func _draw() -> void:
 	var collision_shape = $AuraArea2D/CollisionShape2D.shape
 	var radius = collision_shape.radius
 	draw_circle(Vector2(), radius, Color.WHITE, false, 1.0, true)
-	
+
 func _set_collisions():
 	# collectibles
 	self.set_collision_layer_value(12, true)
@@ -36,11 +39,13 @@ func _set_collisions():
 
 func _process(delta: float) -> void:
 	# Get movement direction and velocity
-	var direction = _player_direction()
 	var velocity = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").length()
-
 	# Move the character
-	if !are_movements_disabled:
+	if not is_player_controlled:
+		move_and_collide(direction * speed * delta)
+
+	elif not are_movements_disabled:
+		direction = _player_direction()
 		move_and_collide(direction * velocity * speed * delta)
 
 		# Detect movement and handle aura animation
@@ -65,8 +70,6 @@ func _process(delta: float) -> void:
 			speed = normal_speed
 		if noise_level != default_noise_level:
 			noise_level = default_noise_level
-
-
 
 # return played direction
 func _player_direction() -> Vector2:
@@ -106,7 +109,7 @@ func _animate(direction: Vector2) -> void:
 		var up_or_down = "_up"
 		if direction.y > 0:
 			up_or_down = "_down"
-			
+
 		$AnimatedSprite2D.animation = move_animation  + up_or_down
 	#else:
 		#$AnimatedSprite2D.animation = "neutral"
@@ -146,3 +149,16 @@ func _update_aura_opacity(moving: bool) -> void:
 func _update_noise_level(velocity: float) -> void:
 	var moving_coeff = 1 if velocity > 0 else -1
 	noise_level = moving_coeff * velocity
+
+func start_auto_control(instructions: Array) -> void:
+	are_movements_disabled = true
+	is_player_controlled = false
+	for i in instructions:
+		var next_direction = Vector2(i.x, i.y)
+		direction = next_direction
+		
+		_animate(direction)
+
+		await get_tree().create_timer(i.z).timeout
+	direction = Vector2(0,0)
+	$AnimatedSprite2D.stop()

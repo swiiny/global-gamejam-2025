@@ -69,8 +69,8 @@ func _set_events():
 	for room in $Rooms.get_children():
 		# the area 2D of the room node
 		var area = room.get_node("Area2D")
-		area.connect("body_entered", Callable(self, "_on_area_body_entered").bind(room))
-		
+		if area:
+			area.connect("body_entered", Callable(self, "_on_area_body_entered").bind(room))
 
 func _on_area_body_entered(body, room):
 	if body.name == "Player":
@@ -125,3 +125,8 @@ func _on_danger_zone_entered(body: Node2D):
 func _on_danger_zone_exited(body: Node2D):
 	if body.is_in_group("player"):
 		fade_audios(main_audio, danger_audio)
+
+# Trigger when entering the end of level
+func _on_enter_end_level(body: Node2D) -> void:
+	print("end of level")
+	get_tree().change_scene_to_file("res://Cutscenes/intro_scene/introduction.tscn")
