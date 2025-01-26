@@ -1,16 +1,16 @@
 [gd_scene load_steps=33 format=4 uid="uid://cr8ucbkx6vidq"]
 
-[ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="1_ruvi1"]
+[ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="2_c7boc"]
 [ext_resource type="PackedScene" uid="uid://bhxvnljyvvk7o" path="res://levels/0_tutorial/scenes/rooms/childrenRoom/scenes/ChildrenRoom2D.tscn" id="3_628ec"]
 [ext_resource type="PackedScene" uid="uid://bty203e3e4e6m" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scenes/ParentsRoom2D.tscn" id="4_vwsie"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/childrenRoom/scripts/children_room_2d.gd" id="5_7ro6k"]
 [ext_resource type="PackedScene" uid="uid://cywiwkxb0ofbh" path="res://levels/0_tutorial/scenes/characters/brotherBed/BrotherBed.tscn" id="6_0mwjl"]
-[ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="6_0pp0o"]
 [ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="7_jx2bf"]
 [ext_resource type="PackedScene" uid="uid://ot0a0l8xrcl5" path="res://levels/0_tutorial/scenes/characters/playerBed/scenes/PlayerBed.tscn" id="7_mlrqq"]
 [ext_resource type="PackedScene" uid="uid://c47pgf5v7tf7u" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed.tscn" id="8_e8s3d"]
+[ext_resource type="PackedScene" uid="uid://cvj0l26eus23i" path="res://common/scenes/chatBox/scenes/ChatBox.tscn" id="8_k5ep8"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/parentsRoom/scripts/parents_room_2d.gd" id="9_bbgtl"]
 [ext_resource type="PackedScene" uid="uid://b5oh64fstb4h7" path="res://levels/0_tutorial/scenes/characters/parentsBed/ParentsBed2.tscn" id="11_bl455"]
 [ext_resource type="PackedScene" uid="uid://b5li1px22svbd" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scenes/StableRoom.tscn" id="12_brdme"]
@@ -144,28 +144,12 @@ collision_mask = 128
 z_index = 8
 position = Vector2(334, -585)
 
-[node name="ChatBox" type="Panel" parent="Rooms/ChildrenRoom/BrotherBed"]
-z_index = 5
-offset_left = 21.0
-offset_top = -99.0
-offset_right = 174.0
-offset_bottom = -39.0
-
-[node name="TextureRect" type="TextureRect" parent="Rooms/ChildrenRoom/BrotherBed/ChatBox"]
-layout_mode = 0
-offset_right = 154.0
-offset_bottom = 61.0
-texture = ExtResource("6_0pp0o")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Rooms/ChildrenRoom/BrotherBed/ChatBox"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 144.0
-offset_bottom = 56.0
-autowrap_mode = 2
-clip_text = true
+[node name="ChatBox" parent="Rooms/ChildrenRoom/BrotherBed" instance=ExtResource("8_k5ep8")]
+offset_left = 28.0
+offset_top = -178.0
+offset_right = 278.0
+offset_bottom = -114.0
+chat_box_id = "brother"
 
 [node name="ParentsRoom2d" parent="Rooms" instance=ExtResource("4_vwsie")]
 position = Vector2(1977, 584)

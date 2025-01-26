@@ -1,10 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvj0l26eus23i"]
+[gd_scene load_steps=18 format=3 uid="uid://cvj0l26eus23i"]
 
 [ext_resource type="Script" path="res://common/scenes/chatBox/scripts/chat_box.gd" id="1_1t5og"]
 [ext_resource type="Texture2D" uid="uid://c8xd2u0soyui0" path="res://common/scenes/chatBox/assets/talking/bubble-center.png" id="2_aupv3"]
+[ext_resource type="FontFile" uid="uid://cx5yjvnv2t7xt" path="res://Fonts/Lugrasimo/Lugrasimo-Regular.ttf" id="3_a4ejk"]
 [ext_resource type="Texture2D" uid="uid://bfahnfpnqx0ql" path="res://common/scenes/chatBox/assets/talking/bubble-up-left.png" id="3_bc70t"]
+[ext_resource type="FontFile" uid="uid://xh6qhxs4gtmi" path="res://Fonts/Almendra/Almendra-Regular.ttf" id="3_nmbc6"]
 [ext_resource type="Texture2D" uid="uid://vgil8t7ilab6" path="res://common/scenes/chatBox/assets/talking/bubble-up-right.png" id="4_a50j3"]
+[ext_resource type="Texture2D" uid="uid://dyynyitf5bdya" path="res://menus/main/assets/Vector.png" id="4_qgewv"]
 [ext_resource type="Texture2D" uid="uid://co05epdd54t1e" path="res://common/scenes/chatBox/assets/talking/bubble-up.png" id="5_hkoo7"]
+[ext_resource type="Texture2D" uid="uid://c7cc73b2et25e" path="res://menus/main/assets/outline-blue-cross.png" id="5_peext"]
 [ext_resource type="Texture2D" uid="uid://dmatsjb7kqe16" path="res://common/scenes/chatBox/assets/talking/bubble-corner.png" id="6_itb8q"]
 [ext_resource type="Texture2D" uid="uid://cnt2x84386tm5" path="res://common/scenes/chatBox/assets/talking/bubble-down-left.png" id="7_pinyf"]
 [ext_resource type="Texture2D" uid="uid://dao5ayq1cujht" path="res://common/scenes/chatBox/assets/talking/bubble-down-right.png" id="8_b4yh3"]
@@ -19,6 +23,7 @@ texture = ExtResource("2_aupv3")
 [node name="ChatBox" type="Control"]
 custom_minimum_size = Vector2(250, 64)
 layout_mode = 3
+anchors_preset = 0
 offset_left = 140.0
 offset_top = 106.0
 offset_right = 390.0
@@ -36,6 +41,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8n6hp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+z_index = 12
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -45,18 +51,59 @@ anchor_bottom = 1.0
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 6
-text = "helloef eihfe helloef eihfe helloef eihfe helloef eihfe helloef
-"
 autowrap_mode = 3
 
 [node name="Button" type="Button" parent="Panel"]
 z_index = 2
 layout_mode = 0
-offset_left = 221.0
-offset_top = 96.0
-offset_right = 271.0
-offset_bottom = 127.0
-text = "Close"
+offset_left = 209.0
+offset_top = 76.0
+offset_right = 259.0
+offset_bottom = 107.0
+
+[node name="StartButton" type="MenuButton" parent="Panel/Button"]
+theme_override_fonts/font = ExtResource("3_nmbc6")
+theme_override_font_sizes/font_size = 40
+text = "Press Space to Close"
+
+[node name="xbox_controller_label" type="HBoxContainer" parent="Panel/Button"]
+visible = false
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Panel/Button/xbox_controller_label"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Button/xbox_controller_label"]
+layout_mode = 2
+texture = ExtResource("4_qgewv")
+stretch_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Panel/Button/xbox_controller_label"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ps_controller_label" type="HBoxContainer" parent="Panel/Button"]
+visible = false
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Panel/Button/ps_controller_label"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Button/ps_controller_label"]
+layout_mode = 2
+texture = ExtResource("5_peext")
+stretch_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Panel/Button/ps_controller_label"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="touch_screen_label" type="Label" parent="Panel/Button"]
+visible = false
+theme_override_fonts/font = ExtResource("3_a4ejk")
+theme_override_font_sizes/font_size = 40
+text = "Tap To Start"
+horizontal_alignment = 1
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel"]
 layout_mode = 1
@@ -103,6 +150,7 @@ position = Vector2(265, 41)
 texture = ExtResource("11_h4hnx")
 
 [node name="Bubble-corner-thought" type="Sprite2D" parent="Panel/AspectRatioContainer"]
-visible = false
-position = Vector2(20, 114)
+position = Vector2(10, 104)
 texture = ExtResource("12_fy5u7")
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
