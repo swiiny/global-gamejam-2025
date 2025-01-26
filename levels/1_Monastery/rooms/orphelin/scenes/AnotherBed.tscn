@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://budpbrftfybse"]
+
+[ext_resource type="Script" path="res://common/script/hitbox.gd" id="1_pjvop"]
+[ext_resource type="Texture2D" uid="uid://gxxouwraf4y7" path="res://levels/1_monastery/rooms/orphelin/assets/BedMonkLandscape_Enfant.png" id="2_nvxm0"]
+[ext_resource type="Texture2D" uid="uid://d3uaxkqdcogih" path="res://levels/1_monastery/rooms/orphelin/assets/BedMonkLandscape_Frame.png" id="3_g1de6"]
+[ext_resource type="PackedScene" uid="uid://yj71flnek1f5" path="res://common/scenes/detectionLevelIndicator/scenes/DetectionLevelIndicator.tscn" id="4_6oglx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5ytg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nvxm0")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[node name="OrphelinBed" type="StaticBody2D"]
+script = ExtResource("1_pjvop")
+enemy_type = "brother"
+
+[node name="Hitbox" type="Area2D" parent="." groups=["global_hitbox", "hitbox"]]
+collision_layer = 0
+collision_mask = 0
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+position = Vector2(-73, -64.5)
+scale = Vector2(1, 0.95)
+polygon = PackedVector2Array(161, 115.263, -17, 113.158, -18, 1.57895, 152, -0.526321)
+
+[node name="Label" type="Label" parent="."]
+z_index = 10
+offset_left = -56.0
+offset_top = -27.0
+offset_right = -16.0
+offset_bottom = -4.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_n5ytg")
+animation = &"sleep"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_g1de6")
+
+[node name="DetectionLevelIndicator" parent="." instance=ExtResource("4_6oglx")]
+position = Vector2(129, -9)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-73, -64.5)
+scale = Vector2(1, 0.95)
+polygon = PackedVector2Array(161, 115.263, -17, 113.158, -18, 1.57895, 152, -0.526321)

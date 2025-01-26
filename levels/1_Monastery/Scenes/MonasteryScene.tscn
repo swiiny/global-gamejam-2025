@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/Character2D.tscn" id="3_bybr7"]
 [ext_resource type="Texture2D" uid="uid://b3g6cn5tvo8e7" path="res://levels/1_monastery/assets/downstairs.png" id="5_gxh74"]
 [ext_resource type="PackedScene" uid="uid://dpmvac8y2qhwt" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinRoom1.tscn" id="6_7ew58"]
-[ext_resource type="PackedScene" uid="uid://cywiwkxb0ofbh" path="res://levels/0_tutorial/scenes/characters/brotherBed/BrotherBed.tscn" id="6_7vbqx"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="6_un1o2"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/orphelin_room_1.gd" id="7_beq27"]
-[ext_resource type="PackedScene" uid="uid://cvj0l26eus23i" path="res://common/scenes/chatBox/scenes/ChatBox.tscn" id="7_ipij3"]
+[ext_resource type="PackedScene" uid="uid://dq6b55mclabrp" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinBed.tscn" id="8_vmo0k"]
 [ext_resource type="PackedScene" uid="uid://flmcnd83mbra" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinRoom2.tscn" id="9_jheu0"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/orphelin_room_2.gd" id="11_hpu1l"]
+[ext_resource type="PackedScene" uid="uid://budpbrftfybse" path="res://levels/1_monastery/rooms/orphelin/scenes/AnotherBed.tscn" id="11_k860j"]
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="12_rrb6n"]
 [ext_resource type="AudioStream" uid="uid://drq4c8rjg6a7r" path="res://levels/1_monastery/assets/audios/level_2_main.mp3" id="13_mmm7e"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="14_wey3h"]
@@ -67,17 +67,6 @@ tile_set = ExtResource("6_un1o2")
 position = Vector2(532, 134)
 script = ExtResource("7_beq27")
 
-[node name="BrotherBed" parent="Rooms/OrphelinRoom1" instance=ExtResource("6_7vbqx")]
-z_index = 8
-position = Vector2(-198, -719)
-
-[node name="ChatBox" parent="Rooms/OrphelinRoom1/BrotherBed" instance=ExtResource("7_ipij3")]
-offset_left = 28.0
-offset_top = -178.0
-offset_right = 278.0
-offset_bottom = -114.0
-chat_box_id = "brother"
-
 [node name="Area2D" type="Area2D" parent="Rooms/OrphelinRoom1"]
 collision_mask = 2
 
@@ -85,6 +74,18 @@ collision_mask = 2
 position = Vector2(9.5, 109)
 shape = SubResource("RectangleShape2D_avcda")
 debug_color = Color(4.23551e-06, 0.579751, 0.803845, 0.42)
+
+[node name="OrphelinBed" parent="Rooms/OrphelinRoom1" instance=ExtResource("8_vmo0k")]
+z_index = 8
+position = Vector2(-264, -22)
+
+[node name="OrphelinBed2" parent="Rooms/OrphelinRoom1" instance=ExtResource("8_vmo0k")]
+z_index = 8
+position = Vector2(-32, -16)
+
+[node name="OrphelinBed3" parent="Rooms/OrphelinRoom1" instance=ExtResource("8_vmo0k")]
+z_index = 8
+position = Vector2(226, -16)
 
 [node name="OrphelinRoom2" parent="Rooms" instance=ExtResource("9_jheu0")]
 position = Vector2(1266, 230)
@@ -97,6 +98,24 @@ collision_mask = 2
 position = Vector2(-726, 400)
 shape = SubResource("RectangleShape2D_0d5p8")
 debug_color = Color(0.582285, 0.381571, 1, 0.42)
+
+[node name="OrphelinBed" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
+position = Vector2(-1078, 546)
+
+[node name="OrphelinBed2" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
+position = Vector2(-720, 538)
+
+[node name="OrphelinBed3" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
+position = Vector2(-1064, 340)
+
+[node name="OrphelinBed4" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
+position = Vector2(-762, 326)
+
+[node name="OrphelinBed5" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
+position = Vector2(-418, 316)
+
+[node name="OrphelinBed6" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
+position = Vector2(-404, 486)
 
 [node name="MainLoopAudio" parent="." instance=ExtResource("12_rrb6n")]
 position = Vector2(-8, 0)
