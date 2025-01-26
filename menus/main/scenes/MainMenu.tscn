@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh5qfewn53ccx"]
+[gd_scene load_steps=7 format=3 uid="uid://bh5qfewn53ccx"]
 
-[ext_resource type="Texture2D" uid="uid://cj6ms3bku0dew" path="res://menus/main/assets/main-bg.png" id="1_ryxna"]
 [ext_resource type="Script" path="res://menus/main/scripts/main_menu.gd" id="1_t5u2m"]
+[ext_resource type="Texture2D" uid="uid://did4aiu15wy3l" path="res://menus/main/assets/MainMenu.png" id="2_xwvcv"]
+[ext_resource type="FontFile" uid="uid://de7weonfsghce" path="res://Fonts/Almendra/Almendra-Regular.ttf" id="3_wo1ra"]
+[ext_resource type="FontFile" uid="uid://bx762d1lay4yf" path="res://Fonts/Lugrasimo/Lugrasimo-Regular.ttf" id="4_2l4rv"]
+[ext_resource type="Texture2D" uid="uid://cgmuq6m48ttgw" path="res://menus/main/assets/Vector.png" id="5_r6eiv"]
+[ext_resource type="Texture2D" uid="uid://cdu8pcsw8fgmm" path="res://menus/main/assets/outline-blue-cross.png" id="6_30rkb"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,19 +17,124 @@ grow_vertical = 2
 script = ExtResource("1_t5u2m")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_ryxna")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xwvcv")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 1440.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
-[node name="StartButton" type="MenuButton" parent="VBoxContainer"]
+[node name="main_title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Start Adventure"
+theme_override_fonts/font = ExtResource("3_wo1ra")
+theme_override_font_sizes/font_size = 130
+text = "Path Of Silence"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="StartButton" type="MenuButton" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_2l4rv")
+theme_override_font_sizes/font_size = 40
+text = "Press Any Key To Start"
+
+[node name="xbox_controller_label" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/xbox_controller_label"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="leading_start" type="Label" parent="VBoxContainer/xbox_controller_label"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_2l4rv")
+theme_override_font_sizes/font_size = 40
+text = "Press"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/xbox_controller_label"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/xbox_controller_label"]
+layout_mode = 2
+texture = ExtResource("5_r6eiv")
+stretch_mode = 2
+
+[node name="trailing_start" type="Label" parent="VBoxContainer/xbox_controller_label"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_2l4rv")
+theme_override_font_sizes/font_size = 40
+text = "To Start"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/xbox_controller_label"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ps_controller_label" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/ps_controller_label"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="leading_start" type="Label" parent="VBoxContainer/ps_controller_label"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_2l4rv")
+theme_override_font_sizes/font_size = 40
+text = "Press"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/ps_controller_label"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ps_controller_label"]
+layout_mode = 2
+texture = ExtResource("6_30rkb")
+stretch_mode = 2
+
+[node name="trailing_start" type="Label" parent="VBoxContainer/ps_controller_label"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_2l4rv")
+theme_override_font_sizes/font_size = 40
+text = "To Start"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/ps_controller_label"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="touch_screen_label" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_2l4rv")
+theme_override_font_sizes/font_size = 40
+text = "Tap To Start"
+horizontal_alignment = 1
+
+[node name="fade" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
