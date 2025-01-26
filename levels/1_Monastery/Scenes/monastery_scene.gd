@@ -141,7 +141,7 @@ func _trigger_game_over(msg : String) -> void:
 	player._animate(Vector2(0, 0))  # Stop animation
 	LevelProgess.reset_progress()
 
-	$GameoverTransition._trigger_game_over("res://levels/1_Monastery/scenes/MonasteryScene.tscn", msg)
+	$GameoverTransition._trigger_game_over("res://levels/1_Monastery/scenes/monastery_scene.tscn", msg)
 
 # Trigger when entering the danger zone
 func _on_danger_zone_entered(body: Node2D):
