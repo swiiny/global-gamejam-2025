@@ -40,10 +40,12 @@ func _set_collisions():
 func hide_aura():
 	var tween = create_tween()
 	tween.tween_property($AuraArea2D, "modulate:a", 0.0, 0.2)  # Fade to opacity 0 in 1 second
+	$AuraArea2D.set_collision_layer_value(9, false)
 	
 func show_aura():
 	var tween = create_tween()
 	tween.tween_property($AuraArea2D, "modulate:a", 1.0, 0.2)  # Fade to opacity 1 in 1 second
+	$AuraArea2D.set_collision_layer_value(9, true)
 	
 
 func _process(delta: float) -> void:
