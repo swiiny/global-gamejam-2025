@@ -129,3 +129,12 @@ theme_override_fonts/font = ExtResource("4_2l4rv")
 theme_override_font_sizes/font_size = 40
 text = "Tap To Start"
 horizontal_alignment = 1
+
+[node name="fade" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
