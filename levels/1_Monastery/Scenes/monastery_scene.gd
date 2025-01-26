@@ -86,7 +86,7 @@ func _set_camera():
 	camera.limit_left = 0
 	camera.limit_right = 34 * 64
 	camera.limit_top = -1 * 64
-	camera.limit_bottom = 24 * 64
+	camera.limit_bottom = 32 * 64
 	camera.enabled = true
 	camera.make_current()
 
