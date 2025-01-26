@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr6xg7tla3pkp"]
+[gd_scene load_steps=10 format=3 uid="uid://d1hlnr8373du0"]
 
 [ext_resource type="Texture2D" uid="uid://bdedjaun3r4r8" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_Compo.png" id="1_eiq5v"]
 [ext_resource type="Texture2D" uid="uid://rahlfmtr7s0d" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_Bullies.png" id="2_yhp7t"]
@@ -6,6 +6,69 @@
 [ext_resource type="Texture2D" uid="uid://bt6nomjeb38j4" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_BG.png" id="4_gkrva"]
 [ext_resource type="Texture2D" uid="uid://cjbatjoetu8qf" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_Bushes.png" id="5_sxyqc"]
 [ext_resource type="Texture2D" uid="uid://djikkawn0hsha" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_MonasteryLights.png" id="6_y42vb"]
+
+[sub_resource type="Animation" id="Animation_i1jkg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chap2Cutscene1Sindo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(966.5, 551.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chap2Cutscene1Sindo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.745703, 0.752083)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Chap2Cutscene1Bullies:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.754688, 0.585417)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Chap2Cutscene1MonasteryLights:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1.16111)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Chap2Cutscene1Bullies:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(973, 529)]
+}
 
 [sub_resource type="Animation" id="Animation_ovy5m"]
 resource_name = "scene1"
@@ -66,69 +129,6 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(973, 529)]
-}
-
-[sub_resource type="Animation" id="Animation_i1jkg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Chap2Cutscene1Sindo:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(966.5, 551.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Chap2Cutscene1Sindo:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.745703, 0.752083)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Chap2Cutscene1Bullies:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.754688, 0.585417)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Chap2Cutscene1MonasteryLights:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1.16111)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Chap2Cutscene1Bullies:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(973, 529)]
