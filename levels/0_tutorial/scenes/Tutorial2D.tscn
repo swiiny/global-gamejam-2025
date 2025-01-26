@@ -95,9 +95,6 @@ position = Vector2(285, -367)
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
 position = Vector2(706, 232)
 
-[node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
-position = Vector2(269, 269)
-
 [node name="TileMaps" type="Node2D" parent="."]
 
 [node name="TileMapLayerBgTop2" type="TileMapLayer" parent="TileMaps"]
