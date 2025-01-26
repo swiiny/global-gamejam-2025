@@ -6,8 +6,6 @@ var inventory_open = false
 
 # used to emit enter_danger_zone and exit_danger_zone signals
 var is_in_danger_room = false
-@onready var main_audio = $MainLoopAudio as AudioStreamPlayer2D
-@onready var danger_audio = $DangerLoopAudio as AudioStreamPlayer2D
 var fade_duration = 2.0  # Duration of the fade in seconds
 
 var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
@@ -110,9 +108,7 @@ func _set_events():
 
 func _on_level_ending_sequence():
 	print("starting level ending sequence")
-	fade_audios(null, main_audio)
-	fade_audios(null, danger_audio)
-	AudioSingleton.music_player.play()
+	AudioSingleton.fadein_cutscene()
 
 
 func _on_area_body_entered(body, room):
@@ -132,19 +128,11 @@ func _on_area_body_entered(body, room):
 		
 
 func _init_audio():
-	# deactive volume for both players
-	main_audio.volume_db = -100
-	danger_audio.volume_db = -100
+	AudioSingleton._setup_level("stable")
 	
 	# UX await
 	await get_tree().create_timer(0.5).timeout
-	
-	# start both players
-	main_audio.play()
-	danger_audio.play()
-	
-	# activate fade in for main_audio
-	fade_audios(main_audio, null)
+	AudioSingleton.fadein_safe()
 	
 # event emitted by the hitbox script
 func _on_enemy_triggered(type: String):	
@@ -206,20 +194,18 @@ func fade_audios(in_audio: AudioStreamPlayer2D, out_audio: AudioStreamPlayer2D):
 # Trigger when entering the danger zone
 func _on_danger_zone_entered(body: Node2D):
 	if body.is_in_group("player"):
-		fade_audios(danger_audio, main_audio)
+		AudioSingleton.fadein_danger()
 
 # Trigger when exiting the danger zone
 func _on_danger_zone_exited(body: Node2D):
 	if body.is_in_group("player"):
-		fade_audios(main_audio, danger_audio)
+		AudioSingleton.fadein_safe()
 
 # Trigger when entering the end of level
 func _on_enter_end_level(body: Node2D) -> void:
 	print("end of level")
 
 	$FadeTransition._move_to_scene("res://Cutscenes/intro_scene/chapter1_cutscene.tscn")
-	fade_audios(null, main_audio)
-	fade_audios(null, danger_audio)
 
 func _on_chat_box_close(chat_box_id: String):
 	var brotherBed = get_tree().current_scene.find_child("BrotherBed") as Node2D

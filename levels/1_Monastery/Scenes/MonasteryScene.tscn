@@ -1,29 +1,28 @@
-[gd_scene load_steps=39 format=4 uid="uid://dgy4uqgss257q"]
+[gd_scene load_steps=38 format=4 uid="uid://dgy4uqgss257q"]
 
 [ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
-[ext_resource type="PackedScene" uid="uid://jnd4pgnp2re5" path="res://Cutscenes/intro_scene/chapter1_cutscene.tscn" id="2_sek1j"]
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/Character2D.tscn" id="3_bybr7"]
-[ext_resource type="Texture2D" uid="uid://b3g6cn5tvo8e7" path="res://levels/1_monastery/assets/downstairs.png" id="5_gxh74"]
-[ext_resource type="PackedScene" uid="uid://dpmvac8y2qhwt" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinRoom1.tscn" id="6_7ew58"]
+[ext_resource type="Texture2D" uid="uid://cduq5xp8xgodc" path="res://levels/1_Monastery/assets/downstairs.png" id="5_gxh74"]
+[ext_resource type="PackedScene" uid="uid://dpmvac8y2qhwt" path="res://levels/1_Monastery/rooms/orphelin/scenes/OrphelinRoom1.tscn" id="6_7ew58"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="6_un1o2"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/orphelin_room_1.gd" id="7_beq27"]
-[ext_resource type="PackedScene" uid="uid://dq6b55mclabrp" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinBed.tscn" id="8_vmo0k"]
-[ext_resource type="PackedScene" uid="uid://flmcnd83mbra" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinRoom2.tscn" id="9_jheu0"]
+[ext_resource type="PackedScene" uid="uid://dq6b55mclabrp" path="res://levels/1_Monastery/rooms/orphelin/scenes/OrphelinBed.tscn" id="8_vmo0k"]
+[ext_resource type="PackedScene" uid="uid://flmcnd83mbra" path="res://levels/1_Monastery/rooms/orphelin/scenes/OrphelinRoom2.tscn" id="9_jheu0"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/orphelin_room_2.gd" id="11_hpu1l"]
-[ext_resource type="PackedScene" uid="uid://budpbrftfybse" path="res://levels/1_monastery/rooms/orphelin/scenes/AnotherBed.tscn" id="11_k860j"]
-[ext_resource type="PackedScene" uid="uid://djgvs8n6px0i3" path="res://levels/1_monastery/rooms/orphelin/scenes/PlayerBed.tscn" id="12_a7dtk"]
+[ext_resource type="PackedScene" uid="uid://budpbrftfybse" path="res://levels/1_Monastery/rooms/orphelin/scenes/AnotherBed.tscn" id="11_k860j"]
+[ext_resource type="PackedScene" uid="uid://djgvs8n6px0i3" path="res://levels/1_Monastery/rooms/orphelin/scenes/PlayerBed.tscn" id="12_a7dtk"]
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="12_rrb6n"]
-[ext_resource type="AudioStream" uid="uid://drq4c8rjg6a7r" path="res://levels/1_monastery/assets/audios/level_2_main.mp3" id="13_mmm7e"]
-[ext_resource type="PackedScene" uid="uid://b6cxhlkn8e818" path="res://levels/1_monastery/rooms/orphelin/scenes/MonkRoom.tscn" id="13_pdgei"]
+[ext_resource type="AudioStream" uid="uid://bjel52bpm0dsi" path="res://levels/1_Monastery/assets/audios/level_2_main.mp3" id="13_mmm7e"]
+[ext_resource type="PackedScene" uid="uid://b6cxhlkn8e818" path="res://levels/1_Monastery/rooms/orphelin/scenes/MonkRoom.tscn" id="13_pdgei"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/monk_room.gd" id="14_ns3tw"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="14_wey3h"]
-[ext_resource type="AudioStream" uid="uid://dtrcxhbupuv2q" path="res://levels/1_monastery/assets/audios/level_2_danger.mp3" id="15_2a3yo"]
+[ext_resource type="AudioStream" uid="uid://dhio4wt3m4y1y" path="res://levels/1_monastery/assets/audios/level_2_danger.mp3" id="15_2a3yo"]
 [ext_resource type="PackedScene" uid="uid://r0t8bfagke7f" path="res://collectibles/shared/scenes/Collectible.tscn" id="15_pd86b"]
-[ext_resource type="PackedScene" uid="uid://b214y642wy68f" path="res://levels/1_monastery/rooms/orphelin/scenes/StairsRoom.tscn" id="16_ceyhy"]
+[ext_resource type="PackedScene" uid="uid://b214y642wy68f" path="res://levels/1_Monastery/rooms/orphelin/scenes/StairsRoom.tscn" id="16_ceyhy"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/stairs_room.gd" id="17_xc120"]
 [ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="20_ehmdq"]
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/scenes/fadeTransition/Fade Transition.tscn" id="21_5prla"]
-[ext_resource type="Texture2D" uid="uid://kr8mpumedffy" path="res://levels/1_monastery/assets/fontaine.png" id="23_47i5p"]
+[ext_resource type="Texture2D" uid="uid://cq3lpwf2xsh4s" path="res://levels/1_Monastery/assets/fontaine.png" id="23_47i5p"]
 [ext_resource type="PackedScene" uid="uid://bwbp0h3ishbks" path="res://common/scenes/gameoverTransition/gameover_transition.tscn" id="24_u7tg4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avcda"]
@@ -101,10 +100,6 @@ point_count = 13
 [node name="MonasteryScene" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_puf30")
-
-[node name="Chapter1Cutscene" parent="." instance=ExtResource("2_sek1j")]
-visible = false
-z_index = 2000
 
 [node name="Character2d" parent="." instance=ExtResource("3_bybr7")]
 light_mask = 3

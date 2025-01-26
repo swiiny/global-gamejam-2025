@@ -2,10 +2,9 @@ extends Node2D
 
 var current_room = null 
 var is_in_danger_room = false
-
-@onready var main_audio = $MainLoopAudio as AudioStreamPlayer2D
-@onready var danger_audio = $DangerLoopAudio as AudioStreamPlayer2D
-var fade_duration = 2.0  # Duration of the fade in seconds
+#
+#@onready var main_audio = $MainLoopAudio as AudioStreamPlayer2D
+#@onready var danger_audio = $DangerLoopAudio as AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -114,18 +113,15 @@ func _on_area_body_entered(body, room):
 
 func _init_audio():
 	# deactive volume for both players
-	main_audio.volume_db = -100
-	danger_audio.volume_db = -100
+	#main_audio.volume_db = -100
+	#danger_audio.volume_db = -100
 	
 	# UX await
 	await get_tree().create_timer(0.5).timeout
 	
-	# start both players
-	main_audio.play()
-	danger_audio.play()
-	
+	AudioSingleton._setup_level("monastery")
 	# activate fade in for main_audio
-	fade_audios(main_audio, null)
+	AudioSingleton.fadein_safe()
 
 func _on_enemy_triggered(type: String):	
 	if type == 'monk' or type == 'orphelin':
@@ -144,36 +140,24 @@ func _trigger_game_over(msg : String) -> void:
 	LevelProgess.reset_progress()
 
 	$GameoverTransition._trigger_game_over("res://levels/1_Monastery/scenes/MonasteryScene.tscn", msg)
-	
-# Fade out the specified audio
-func fade_audios(in_audio: AudioStreamPlayer2D, out_audio: AudioStreamPlayer2D):
-	# Start a fade-in from the current volume level
-	if in_audio:
-		var tweenIn = create_tween()
-		tweenIn.tween_property(in_audio, "volume_db", 0, fade_duration / 2)  # Fade to normal volume (0 dB)
-	
-	if out_audio:
-		# Start a fade-out to silent, stopping playback after the fade
-		var tweenOut = create_tween()
-		tweenOut.tween_property(out_audio, "volume_db", -100, fade_duration)  # Fade to silent (-80 dB)
-		
+
 # Trigger when entering the danger zone
 func _on_danger_zone_entered(body: Node2D):
 	if body.is_in_group("player"):
-		fade_audios(danger_audio, main_audio)
+		AudioSingleton.fadein_danger()
 
 # Trigger when exiting the danger zone
 func _on_danger_zone_exited(body: Node2D):
 	if body.is_in_group("player"):
-		fade_audios(main_audio, danger_audio)
+		AudioSingleton.fadein_safe()
+
 
 # Trigger when entering the end of level
 func _on_enter_end_level(body: Node2D) -> void:
 	print("end of level")
 
 	#$FadeTransition._move_to_scene("res://Cutscenes/intro_scene/chapter1_cutscene.tscn")
-	fade_audios(null, main_audio)
-	fade_audios(null, danger_audio)
+	AudioSingleton._start_music("res://common/audio/CUTSCENE 2.mp3")
 
 func _on_chat_box_close(chat_box_id: String):
 	print("chat box closed")
