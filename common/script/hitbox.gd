@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 
 				# Calculate the noise impact based on distance
 				var noise_emitted = player.noise_level / max(1.0, distance)
+				
 				current_tolerance += noise_emitted * noise_fill_rate * delta * 8000
 				
 				# Trigger reaction if tolerance exceeds the threshold

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cywiwkxb0ofbh"]
 
 [ext_resource type="Script" path="res://common/script/hitbox.gd" id="1_8etgc"]
-[ext_resource type="Texture2D" uid="uid://dd34yshyyakh7" path="res://levels/0_tutorial/scenes/characters/brotherBed/assets/SleeperYouth.png" id="2_d1dyi"]
-[ext_resource type="Texture2D" uid="uid://dsj1ajrr6lcqn" path="res://levels/0_tutorial/scenes/characters/assets/BedFarm.png" id="2_vxmfo"]
+[ext_resource type="Texture2D" uid="uid://dnnbcjb1n88rn" path="res://levels/0_tutorial/scenes/characters/brotherBed/assets/SleeperYouth.png" id="2_d1dyi"]
+[ext_resource type="Texture2D" uid="uid://c60x2dqq0caxg" path="res://levels/0_tutorial/scenes/characters/assets/BedFarm.png" id="2_vxmfo"]
 [ext_resource type="PackedScene" uid="uid://yj71flnek1f5" path="res://common/scenes/detectionLevelIndicator/scenes/DetectionLevelIndicator.tscn" id="4_yioda"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n5ytg"]
@@ -50,4 +50,4 @@ position = Vector2(-57, -85)
 polygon = PackedVector2Array(-3, -1, 114, -1, 115, 148, 110, 170, 57, 174, 1, 173, -1, 150)
 
 [node name="DetectionLevelIndicator" parent="." instance=ExtResource("4_yioda")]
-position = Vector2(77, -26)
+position = Vector2(68, -57)
