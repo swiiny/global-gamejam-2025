@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cr8ucbkx6vidq"]
+[gd_scene load_steps=30 format=4 uid="uid://cr8ucbkx6vidq"]
 
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/Character2D.tscn" id="1_ruvi1"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scripts/tutorial_2d.gd" id="1_vechb"]
@@ -17,9 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://r0t8bfagke7f" path="res://collectibles/shared/scenes/Collectible.tscn" id="12_gq6ch"]
 [ext_resource type="Script" path="res://levels/0_tutorial/scenes/rooms/stableRoom/scripts/stable_room.gd" id="13_o7x4w"]
 [ext_resource type="PackedScene" uid="uid://dg28s2v5p584x" path="res://levels/0_tutorial/scenes/characters/animals/scenes/Pig1.tscn" id="14_wh5oo"]
-[ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="19_srex6"]
-[ext_resource type="AudioStream" uid="uid://b6lfyrmhbqy24" path="res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3" id="20_2yjy1"]
-[ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="21_qf7a4"]
 [ext_resource type="PackedScene" uid="uid://bwbp0h3ishbks" path="res://common/scenes/gameoverTransition/gameover_transition.tscn" id="22_j3wgk"]
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/scenes/fadeTransition/Fade Transition.tscn" id="23_gafcm"]
 
@@ -94,7 +91,7 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(701, 181)
+position = Vector2(459, 181)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
 position = Vector2(269, 269)
@@ -278,17 +275,6 @@ grow_vertical = 0
 libraries = {
 "": SubResource("AnimationLibrary_qk1dt")
 }
-
-[node name="MainLoopAudio" parent="." instance=ExtResource("19_srex6")]
-position = Vector2(-8, 0)
-autoplay = false
-parameters/looping = true
-
-[node name="DangerLoopAudio" parent="." instance=ExtResource("21_qf7a4")]
-position = Vector2(-21, 15)
-stream = ExtResource("20_2yjy1")
-autoplay = false
-parameters/looping = true
 
 [node name="FadeTransition" parent="." instance=ExtResource("23_gafcm")]
 z_index = 200
