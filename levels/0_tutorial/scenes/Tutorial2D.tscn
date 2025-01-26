@@ -251,6 +251,7 @@ position = Vector2(342.75, 157)
 shape = SubResource("RectangleShape2D_eswo7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="fadein" type="ColorRect" parent="CanvasLayer"]
 z_index = 3000
@@ -305,7 +306,6 @@ position = Vector2(-29, -74)
 curve = SubResource("Curve2D_47rij")
 
 [node name="GameoverTransition" parent="." instance=ExtResource("22_j3wgk")]
-visible = false
 
 [connection signal="body_entered" from="Rooms/ParentsRoom2d/OutOfRoomArea2D" to="Rooms/ParentsRoom2d" method="_on_out_of_room_area_2d_body_entered"]
 [connection signal="body_entered" from="Rooms/StableRoom/OutOfRoomArea2D" to="Rooms/StableRoom" method="_on_out_of_room_area_2d_body_entered"]
