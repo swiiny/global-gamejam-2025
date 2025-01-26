@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dgy4uqgss257q"]
+[gd_scene load_steps=39 format=4 uid="uid://dgy4uqgss257q"]
 
 [ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/Character2D.tscn" id="3_bybr7"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/scenes/fadeTransition/Fade Transition.tscn" id="21_5prla"]
 [ext_resource type="Texture2D" uid="uid://kr8mpumedffy" path="res://levels/1_monastery/assets/fontaine.png" id="23_47i5p"]
 [ext_resource type="PackedScene" uid="uid://bwbp0h3ishbks" path="res://common/scenes/gameoverTransition/gameover_transition.tscn" id="24_u7tg4"]
+[ext_resource type="Texture2D" uid="uid://da8cx3kwsmmpa" path="res://levels/1_monastery/assets/MonkDown_1.png" id="25_ltixp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avcda"]
 size = Vector2(993, 366)
@@ -98,6 +99,7 @@ _data = {
 point_count = 13
 
 [node name="MonasteryScene" type="Node2D"]
+position = Vector2(0, 9)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_puf30")
 
@@ -339,6 +341,10 @@ curve = SubResource("Curve2D_80v74")
 
 [node name="FinalPath2D" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_rie6j")
+
+[node name="MonkDown1" type="Sprite2D" parent="."]
+position = Vector2(428, 1474)
+texture = ExtResource("25_ltixp")
 
 [connection signal="body_entered" from="Rooms/MonkRoom/Area2D2" to="Rooms/MonkRoom" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Rooms/StairsRoom/TPArea" to="Rooms/StairsRoom" method="_on_tp_area_body_entered"]
