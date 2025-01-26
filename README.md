@@ -31,8 +31,6 @@ Play the game now at: [path-of-silence.com](https://path-of-silence.com)
 | **Michele Oliosi**  | Graphic Artist          | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/michele-oliosi) [![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/michaloe)    |
 | **Simon Palluel**   | Composer/Sound Designer |                                                                                                                                                                                                                                                           |
 
-Feel free to add your information in the table above!
-
 ---
 
 ## 🚀 How to Play
