@@ -1,16 +1,45 @@
-[gd_scene load_steps=3 format=4 uid="uid://dgy4uqgss257q"]
+[gd_scene load_steps=7 format=3 uid="uid://dgy4uqgss257q"]
 
-[ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="2_31si1"]
+[ext_resource type="PackedScene" uid="uid://b7qlba7qjpecu" path="res://levels/1_Monastery/scenes/level2tilemap.tscn" id="1_mossd"]
+[ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
 [ext_resource type="PackedScene" uid="uid://jnd4pgnp2re5" path="res://Cutscenes/intro_scene/chapter1_cutscene.tscn" id="2_sek1j"]
+[ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="3_bybr7"]
+[ext_resource type="Texture2D" uid="uid://cduq5xp8xgodc" path="res://levels/1_Monastery/assets/downstairs.png" id="5_gxh74"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo5em"]
+size = Vector2(183, 177)
 
 [node name="MonasteryScene" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_puf30")
 
-[node name="TileMaps" type="Node2D" parent="."]
+[node name="Basetilemap" parent="." instance=ExtResource("1_mossd")]
 
-[node name="TileMapLayerBgTop" type="TileMapLayer" parent="TileMaps"]
-z_index = 10
-tile_map_data = PackedByteArray("AAACAAAAAAATAAYAAAADAAAAAAATAAYAAAAEAAAAAAATAAYAAAAFAAAAAAATAAYAAAAGAAAAAAATAAYAAAAHAAAAAAATAAYAAAAIAAAAAAATAAUAAGAJAAAAAAATAAYAAFAKAAAAAAATAAYAAFALAAAAAAATAAYAAFAMAAAAAAATAAYAAFANAAAAAAATAAYAAFAOAAAAAAATAAYAAGAPAAAAAAATAAYAAGAQAAAAAAATAAYAAGARAAAAAAATAAYAAGASAAAAAAATAAYAAGATAAAAAAATAAYAAGAUAAAAAAATAAYAAGAVAAAAAAATAAYAAGAWAAAAAAATAAYAAGAXAAAAAAATAAYAAGAYAAAAAAATAAYAAGAZAAAAAAATAAYAAGAaAAAAAAATAAYAAGAbAAAAAAATAAYAAGAcAAAAAAATAAYAAGAdAAAAAAATAAYAAGAeAAAAAAATAAYAAGAfAAAAAAATAAYAAGAgAAAAAAATAAYAAGAhAAAAAAATAAUAAFAhAAEAAAATAAYAACAhAAIAAAATAAYAACAhAAMAAAATAAYAACAhAAQAAAATAAYAACAhAAUAAAATAAYAACAhAAYAAAATAAYAACAhAAcAAAATAAYAACAhAAkAAAATAAYAAAAhAAoAAAATAAYAAAAhAAsAAAATAAYAAAAhAAwAAAATAAYAAAAhAA0AAAATAAYAAAAhAA4AAAATAAYAAAAhAA8AAAATAAYAAAAhABAAAAATAAYAAAAhABEAAAATAAYAAAAhABIAAAATAAYAAAAhABMAAAATAAYAAAAhABQAAAATAAYAAAAhABUAAAATAAYAAAAhABYAAAATAAUAADAgABYAAAATAAYAAFAfABYAAAATAAYAAFAeABYAAAATAAYAAFAdABYAAAATAAYAAFAcABYAAAATAAYAAFAbABYAAAATAAYAAFAaABYAAAATAAYAAFAZABYAAAATAAYAAFAYABYAAAATAAYAAFAXABYAAAATAAYAAFAWABYAAAATAAYAAFAVABYAAAATAAYAAFAUABYAAAATAAYAAFATABYAAAATAAYAAFASABYAAAATAAYAAFARABYAAAATAAYAAFAQABYAAAATAAYAAFAPABYAAAATAAYAAFAOABYAAAATAAYAAFANABYAAAATAAYAAFACAAEAAAATAAYAAAACAAIAAAATAAYAAAACAAMAAAATAAYAAAACAAQAAAATAAYAAAACAAUAAAATAAYAAAACAAYAAAATAAYAAAACAAcAAAATAAYAAAACAAgAAAATAAYAAAACABMAAAATAAYAAAACABQAAAATAAYAAAACABUAAAATAAYAAAACABIAAAATAAYAAAACABEAAAATAAYAAAACABAAAAATAAYAAAACAA8AAAATAAYAAAACAA4AAAATAAYAAAACAA0AAAATAAYAAAACAAwAAAATAAYAAAACAAsAAAATAAYAAAACAAoAAAATAAYAAAACAAkAAAATAAYAAAACABYAAAATAAYAAAADABYAAAATAAYAAAAEABYAAAATAAYAAAAFABYAAAATAAYAAAAGABYAAAATAAYAAAAHABYAAAATAAYAAAAIABYAAAATAAYAAAAJABYAAAATAAYAAAAKABYAAAATAAYAAAALABYAAAATAAYAAAAMABYAAAATAAYAAAAhAAgAAAATAAYAAAA=")
-tile_set = ExtResource("2_31si1")
+[node name="Downstairs2" type="Sprite2D" parent="Basetilemap"]
+position = Vector2(2592.5, 291)
+scale = Vector2(0.237858, 0.228356)
+texture = ExtResource("5_gxh74")
+
+[node name="Area2D2" type="Area2D" parent="Basetilemap"]
+position = Vector2(2509, 202)
+collision_layer = 0
+collision_mask = 2304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basetilemap/Area2D2"]
+position = Vector2(81.5, 78.5)
+shape = SubResource("RectangleShape2D_bo5em")
 
 [node name="Chapter1Cutscene" parent="." instance=ExtResource("2_sek1j")]
+visible = false
 z_index = 2000
+
+[node name="Character2d" parent="." instance=ExtResource("3_bybr7")]
+light_mask = 3
+visibility_layer = 3
+z_index = 11
+position = Vector2(285, -367)
+
+[node name="SpawnMarker2D" type="Marker2D" parent="."]
+position = Vector2(648, 257)
+
+[connection signal="body_entered" from="Basetilemap/Area2D2" to="." method="_trigger_end_level"]

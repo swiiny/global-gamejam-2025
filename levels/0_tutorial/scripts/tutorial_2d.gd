@@ -217,7 +217,7 @@ func _on_danger_zone_exited(body: Node2D):
 func _on_enter_end_level(body: Node2D) -> void:
 	print("end of level")
 
-	$FadeTransition._move_to_scene("res://levels/1_monastery/scenes/MonasteryScene.tscn")
+	$FadeTransition._move_to_scene("res://Cutscenes/intro_scene/chapter1_cutscene.tscn")
 	fade_audios(null, main_audio)
 	fade_audios(null, danger_audio)
 
