@@ -47,6 +47,12 @@ func show_aura():
 	tween.tween_property($AuraArea2D, "modulate:a", 1.0, 0.2)  # Fade to opacity 1 in 1 second
 	$AuraArea2D.set_collision_layer_value(9, true)
 	
+func show_thought(message: String, message_id: String):
+	if !message:
+		return
+		
+	$ChatBox.chat_box_id = message_id
+	$ChatBox.write_message(message)
 
 func _process(delta: float) -> void:
 	# Get movement direction and velocity

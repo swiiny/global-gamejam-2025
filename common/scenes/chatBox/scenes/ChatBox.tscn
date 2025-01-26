@@ -62,9 +62,9 @@ offset_right = 259.0
 offset_bottom = 107.0
 
 [node name="StartButton" type="MenuButton" parent="Panel/Button"]
+visible = false
 theme_override_fonts/font = ExtResource("3_nmbc6")
 theme_override_font_sizes/font_size = 40
-text = "Press Space to Close"
 
 [node name="xbox_controller_label" type="HBoxContainer" parent="Panel/Button"]
 visible = false

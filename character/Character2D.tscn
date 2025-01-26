@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://b2h0esvyixjry" path="res://character/assets/CrouchUp_1.png" id="6_sc831"]
 [ext_resource type="Texture2D" uid="uid://b40yd3w0wxar7" path="res://character/assets/CrouchUp_2.png" id="7_7bpp7"]
 [ext_resource type="Texture2D" uid="uid://dsx6owgquir7f" path="res://character/assets/WalkDown_2.png" id="7_asx1u"]
-[ext_resource type="Texture2D" uid="uid://ddpecycyllwcv" path="res://menus/main/assets/main-bg.png" id="7_ycl36"]
 [ext_resource type="Texture2D" uid="uid://dfo8a4q50l807" path="res://character/assets/WalkUp_1.png" id="8_cyp3f"]
 [ext_resource type="Texture2D" uid="uid://ck44xmasfla1c" path="res://character/assets/WalkUp_2.png" id="9_p30x4"]
 [ext_resource type="Script" path="res://character/scripts/aura_area_2d.gd" id="12_yxnx2"]
+[ext_resource type="PackedScene" uid="uid://cvj0l26eus23i" path="res://common/scenes/chatBox/scenes/ChatBox.tscn" id="17_kcq65"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0mbf3"]
 animations = [{
@@ -114,7 +114,7 @@ script = ExtResource("1_s8ni6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_0mbf3")
-animation = &"crouch_down"
+animation = &"walk_horizontal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 40)
@@ -125,30 +125,6 @@ zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
-
-[node name="ChatBox" type="Panel" parent="Player"]
-visible = false
-z_index = 5
-offset_left = 16.0
-offset_top = -104.0
-offset_right = 169.0
-offset_bottom = -44.0
-
-[node name="TextureRect" type="TextureRect" parent="Player/ChatBox"]
-layout_mode = 0
-offset_right = 154.0
-offset_bottom = 61.0
-texture = ExtResource("7_ycl36")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Player/ChatBox"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 144.0
-offset_bottom = 56.0
-autowrap_mode = 2
-clip_text = true
 
 [node name="AuraArea2D" type="Area2D" parent="Player"]
 show_behind_parent = true
@@ -163,3 +139,11 @@ debug_color = Color(0.979457, 0, 0.387882, 0.42)
 
 [node name="AuraSprite" type="Sprite2D" parent="Player/AuraArea2D"]
 texture = ExtResource("6_1cwps")
+
+[node name="ChatBox" parent="Player" instance=ExtResource("17_kcq65")]
+offset_left = 24.0
+offset_top = -160.0
+offset_right = 274.0
+offset_bottom = -96.0
+is_a_talk = false
+chat_box_id = "player-chat-box"
