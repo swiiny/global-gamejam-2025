@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://cbha22u32c0ni"]
 
 [ext_resource type="Script" path="res://Cutscenes/intro_scene/hill_scene/introduction.gd" id="1_c0unw"]
-[ext_resource type="Texture2D" uid="uid://b2k64iafw6c8b" path="res://Cutscenes/assets/player cutscene.png" id="4_fi71x"]
-[ext_resource type="Texture2D" uid="uid://cnql156xkoxxr" path="res://Cutscenes/assets/lights and stars.png" id="5_12hnr"]
-[ext_resource type="Texture2D" uid="uid://rw0d8qhm0kwp" path="res://Cutscenes/assets/background.png" id="6_vfgwr"]
+[ext_resource type="Texture2D" uid="uid://b2k64iafw6c8b" path="res://Cutscenes/intro_scene/assets/player cutscene.png" id="4_fi71x"]
+[ext_resource type="Texture2D" uid="uid://cnql156xkoxxr" path="res://Cutscenes/intro_scene/assets/lights and stars.png" id="5_12hnr"]
+[ext_resource type="Texture2D" uid="uid://rw0d8qhm0kwp" path="res://Cutscenes/intro_scene/assets/background.png" id="6_vfgwr"]
 
 [sub_resource type="Animation" id="Animation_0u3j7"]
 length = 0.001

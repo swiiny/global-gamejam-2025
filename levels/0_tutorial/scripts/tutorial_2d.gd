@@ -170,7 +170,7 @@ func _on_enemy_triggered(type: String):
 							key = "O"
 						
 						# start the chat
-						chat_box.write_message("Go back to bed ! Or, at least be quite to not wake up the parents! (Press " + key + " to crouch)")
+						chat_box.write_message("Go back to bed ! Or, at least be quiet. Do not wake up the parents! (Press " + key + " to crouch)")
 						
 	if type == 'parent':
 		_trigger_game_over("What are you doing here? Go back to bed")
