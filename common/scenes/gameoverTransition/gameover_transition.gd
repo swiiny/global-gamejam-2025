@@ -7,7 +7,6 @@ func _ready() -> void:
 	add_child(gameovermusic)
 	gameovermusic.stream = load("res://common/audio/LVL 1 GAME OVER.mp3")
 
-	#_trigger_game_over("res://levels/1_Monastery/MonasteryScene.tscn")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
