@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dgy4uqgss257q"]
+[gd_scene load_steps=22 format=4 uid="uid://dgy4uqgss257q"]
 
 [ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
 [ext_resource type="PackedScene" uid="uid://jnd4pgnp2re5" path="res://Cutscenes/intro_scene/chapter1_cutscene.tscn" id="2_sek1j"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://djgvs8n6px0i3" path="res://levels/1_monastery/rooms/orphelin/scenes/PlayerBed.tscn" id="12_a7dtk"]
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="12_rrb6n"]
 [ext_resource type="AudioStream" uid="uid://drq4c8rjg6a7r" path="res://levels/1_monastery/assets/audios/level_2_main.mp3" id="13_mmm7e"]
+[ext_resource type="PackedScene" uid="uid://b6cxhlkn8e818" path="res://levels/1_monastery/rooms/orphelin/scenes/MonkRoom.tscn" id="13_pdgei"]
+[ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/monk_room.gd" id="14_ns3tw"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="14_wey3h"]
 [ext_resource type="AudioStream" uid="uid://dtrcxhbupuv2q" path="res://levels/1_monastery/assets/audios/level_2_danger.mp3" id="15_2a3yo"]
 
@@ -22,6 +24,9 @@ size = Vector2(993, 366)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d5p8"]
 size = Vector2(992, 408)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbq01"]
+size = Vector2(620, 598)
 
 [node name="MonasteryScene" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -126,6 +131,18 @@ enemy_type = "monk"
 
 [node name="OrphelinBed" parent="Rooms/OrphelinRoom2" instance=ExtResource("12_a7dtk")]
 position = Vector2(-1068, 172)
+
+[node name="MonkRoom" parent="Rooms" instance=ExtResource("13_pdgei")]
+position = Vector2(1496, 292)
+script = ExtResource("14_ns3tw")
+
+[node name="Area2D" type="Area2D" parent="Rooms/MonkRoom"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/MonkRoom/Area2D"]
+position = Vector2(-122, 29)
+shape = SubResource("RectangleShape2D_fbq01")
+debug_color = Color(0.893596, 0.320984, 5.77569e-07, 0.42)
 
 [node name="MainLoopAudio" parent="." instance=ExtResource("12_rrb6n")]
 position = Vector2(-8, 0)
