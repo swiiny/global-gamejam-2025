@@ -162,6 +162,9 @@ func _update_aura_opacity(moving: bool) -> void:
 func stop_animation():
 	$AnimatedSprite2D.stop()
 	
+func start_animation():
+	$AnimatedSprite2D.play()
+	
 func start_auto_control_with_instructions(instructions: Array) -> void:
 	are_movements_disabled = true
 	is_player_controlled_by_the_user = false

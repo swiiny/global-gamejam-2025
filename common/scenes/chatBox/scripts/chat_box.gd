@@ -25,7 +25,7 @@ func _ready() -> void:
 		$Panel/Button/touch_screen_label.visible = false
 	else:
 		control_mode = "keyboard"
-		$Panel/Button/StartButton.visible = true
+		$Panel/Button.visible = false
 	
 	var corner_thought = $"Panel/AspectRatioContainer/Bubble-corner-thought"
 	var corner_talk = $"Panel/AspectRatioContainer/Bubble-corner"
@@ -53,11 +53,19 @@ func _show_chatbox():
 	if !is_disabled:
 		var 	tween = create_tween()
 		tween.tween_property(self, "modulate:a", 1.0, 0.2)  # Fade in
+		
+		var player = get_tree().get_first_node_in_group("player") as Player
+		if player:
+			player.stop_animation()
 	
 func _hide_chatbox():
 	var 	tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.2)  # Fade out
 	is_message_displayed = false
+	
+	var player = get_tree().get_first_node_in_group("player") as Player
+	if player:
+		player.start_animation()
 	
 func write_message(message: String):
 	_show_chatbox()
