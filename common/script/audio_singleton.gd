@@ -70,6 +70,9 @@ func fadein_safe() -> void:
 	
 func fadein_cutscene() -> void:
 	print("starting cutscene music")
+	stop_all()
+	cutscene_music.play()
+	
+func stop_all():
 	fade_audios(null, safe_music)
 	fade_audios(null, danger_music)
-	cutscene_music.play()

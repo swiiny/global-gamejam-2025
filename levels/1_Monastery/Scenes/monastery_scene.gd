@@ -162,4 +162,5 @@ func _on_chat_box_close(chat_box_id: String):
 
 
 func trigger_final_cutscene(body: Node2D) -> void:
+	AudioSingleton.stop_all()
 	$FadeTransition._move_to_scene("res://Cutscenes/monastery_beatup/assets/orchestrate.tscn")

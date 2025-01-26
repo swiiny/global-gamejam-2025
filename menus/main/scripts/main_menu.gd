@@ -63,7 +63,7 @@ func _on_start_button_pressed() -> void:
 		print("Play button pressed")
 		idle = false
 		var tween = create_tween()
-		$ChapterScene._set_chapter(1)
+		$ChapterScene._set_heading("Chapter 1")
 		$ChapterScene._set_title("Abandonement")
 		tween.tween_property($fade, "modulate:a", 1.0, 3.0) # 1.0 second duration
 		await get_tree().create_timer(3).timeout
