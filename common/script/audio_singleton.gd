@@ -17,9 +17,11 @@ func _ready():
 	add_child(safe_music)
 	add_child(danger_music)
 	add_child(cutscene_music)
+
 	safe_music.volume_db = -20
 
 func _setup_level(levelName: String) -> void:
+	print("setting up audio for level " + levelName)
 	if current_level == levelName:
 		return
 	var lookupLevel = levels[levelName]
@@ -37,6 +39,8 @@ func _setup_tracks(safe: String, danger: String, cutscene: String) -> void:
 	safe_music.stream = load(safe)
 	danger_music.stream = load(danger)
 	cutscene_music.stream = load(cutscene)
+	safe_music.stream.loop = true
+	danger_music.stream.loop = true
 	await get_tree().create_timer(0.5).timeout
 	safe_music.play()
 	danger_music.play()
