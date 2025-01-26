@@ -176,6 +176,7 @@ func _trigger_game_over(msg : String) -> void:
 	print("Game Over, respawning")
 	var player = get_tree().current_scene.find_child("Player") as Player
 	player.hide_aura()
+	get_tree().current_scene.hide_inventory()
 
 	player.are_movements_disabled = true
 	player._animate(Vector2(0, 0))  # Stop animation
