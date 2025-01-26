@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr6xg7tla3pkp"]
+[gd_scene load_steps=10 format=3 uid="uid://dr6xg7tla3pkp"]
 
 [ext_resource type="Texture2D" uid="uid://bdedjaun3r4r8" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_Compo.png" id="1_eiq5v"]
 [ext_resource type="Texture2D" uid="uid://rahlfmtr7s0d" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_Bullies.png" id="2_yhp7t"]
 [ext_resource type="Texture2D" uid="uid://d3grsyjhdphdh" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_Sindo.png" id="3_t4o4t"]
+[ext_resource type="Texture2D" uid="uid://bt6nomjeb38j4" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_BG.png" id="4_gkrva"]
+[ext_resource type="Texture2D" uid="uid://cjbatjoetu8qf" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_Bushes.png" id="5_sxyqc"]
+[ext_resource type="Texture2D" uid="uid://djikkawn0hsha" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/Chap2_Cutscene1_MonasteryLights.png" id="6_y42vb"]
 
 [sub_resource type="Animation" id="Animation_ovy5m"]
 resource_name = "scene1"
@@ -41,7 +44,31 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1.10664, 0.650694), Vector2(0.739063, 0.805556)]
+"values": [Vector2(1.10664, 0.650694), Vector2(0.852344, 0.805556)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Chap2Cutscene1MonasteryLights:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1.05903), Vector2(1, 1.16111)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Chap2Cutscene1Bullies:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(973, 529)]
 }
 
 [sub_resource type="Animation" id="Animation_i1jkg"]
@@ -82,6 +109,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0.754688, 0.585417)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Chap2Cutscene1MonasteryLights:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1.16111)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Chap2Cutscene1Bullies:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(973, 529)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ixson"]
 _data = {
@@ -97,11 +148,13 @@ scale = Vector2(0.745703, 0.743056)
 texture = ExtResource("1_eiq5v")
 
 [node name="Chap2Cutscene1Bullies" type="Sprite2D" parent="."]
-position = Vector2(962, 502)
+z_index = 3
+position = Vector2(973, 529)
 scale = Vector2(0.754688, 0.585417)
 texture = ExtResource("2_yhp7t")
 
 [node name="Chap2Cutscene1Sindo" type="Sprite2D" parent="."]
+z_index = 3
 position = Vector2(966.5, 551.5)
 scale = Vector2(0.745703, 0.752083)
 texture = ExtResource("3_t4o4t")
@@ -111,3 +164,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ixson")
 }
 autoplay = "scene1"
+
+[node name="Chap2Cutscene1Bg" type="Sprite2D" parent="."]
+position = Vector2(922, 530)
+texture = ExtResource("4_gkrva")
+
+[node name="Chap2Cutscene1Bushes" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(940, 347)
+texture = ExtResource("5_sxyqc")
+
+[node name="Chap2Cutscene1MonasteryLights" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(887, 531.5)
+scale = Vector2(1, 1.16111)
+texture = ExtResource("6_y42vb")
