@@ -4,6 +4,7 @@ extends StaticBody2D
 @export var noise_fill_rate: float = 1.0  # Base rate of tolerance filling
 
 @export var enemy_type: String = ""
+@export var is_in_room: String = ""
 
 var current_tolerance: float = 0.0  # Current noise tolerance
 var player: Node2D = null  # Reference to the player
@@ -29,17 +30,20 @@ func _process(delta: float) -> void:
 	if !is_alerted:
 		if player:
 			if player.is_moving:
-				# Calculate the distance between the player and the enemy
-				var distance = global_position.distance_to(player.global_position)
+				var tree = get_tree().current_scene
+				if tree:
+					if tree.current_room.name == self.is_in_room:
+						# Calculate the distance between the player and the enemy
+						var distance = global_position.distance_to(player.global_position)
 
-				# Calculate the noise impact based on distance
-				var noise_emitted = player.noise_level / max(1.0, distance)
-				
-				current_tolerance += noise_emitted * noise_fill_rate * delta * 8000
-				
-				# Trigger reaction if tolerance exceeds the threshold
-				if current_tolerance >= noise_tolerance:
-					_trigger_alert()
+						# Calculate the noise impact based on distance
+						var noise_emitted = player.noise_level / max(1.0, distance)
+						
+						current_tolerance += noise_emitted * noise_fill_rate * delta * 8000
+						
+						# Trigger reaction if tolerance exceeds the threshold
+						if current_tolerance >= noise_tolerance:
+							_trigger_alert()
 		elif !player:
 			# Reset tolerance if no player or already alerted
 			
