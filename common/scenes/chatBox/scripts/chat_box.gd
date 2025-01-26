@@ -52,8 +52,10 @@ func deactivate_modal():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	_update_layout()
 	
+	if self.modulate.a > 0:
+		_update_layout()
+		
 	var joy_pad_name = Input.get_joy_name(0)
 	
 	if joy_pad_name.contains("DualSense"):

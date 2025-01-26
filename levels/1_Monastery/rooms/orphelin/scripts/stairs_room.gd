@@ -44,7 +44,7 @@ func _on_tp_area_body_entered(body: Node2D) -> void:
 	if player:
 		
 		var tree = get_tree()
-		player.position = $TeleporterSecondRoomMarker2D.position
+		player.global_position = $TeleporterSecondRoomMarker2D.global_position
 		player.hide_aura()
 		tree.current_scene.hide_inventory()
 		
