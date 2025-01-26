@@ -35,6 +35,8 @@ func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
 		SignalBus.level_ending_sequence.emit()
 
 		print("you finished the level!!")
+		AudioSingleton.fadein_cutscene()
+
 		
 		# run the end of level logic here
 		# the EndOfLevelMarker2D is already placed in the tree
