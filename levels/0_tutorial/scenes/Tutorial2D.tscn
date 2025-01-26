@@ -91,7 +91,7 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(459, 181)
+position = Vector2(806, 302)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
 position = Vector2(269, 269)
@@ -278,6 +278,7 @@ libraries = {
 
 [node name="FadeTransition" parent="." instance=ExtResource("23_gafcm")]
 z_index = 200
+position = Vector2(-200, -200)
 
 [node name="Paths" type="Node2D" parent="."]
 position = Vector2(-8, 81)

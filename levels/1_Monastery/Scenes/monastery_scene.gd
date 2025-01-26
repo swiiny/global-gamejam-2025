@@ -124,8 +124,10 @@ func _init_audio():
 	AudioSingleton.fadein_safe()
 
 func _on_enemy_triggered(type: String):	
-	if type == 'monk' or type == 'orphelin':
-		_trigger_game_over("What are you doing here? Go back to bed")
+	if type == 'monk':
+		_trigger_game_over("Do not disturb god's peace")
+	elif  type == 'orphelin':
+		_trigger_game_over("Stop being noisy, I'm tired")
 	elif type == 'pig':
 		_trigger_game_over("Oink!")
 		
