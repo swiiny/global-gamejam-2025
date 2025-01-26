@@ -12,6 +12,8 @@ var fade_duration = 2.0  # Duration of the fade in seconds
 
 var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
 
+var control_mode = "keyboard"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# the following functions must be called at the beginning of every levels
@@ -21,9 +23,15 @@ func _ready() -> void:
 	_init_audio()
 	$CanvasLayer/AnimationPlayer.play("fadein")
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.get_connected_joypads().size() > 0:
+		control_mode = "gamepad"
+	elif OS.has_feature("mobile"):
+		control_mode = "touch"
+	else:
+		control_mode = "keyboard"
 
 func show_inventory() -> void:
 	var inventory_ui = $CanvasLayer/InventoryUi
@@ -151,8 +159,13 @@ func _on_enemy_triggered(type: String):
 					if player:
 						player.are_movements_disabled = true
 						
+						var key = "Shift"
+						
+						if control_mode == 'gamepad':
+							key = "B"
+						
 						# start the chat
-						chat_box.write_message("Go back to bed ! The parents gonna be mad if they wake up.")
+						chat_box.write_message("Go back to bed ! Or, at least be quite to not wake up the parents! (Press " + key + " to crouch)")
 						
 	if type == 'parent':
 		_trigger_game_over("What are you doing here? Go back to bed")
