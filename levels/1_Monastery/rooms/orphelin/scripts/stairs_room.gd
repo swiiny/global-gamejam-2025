@@ -58,11 +58,16 @@ func _on_tp_area_body_entered(body: Node2D) -> void:
 		#player.start_auto_control_with_instructions([Vector3(0, 1, 3.5), Vector3(-1, 0, 1), Vector3(0, 1, 2.5), Vector3(-1, 0, 2), Vector3(0, 1, 1), Vector3(-1, 0, 3.2), Vector3(0, 1, 1.5)])
 		var paths = tree.current_scene.find_child("Paths")
 		
+		var index = 0		
 		for path in paths.get_children():
 			await player.start_auto_control(path)	
-			# show message
-			await player.show_thought("...", "auto-close", 2)
-			await tree.create_timer(2).timeout
+			
+			if index == 0:
+				# show message
+				await player.show_thought("...", "auto-close", 2)
+				await tree.create_timer(2).timeout
+				
+			index += 1
 		
 
 
