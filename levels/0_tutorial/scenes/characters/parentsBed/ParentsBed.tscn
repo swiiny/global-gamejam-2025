@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c47pgf5v7tf7u"]
 
 [ext_resource type="Script" path="res://common/script/hitbox.gd" id="1_e52yn"]
-[ext_resource type="Texture2D" uid="uid://dsj1ajrr6lcqn" path="res://levels/0_tutorial/scenes/characters/assets/BedFarm.png" id="3_efpq2"]
+[ext_resource type="Texture2D" uid="uid://c60x2dqq0caxg" path="res://levels/0_tutorial/scenes/characters/assets/BedFarm.png" id="3_efpq2"]
 [ext_resource type="PackedScene" uid="uid://yj71flnek1f5" path="res://common/scenes/detectionLevelIndicator/scenes/DetectionLevelIndicator.tscn" id="4_bgl2g"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a6phx"]
@@ -52,4 +52,4 @@ position = Vector2(-57, -85)
 polygon = PackedVector2Array(-3, -1, 114, -1, 115, 148, 110, 170, 57, 174, 1, 173, -1, 150)
 
 [node name="DetectionLevelIndicator" parent="." instance=ExtResource("4_bgl2g")]
-position = Vector2(77, -26)
+position = Vector2(63, -54)
