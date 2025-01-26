@@ -93,7 +93,7 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(706, 232)
+position = Vector2(955, 1008)
 
 [node name="TileMaps" type="Node2D" parent="."]
 
