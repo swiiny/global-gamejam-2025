@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuqeojq0sfd4v"]
+[gd_scene load_steps=12 format=3 uid="uid://cuqeojq0sfd4v"]
 
 [ext_resource type="PackedScene" uid="uid://d1hlnr8373du0" path="res://Cutscenes/monastery_beatup/beatup_cutscene.tscn" id="1_3rms6"]
 [ext_resource type="PackedScene" uid="uid://ilrjc87ld4i5" path="res://Cutscenes/monastery_beatup/assets/beatenup.tscn" id="2_0oyaj"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cc5p1suy7ssdd" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/FriendlyNPC.png" id="4_anx8e"]
 [ext_resource type="Texture2D" uid="uid://b0m2qk7aigvch" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/BloodySindo.png" id="5_ymqf7"]
 [ext_resource type="Texture2D" uid="uid://coty0v2bf5px8" path="res://Cutscenes/monastery_beatup/assets/Chap2_cutscene1/SadSindo.png" id="6_p2coc"]
+[ext_resource type="AudioStream" uid="uid://dtvm53imwufmo" path="res://common/audio/CUTSCENE 2.mp3" id="7_c350r"]
+[ext_resource type="PackedScene" uid="uid://drbcq0t7ip4vb" path="res://common/scenes/TitleChapter/chapterScene.tscn" id="8_8qeb5"]
 
 [sub_resource type="Animation" id="Animation_8o1l4"]
 length = 0.001
@@ -69,10 +71,22 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_67rxp"]
 resource_name = "sequence"
-length = 30.0
+length = 40.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -80,7 +94,7 @@ tracks/0/path = NodePath("BeatupCutscene:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(5.06667, 8.03333),
+"times": PackedFloat32Array(6.63333, 8.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -104,7 +118,7 @@ tracks/2/path = NodePath("Node2D/FriendlyNpc:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(17.0667, 18.8667),
+"times": PackedFloat32Array(18.9, 21.1333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -116,7 +130,7 @@ tracks/3/path = NodePath("Node2D/BloodySindo:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(20.8333, 22.6667),
+"times": PackedFloat32Array(23.3333, 25.3333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -128,7 +142,19 @@ tracks/4/path = NodePath("Node2D/SadSindo:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(26.0333, 27),
+"times": PackedFloat32Array(23.1667, 25.3333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(30.9667, 33.7333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -180,3 +206,11 @@ texture = ExtResource("5_ymqf7")
 position = Vector2(428, 871)
 scale = Vector2(0.731338, 0.671178)
 texture = ExtResource("6_p2coc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_c350r")
+autoplay = true
+
+[node name="ChapterScene" parent="." instance=ExtResource("8_8qeb5")]
+default_title = "To be continued..."
+default_heading = "Who are you?"

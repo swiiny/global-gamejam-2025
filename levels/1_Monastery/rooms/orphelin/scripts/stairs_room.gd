@@ -50,6 +50,7 @@ func _on_tp_area_body_entered(body: Node2D) -> void:
 	var player = get_tree().get_first_node_in_group("player") as Player
 	if player:
 		
+		AudioSingleton.fadein_danger()
 		var tree = get_tree()
 		player.global_position = $TeleporterSecondRoomMarker2D.global_position
 		player.hide_aura()

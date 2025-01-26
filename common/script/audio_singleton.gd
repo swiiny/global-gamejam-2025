@@ -7,8 +7,8 @@ const fade_duration = 2.0  # Duration of the fade in seconds
 var levels = {"stable": ["res://levels/0_tutorial/audio/assets/main_loop_tutorial.mp3",
 						"res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3", 
 						"res://common/audio/CUTSCENE 1 V2.mp3"],
-			  "monastery": ["res://levels/0_tutorial/audio/assets/main_loop_tutorial.mp3", 
-							"res://levels/0_tutorial/audio/assets/main_loop_danger_tutorial.mp3",
+			  "monastery": ["res://levels/1_Monastery/assets/audios/level_2_main.mp3", 
+							"res://levels/1_Monastery/assets/audios/level_2_danger.mp3",
 							"res://common/audio/CUTSCENE 2.mp3"]}
 
 var current_level = ""
@@ -70,6 +70,9 @@ func fadein_safe() -> void:
 	
 func fadein_cutscene() -> void:
 	print("starting cutscene music")
+	stop_all()
+	cutscene_music.play()
+	
+func stop_all():
 	fade_audios(null, safe_music)
 	fade_audios(null, danger_music)
-	cutscene_music.play()

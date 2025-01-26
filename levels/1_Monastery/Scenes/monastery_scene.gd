@@ -124,8 +124,10 @@ func _init_audio():
 	AudioSingleton.fadein_safe()
 
 func _on_enemy_triggered(type: String):	
-	if type == 'monk' or type == 'orphelin':
-		_trigger_game_over("What are you doing here? Go back to bed")
+	if type == 'monk':
+		_trigger_game_over("Do not disturb god's peace")
+	elif  type == 'orphelin':
+		_trigger_game_over("Stop being noisy, I'm tired")
 	elif type == 'pig':
 		_trigger_game_over("Oink!")
 		
@@ -156,12 +158,11 @@ func _on_danger_zone_exited(body: Node2D):
 func _on_enter_end_level(body: Node2D) -> void:
 	print("end of level")
 
-	#$FadeTransition._move_to_scene("res://Cutscenes/intro_scene/chapter1_cutscene.tscn")
-	AudioSingleton._start_music("res://common/audio/CUTSCENE 2.mp3")
 
 func _on_chat_box_close(chat_box_id: String):
 	print("chat box closed")
 
 
 func trigger_final_cutscene(body: Node2D) -> void:
+	AudioSingleton.stop_all()
 	$FadeTransition._move_to_scene("res://Cutscenes/monastery_beatup/assets/orchestrate.tscn")
