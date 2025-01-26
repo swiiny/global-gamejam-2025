@@ -143,7 +143,7 @@ func _trigger_game_over(msg : String) -> void:
 	player._animate(Vector2(0, 0))  # Stop animation
 	LevelProgess.reset_progress()
 
-	$GameoverTransition._trigger_game_over("res://levels/1_tutorial/scenes/MonasteryScene.tscn", msg)
+	$GameoverTransition._trigger_game_over("res://levels/1_Monastery/scenes/MonasteryScene.tscn", msg)
 	
 # Fade out the specified audio
 func fade_audios(in_audio: AudioStreamPlayer2D, out_audio: AudioStreamPlayer2D):

@@ -13,10 +13,12 @@ func _process(delta: float) -> void:
 func _trigger_game_over(scene: String, message: String = "Game Over") -> void:
 	$CanvasLayer/Label.text = message
 
-	$AnimationPlayer.play("animate_game_over")
-	
+	$GameOverAnimation.play("animate_game_over")
+	print("trigger game over scene")
 	await get_tree().create_timer(2).timeout
-	$AnimationPlayer.play("fadeout_text")
+	var anim = $GameOverAnimation
+	#anim.play("fadeout_text")
+	print(anim.get_animation_list())
 	await get_tree().create_timer(2).timeout
-
+	print("changing scene to: " + scene)
 	get_tree().change_scene_to_file(scene)
