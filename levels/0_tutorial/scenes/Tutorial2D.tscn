@@ -24,16 +24,16 @@
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/scenes/fadeTransition/Fade Transition.tscn" id="23_gafcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0vr"]
-size = Vector2(606, 389)
+size = Vector2(591, 389)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxah4"]
 size = Vector2(140, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfh1k"]
-size = Vector2(890, 443)
+size = Vector2(878, 443)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8eu2"]
-size = Vector2(1074, 600)
+size = Vector2(1074, 579)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwprf"]
 size = Vector2(26, 223)
@@ -130,7 +130,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/ChildrenRoom/Area2D"]
 z_index = 2
-position = Vector2(943, 259.5)
+position = Vector2(935.5, 259.5)
 shape = SubResource("RectangleShape2D_cp0vr")
 debug_color = Color(0, 0.553191, 0.912511, 0.42)
 
@@ -171,7 +171,7 @@ debug_color = Color(0.831373, 0.392157, 0, 0.419608)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/ParentsRoom2d/Area2D"]
-position = Vector2(-285, -316.5)
+position = Vector2(-279, -316.5)
 shape = SubResource("RectangleShape2D_lfh1k")
 
 [node name="Bed" parent="Rooms/ParentsRoom2d" instance=ExtResource("8_e8s3d")]
@@ -197,7 +197,7 @@ script = ExtResource("13_o7x4w")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StableRoom/Area2D"]
-position = Vector2(757, 213)
+position = Vector2(757, 223.5)
 shape = SubResource("RectangleShape2D_m8eu2")
 
 [node name="OutOfRoomArea2D" type="Area2D" parent="Rooms/StableRoom"]

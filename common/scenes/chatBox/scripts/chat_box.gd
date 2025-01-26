@@ -120,7 +120,7 @@ func close_chat_box():
 	await _hide_chatbox()
 	force_hide_button = false
 	
-func _type_text(text: String, tree: SceneTree, speed: float = 0.05):
+func _type_text(text: String, tree: SceneTree, speed: float = 0.025):
 	label.text = ""
 	for c in text:
 		label.text += c

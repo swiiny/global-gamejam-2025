@@ -30,7 +30,7 @@
 size = Vector2(993, 366)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d5p8"]
-size = Vector2(992, 408)
+size = Vector2(992, 396)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbq01"]
 size = Vector2(620, 598)
@@ -39,13 +39,16 @@ size = Vector2(620, 598)
 size = Vector2(20, 294)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrf2n"]
-size = Vector2(1420, 256)
+size = Vector2(1396, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gearc"]
 size = Vector2(264, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd2ql"]
 size = Vector2(180, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbyqi"]
+size = Vector2(1070, 564)
 
 [sub_resource type="Animation" id="Animation_3qn02"]
 length = 0.001
@@ -82,9 +85,6 @@ _data = {
 "RESET": SubResource("Animation_3qn02"),
 "fadein": SubResource("Animation_iesq5")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbyqi"]
-size = Vector2(1070, 564)
 
 [sub_resource type="Curve2D" id="Curve2D_80v74"]
 _data = {
@@ -174,7 +174,7 @@ position = Vector2(-4, -2)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/OrphelinRoom2/Area2D"]
-position = Vector2(-726, 400)
+position = Vector2(-726, 422)
 shape = SubResource("RectangleShape2D_0d5p8")
 debug_color = Color(0.582285, 0.381571, 1, 0.42)
 
@@ -206,6 +206,7 @@ position = Vector2(1496, 292)
 script = ExtResource("14_ns3tw")
 
 [node name="Area2D" type="Area2D" parent="Rooms/MonkRoom"]
+position = Vector2(0, -22)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/MonkRoom/Area2D"]
@@ -242,9 +243,10 @@ script = ExtResource("17_xc120")
 
 [node name="Area2D" type="Area2D" parent="Rooms/StairsRoom"]
 position = Vector2(-2874, -382)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StairsRoom/Area2D"]
-position = Vector2(1746, 750)
+position = Vector2(1758, 750)
 shape = SubResource("RectangleShape2D_xrf2n")
 
 [node name="TPArea" type="Area2D" parent="Rooms/StairsRoom"]
@@ -266,6 +268,14 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StairsRoom/CantGoHereArea"]
 position = Vector2(-958, 211)
 shape = SubResource("RectangleShape2D_cd2ql")
+
+[node name="Area2D" type="Area2D" parent="Rooms"]
+collision_layer = 0
+collision_mask = 2304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Area2D"]
+position = Vector2(532, 3872)
+shape = SubResource("RectangleShape2D_nbyqi")
 
 [node name="MainLoopAudio" parent="." instance=ExtResource("12_rrb6n")]
 position = Vector2(-8, 0)
@@ -316,14 +326,6 @@ libraries = {
 [node name="FadeTransition" parent="." instance=ExtResource("21_5prla")]
 z_index = 2000
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2304
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(532, 3872)
-shape = SubResource("RectangleShape2D_nbyqi")
-
 [node name="Fontaine" type="Sprite2D" parent="."]
 position = Vector2(1150, 2342)
 scale = Vector2(2, 2)
@@ -346,4 +348,4 @@ curve = SubResource("Curve2D_rie6j")
 [connection signal="body_entered" from="Rooms/MonkRoom/Area2D2" to="Rooms/MonkRoom" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Rooms/StairsRoom/TPArea" to="Rooms/StairsRoom" method="_on_tp_area_body_entered"]
 [connection signal="body_entered" from="Rooms/StairsRoom/CantGoHereArea" to="Rooms/StairsRoom" method="_on_cant_go_here_area_body_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="trigger_final_cutscene"]
+[connection signal="body_entered" from="Rooms/Area2D" to="." method="trigger_final_cutscene"]
