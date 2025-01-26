@@ -7,6 +7,7 @@ var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.inventory_updated.connect(_on_inventory_updated)
+	SignalBus.chat_box_closed.connect(_on_player_hungry_chat_box_close)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,21 +20,18 @@ func _on_out_of_room_area_2d_body_entered(body: Node2D) -> void:
 		var player = get_tree().get_first_node_in_group("player") as Player
 			
 		if player:
-			var chat_box = player.find_child("ChatBox")
+			player.are_movements_disabled = true
+			player.stop_animation()
 			
-			if chat_box:
-				var _chat_box = ChatBox.new()
-				_chat_box.interact_with_chat(chat_box, "I'm hungry...", get_tree())
-				
-				player.are_movements_disabled = true
-				player.stop_animation()
-
-				await get_tree().create_timer(1.5).timeout
-				
-				# walk backward
-				await player.start_auto_control_with_instructions([Vector3(0, -0.5, 0.5)])
-				
-				_chat_box._hide_chat_box(chat_box)
+			player.show_thought("I'm hungry...", "hungry-id")
+	
+			
+			
+func _on_player_hungry_chat_box_close(type: String):
+	if type == 'hungry-id':
+		var player = get_tree().get_first_node_in_group("player") as Player
+		if player:
+			await player.start_auto_control_with_instructions([Vector3(0, -0.5, 0.5)])
 	
 func _on_inventory_updated(items: Array):
 	if !LevelProgess.is_completed(level.name, level.interactions.get_food.key):

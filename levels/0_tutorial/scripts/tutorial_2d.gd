@@ -12,18 +12,28 @@ var fade_duration = 2.0  # Duration of the fade in seconds
 
 var level = preload("res://levels/0_tutorial/scripts/level_data.gd").new()
 
+var control_mode = "keyboard"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# the following functions must be called at the beginning of every levels
 	_spawn()	
 	_set_camera()
 	_set_events()
-	_set_ui()
 	_init_audio()
 	$CanvasLayer/AnimationPlayer.play("fadein")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var joy_pad_name = Input.get_joy_name(0)
+	if joy_pad_name.contains("DualSense"):
+		control_mode = "ps"
+	elif joy_pad_name.contains("xbox"):
+		control_mode = "xbox"
+	elif OS.has_feature("mobile"):
+		control_mode = "touch"
+	else:
+		control_mode = "keyboard"
 	pass
 
 func show_inventory() -> void:
@@ -74,11 +84,6 @@ func _spawn():
 
 	# Adjust the player's position to center it on the spawn marker
 	$Character2d.position = spawn_position - player_size / 2
-
-	
-func _set_ui():
-	#$CanvasLayer/InventoryUi.visible = false
-	$Rooms/ChildrenRoom/BrotherBed/ChatBox.visible = false
 	
 # set the camera limits for this level
 func _set_camera(): 
@@ -94,6 +99,7 @@ func _set_camera():
 func _set_events():
 	SignalBus.enemy_triggered.connect(_on_enemy_triggered)
 	SignalBus.level_ending_sequence.connect(_on_level_ending_sequence)
+	SignalBus.chat_box_closed.connect(_on_chat_box_close)
 
 	# Connect `body_entered` signals for all rooms
 	for room in $Rooms.get_children():
@@ -149,22 +155,23 @@ func _on_enemy_triggered(type: String):
 			var brotherBed = get_tree().current_scene.find_child("BrotherBed") as Node2D
 			
 			if brotherBed:
-				var chat_box = brotherBed.find_child("ChatBox") as Panel
+				var chat_box = brotherBed.find_child("ChatBox") as Control
 				
 				if chat_box:				
 					var player = get_tree().current_scene.find_child("Player") as Player
 					if player:
 						player.are_movements_disabled = true
 						
-						# start the chat
-						ChatBox.new().interact_with_chat(chat_box, "Go back to bed ! The parents gonna be mad if they wake up.", get_tree())
+						var key = "Shift"
 						
-						# replace my key press trigger
-						await get_tree().create_timer(3).timeout
-						# re-activate player's movementst
-						player.are_movements_disabled = false
-						# hide the chatbox
-						chat_box.visible = false
+						if control_mode == 'xbox':
+							key = "B"
+						elif control_mode == 'ps':
+							key = "O"
+						
+						# start the chat
+						chat_box.write_message("Go back to bed ! Or, at least be quite to not wake up the parents! (Press " + key + " to crouch)")
+						
 	if type == 'parent':
 		_trigger_game_over("What are you doing here? Go back to bed")
 	elif type == 'pig':
@@ -210,6 +217,23 @@ func _on_danger_zone_exited(body: Node2D):
 func _on_enter_end_level(body: Node2D) -> void:
 	print("end of level")
 
-	$FadeTransition._move_to_scene("res://levels/1_monastery/scenes/MonasteryScene.tscn")
+	$FadeTransition._move_to_scene("res://Cutscenes/intro_scene/chapter1_cutscene.tscn")
 	fade_audios(null, main_audio)
 	fade_audios(null, danger_audio)
+
+func _on_chat_box_close(chat_box_id: String):
+	var brotherBed = get_tree().current_scene.find_child("BrotherBed") as Node2D
+	
+	if brotherBed:
+		var chat_box = brotherBed.find_child("ChatBox") as Control
+		
+		if chat_box:
+			if chat_box_id == 'brother':
+				chat_box.deactivate_modal()
+				
+				var player = get_tree().current_scene.find_child("Player") as Player
+				if player:
+					# re-activate player's movementst
+					player.are_movements_disabled = false
+				
+				
