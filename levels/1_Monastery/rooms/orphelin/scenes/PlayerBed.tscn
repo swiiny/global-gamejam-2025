@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://djgvs8n6px0i3"]
+
+[ext_resource type="Texture2D" uid="uid://b8ugrjwvqfnvp" path="res://levels/1_monastery/rooms/orphelin/assets/BedMonkLandscape_Defait.png" id="2_cfbs4"]
+[ext_resource type="Texture2D" uid="uid://d3uaxkqdcogih" path="res://levels/1_monastery/rooms/orphelin/assets/BedMonkLandscape_Frame.png" id="3_dj1sb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5ytg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cfbs4")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[node name="OrphelinBed" type="StaticBody2D"]
+
+[node name="Hitbox" type="Area2D" parent="." groups=["global_hitbox", "hitbox"]]
+collision_layer = 0
+collision_mask = 0
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+position = Vector2(-73, -64.5)
+scale = Vector2(1, 0.95)
+polygon = PackedVector2Array(161, 115.263, -17, 113.158, -18, 1.57895, 152, -0.526321)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_n5ytg")
+animation = &"sleep"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_dj1sb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-73, -64.5)
+scale = Vector2(1, 0.95)
+polygon = PackedVector2Array(161, 115.263, -17, 113.158, -18, 1.57895, 152, -0.526321)

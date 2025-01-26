@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dgy4uqgss257q"]
+[gd_scene load_steps=19 format=4 uid="uid://dgy4uqgss257q"]
 
 [ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
 [ext_resource type="PackedScene" uid="uid://jnd4pgnp2re5" path="res://Cutscenes/intro_scene/chapter1_cutscene.tscn" id="2_sek1j"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://flmcnd83mbra" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinRoom2.tscn" id="9_jheu0"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/orphelin_room_2.gd" id="11_hpu1l"]
 [ext_resource type="PackedScene" uid="uid://budpbrftfybse" path="res://levels/1_monastery/rooms/orphelin/scenes/AnotherBed.tscn" id="11_k860j"]
+[ext_resource type="PackedScene" uid="uid://djgvs8n6px0i3" path="res://levels/1_monastery/rooms/orphelin/scenes/PlayerBed.tscn" id="12_a7dtk"]
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="12_rrb6n"]
 [ext_resource type="AudioStream" uid="uid://drq4c8rjg6a7r" path="res://levels/1_monastery/assets/audios/level_2_main.mp3" id="13_mmm7e"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="14_wey3h"]
@@ -37,7 +38,7 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(648, 257)
+position = Vector2(932, 192)
 
 [node name="Downstairs" type="Sprite2D" parent="."]
 position = Vector2(2595, 279.5)
@@ -78,20 +79,24 @@ debug_color = Color(4.23551e-06, 0.579751, 0.803845, 0.42)
 [node name="OrphelinBed" parent="Rooms/OrphelinRoom1" instance=ExtResource("8_vmo0k")]
 z_index = 8
 position = Vector2(-264, -22)
+enemy_type = "orphelin"
 
 [node name="OrphelinBed2" parent="Rooms/OrphelinRoom1" instance=ExtResource("8_vmo0k")]
 z_index = 8
 position = Vector2(-32, -16)
+enemy_type = "orphelin"
 
 [node name="OrphelinBed3" parent="Rooms/OrphelinRoom1" instance=ExtResource("8_vmo0k")]
 z_index = 8
 position = Vector2(226, -16)
+enemy_type = "orphelin"
 
 [node name="OrphelinRoom2" parent="Rooms" instance=ExtResource("9_jheu0")]
 position = Vector2(1266, 230)
 script = ExtResource("11_hpu1l")
 
 [node name="Area2D" type="Area2D" parent="Rooms/OrphelinRoom2"]
+position = Vector2(-4, -2)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/OrphelinRoom2/Area2D"]
@@ -99,23 +104,28 @@ position = Vector2(-726, 400)
 shape = SubResource("RectangleShape2D_0d5p8")
 debug_color = Color(0.582285, 0.381571, 1, 0.42)
 
-[node name="OrphelinBed" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
-position = Vector2(-1078, 546)
-
 [node name="OrphelinBed2" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
 position = Vector2(-720, 538)
+enemy_type = "monk"
 
 [node name="OrphelinBed3" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
 position = Vector2(-1064, 340)
+enemy_type = "monk"
 
 [node name="OrphelinBed4" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
 position = Vector2(-762, 326)
+enemy_type = "monk"
 
 [node name="OrphelinBed5" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
 position = Vector2(-418, 316)
+enemy_type = "monk"
 
 [node name="OrphelinBed6" parent="Rooms/OrphelinRoom2" instance=ExtResource("11_k860j")]
 position = Vector2(-404, 486)
+enemy_type = "monk"
+
+[node name="OrphelinBed" parent="Rooms/OrphelinRoom2" instance=ExtResource("12_a7dtk")]
+position = Vector2(-1068, 172)
 
 [node name="MainLoopAudio" parent="." instance=ExtResource("12_rrb6n")]
 position = Vector2(-8, 0)
