@@ -16,10 +16,12 @@ func _process(delta: float) -> void:
 			
 			
 func _on_player_chat_box_close(type: String):
-	if type == 'need-key-id':
 		var player = get_tree().get_first_node_in_group("player") as Player
 		if player:
-			await player.start_auto_control_with_instructions([Vector3(-0.5, 0, 0.5)])
+			if type == 'need-key-id':
+					await player.start_auto_control_with_instructions([Vector3(-0.5, 0, 0.5)])
+			elif type == 'can-t-go-here':
+					await player.start_auto_control_with_instructions([Vector3(0, 0.5, 0.5)])
 
 func _on_inventory_updated(items: Array):
 	if !LevelProgess.is_completed(level.name, level.interactions.have_the_key.key):
@@ -55,3 +57,13 @@ func _on_tp_area_body_entered(body: Node2D) -> void:
 
 		
 		
+
+
+func _on_cant_go_here_area_body_entered(body: Node2D) -> void:
+	var player = get_tree().get_first_node_in_group("player") as Player
+			
+	if player:
+		player.are_movements_disabled = true
+		player.stop_animation()
+		
+		player.show_thought("There is nothing for me here...", "can-t-go-here")

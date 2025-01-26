@@ -85,16 +85,18 @@ func _process(delta: float) -> void:
 func _show_chatbox():
 	if !is_disabled:
 		var 	tween = create_tween()
-		tween.tween_property(self, "modulate:a", 1.0, 0.2)  # Fade in
-		
-		var player = get_tree().get_first_node_in_group("player") as Player
-		if player:
-			player.stop_animation()
+		if tween:
+			tween.tween_property(self, "modulate:a", 1.0, 0.2)  # Fade in
+			
+			var player = get_tree().get_first_node_in_group("player") as Player
+			if player:
+				player.stop_animation()
 	
 func _hide_chatbox():
 	var 	tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 0.2)  # Fade out
-	is_message_displayed = false
+	if tween:
+		tween.tween_property(self, "modulate:a", 0.0, 0.2)  # Fade out
+		is_message_displayed = false
 	
 	var player = get_tree().get_first_node_in_group("player") as Player
 	if player:
@@ -115,21 +117,7 @@ func _type_text(text: String, tree: SceneTree, speed: float = 0.05):
 func _update_layout():
 	self.z_index = 20
 	# set dynamically the container height based on label height
-	var margin_container = self
-	
-	# Ensure the label has content and calculate its height
-	if label and margin_container:
-		var target_height = label.get_minimum_size().y  # Dynamically calculate label height
-		var current_height = margin_container.size.y
-
-		# Animate the height adjustment using a Tween
-		var tween = create_tween()
-		tween.tween_property(
-			margin_container,
-			"rect_min_size:y",
-			target_height,
-			0.5,  # Duration of animation in seconds
-		)#.set_trans(Tween.TRANS_SINE).set_ease(Tween.EaseType.EASE_IN_OUT)
+	var margin_container = self	
 	
 	var topH = $"Panel/AspectRatioContainer/Bubble-up" as Sprite2D
 	var bottomH = $"Panel/AspectRatioContainer/Bubble-down" as Sprite2D

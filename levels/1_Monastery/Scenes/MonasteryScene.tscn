@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dgy4uqgss257q"]
+[gd_scene load_steps=35 format=4 uid="uid://dgy4uqgss257q"]
 
 [ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
 [ext_resource type="PackedScene" uid="uid://jnd4pgnp2re5" path="res://Cutscenes/intro_scene/chapter1_cutscene.tscn" id="2_sek1j"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/stairs_room.gd" id="17_xc120"]
 [ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="20_ehmdq"]
 [ext_resource type="Texture2D" uid="uid://kr8mpumedffy" path="res://levels/1_monastery/assets/fontaine.png" id="23_47i5p"]
+[ext_resource type="PackedScene" uid="uid://bwbp0h3ishbks" path="res://common/scenes/gameoverTransition/gameover_transition.tscn" id="24_u7tg4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avcda"]
 size = Vector2(993, 366)
@@ -41,6 +42,9 @@ size = Vector2(1420, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gearc"]
 size = Vector2(264, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd2ql"]
+size = Vector2(180, 50)
 
 [sub_resource type="Animation" id="Animation_3qn02"]
 length = 0.001
@@ -231,6 +235,14 @@ shape = SubResource("RectangleShape2D_gearc")
 [node name="TeleporterSecondRoomMarker2D" type="Marker2D" parent="Rooms/StairsRoom"]
 position = Vector2(-794, 890)
 
+[node name="CantGoHereArea" type="Area2D" parent="Rooms/StairsRoom"]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StairsRoom/CantGoHereArea"]
+position = Vector2(-958, 211)
+shape = SubResource("RectangleShape2D_cd2ql")
+
 [node name="MainLoopAudio" parent="." instance=ExtResource("12_rrb6n")]
 position = Vector2(-8, 0)
 stream = ExtResource("13_mmm7e")
@@ -285,5 +297,8 @@ texture = ExtResource("23_47i5p")
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
 position = Vector2(856, 240)
 
+[node name="GameoverTransition" parent="." instance=ExtResource("24_u7tg4")]
+
 [connection signal="body_entered" from="Rooms/MonkRoom/Area2D2" to="Rooms/MonkRoom" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Rooms/StairsRoom/TPArea" to="Rooms/StairsRoom" method="_on_tp_area_body_entered"]
+[connection signal="body_entered" from="Rooms/StairsRoom/CantGoHereArea" to="Rooms/StairsRoom" method="_on_cant_go_here_area_body_entered"]

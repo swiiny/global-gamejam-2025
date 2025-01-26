@@ -50,6 +50,7 @@ func _input(event):
 			print("InventoryUI node not found!")
 
 func _set_events():
+	SignalBus.enemy_triggered.connect(_on_enemy_triggered)
 	var rooms = get_tree().current_scene.find_child("Rooms") as Node2D
 	# Connect `body_entered` signals for all rooms
 	for room in rooms.get_children():
@@ -125,6 +126,24 @@ func _init_audio():
 	
 	# activate fade in for main_audio
 	fade_audios(main_audio, null)
+
+func _on_enemy_triggered(type: String):	
+	if type == 'monk' or type == 'orphelin':
+		_trigger_game_over("What are you doing here? Go back to bed")
+	elif type == 'pig':
+		_trigger_game_over("Oink!")
+		
+func _trigger_game_over(msg : String) -> void:
+	print("Game Over, respawning")
+	var player = get_tree().current_scene.find_child("Player") as Player
+	player.hide_aura()
+	get_tree().current_scene.hide_inventory()
+
+	player.are_movements_disabled = true
+	player._animate(Vector2(0, 0))  # Stop animation
+	LevelProgess.reset_progress()
+
+	$GameoverTransition._trigger_game_over("res://levels/1_tutorial/scenes/MonasteryScene.tscn", msg)
 	
 # Fade out the specified audio
 func fade_audios(in_audio: AudioStreamPlayer2D, out_audio: AudioStreamPlayer2D):
