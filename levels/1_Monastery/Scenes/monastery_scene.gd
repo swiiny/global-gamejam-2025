@@ -1,6 +1,6 @@
 extends Node2D
 
-var current_room = null 
+var current_room = null
 var is_in_danger_room = false
 #
 #@onready var main_audio = $MainLoopAudio as AudioStreamPlayer2D
@@ -33,10 +33,10 @@ func hide_inventory() -> void:
 		var tween = create_tween()
 		tween.tween_property(inventory_ui, "modulate:a", 0.0, 0.2)  # Fade out over 1 second
 		tween.connect("finished", Callable(self, "_on_inventory_hidden").bind(inventory_ui))
-	
+
 func _on_inventory_hidden(inventory_ui: CanvasItem) -> void:
 	inventory_ui.visible = false  # Hide after fading out
-	
+
 func _input(event):
 	if event.is_action_pressed("ui_inventory"):
 		var inventory_ui = $CanvasLayer/InventoryUi
@@ -77,12 +77,12 @@ func _spawn():
 	$Character2d.position = spawn_position - player_size / 2
 
 # set the camera limits for this level
-func _set_camera(): 
+func _set_camera():
 	print("setting camera")
 	var camera = $Character2d/Player/Camera2D
-	
+
 	camera.zoom = Vector2(2, 2)
-	
+
 	camera.limit_left = 0
 	camera.limit_right = 34 * 64
 	camera.limit_top = -1 * 64
@@ -93,17 +93,17 @@ func _set_camera():
 
 func _trigger_end_level(body: Node2D) -> void:
 	print("start end level")
-	
+
 func _on_area_body_entered(body, room):
 	print(body.name)
 	if body.name == "Player":
 		print(body, room)
 		if current_room != room:
 			print("Entering:", room.name)
-			
+
 			# Enable the new room
 			current_room = room
-			
+
 			if current_room.is_danger and not is_in_danger_room:
 				is_in_danger_room = true
 				_on_danger_zone_entered(body)
@@ -115,22 +115,22 @@ func _init_audio():
 	# deactive volume for both players
 	#main_audio.volume_db = -100
 	#danger_audio.volume_db = -100
-	
+
 	# UX await
 	await get_tree().create_timer(0.5).timeout
-	
+
 	AudioSingleton._setup_level("monastery")
 	# activate fade in for main_audio
 	AudioSingleton.fadein_safe()
 
-func _on_enemy_triggered(type: String):	
+func _on_enemy_triggered(type: String):
 	if type == 'monk':
 		_trigger_game_over("Do not disturb god's peace")
 	elif  type == 'orphelin':
 		_trigger_game_over("Stop being noisy, I'm tired")
 	elif type == 'pig':
 		_trigger_game_over("Oink!")
-		
+
 func _trigger_game_over(msg : String) -> void:
 	print("Game Over, respawning")
 	var player = get_tree().current_scene.find_child("Player") as Player
@@ -141,7 +141,7 @@ func _trigger_game_over(msg : String) -> void:
 	player._animate(Vector2(0, 0))  # Stop animation
 	LevelProgess.reset_progress()
 
-	$GameoverTransition._trigger_game_over("res://levels/1_Monastery/scenes/monastery_scene.tscn", msg)
+	$GameoverTransition._trigger_game_over("res://levels/1_monastery/scenes/monastery_scene.tscn", msg)
 
 # Trigger when entering the danger zone
 func _on_danger_zone_entered(body: Node2D):
