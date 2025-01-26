@@ -5,26 +5,50 @@ var idle = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Input.get_connected_joypads().size() > 0:
-		control_mode = "gamepad"
+	var joy_pad_name = Input.get_joy_name(0)
+		
+	if joy_pad_name.contains("DualSense"):
+		control_mode = "ps"
+		$VBoxContainer/ps_controller_label.visible = true
+		$VBoxContainer/StartButton.visible = false
+	elif joy_pad_name.contains("xbox"):
+		control_mode = "xbox"
 		$VBoxContainer/xbox_controller_label.visible = true
+		$VBoxContainer/StartButton.visible = false
 	elif OS.has_feature("mobile"):
 		control_mode = "touch"
 		$VBoxContainer/touch_screen_label.visible = true
+		$VBoxContainer/StartButton.visible = false
 	else:
 		control_mode = "keyboard"
 		$VBoxContainer/StartButton.visible = true
+		
+	pass
 
-	print("Control Mode: ", control_mode)
-
+			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var joy_pad_name = Input.get_joy_name(0)
+		
+	if joy_pad_name.contains("DualSense"):
+		control_mode = "ps"
+		$VBoxContainer/ps_controller_label.visible = true
+		$VBoxContainer/StartButton.visible = false
+	elif joy_pad_name.contains("xbox"):
+		control_mode = "xbox"
+		$VBoxContainer/xbox_controller_label.visible = true
+		$VBoxContainer/StartButton.visible = false
+	elif OS.has_feature("mobile"):
+		control_mode = "touch"
+		$VBoxContainer/touch_screen_label.visible = true
+		$VBoxContainer/StartButton.visible = false
+	else:
+		control_mode = "keyboard"
+		$VBoxContainer/StartButton.visible = true
+		
 	if Input.is_action_pressed("ui_select"):
 		_on_start_button_pressed()
 	pass
-func _input(event):
-	if event is InputEventMouseButton and event.pressed:
-		_on_start_button_pressed()
 
 func _unhandled_input(event):
 	if control_mode == "keyboard":

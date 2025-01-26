@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://dgy4uqgss257q"]
 
-[ext_resource type="PackedScene" uid="uid://b7qlba7qjpecu" path="res://levels/1_Monastery/scenes/level2tilemap.tscn" id="1_mossd"]
+[ext_resource type="PackedScene" path="res://levels/1_Monastery/scenes/level2tilemap.tscn" id="1_mossd"]
 [ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
 [ext_resource type="PackedScene" uid="uid://jnd4pgnp2re5" path="res://Cutscenes/intro_scene/chapter1_cutscene.tscn" id="2_sek1j"]
-[ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="3_bybr7"]
-[ext_resource type="Texture2D" uid="uid://cduq5xp8xgodc" path="res://levels/1_Monastery/assets/downstairs.png" id="5_gxh74"]
+[ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/Character2D.tscn" id="3_bybr7"]
+[ext_resource type="Texture2D" uid="uid://b3g6cn5tvo8e7" path="res://levels/1_Monastery/assets/downstairs.png" id="5_gxh74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo5em"]
 size = Vector2(183, 177)
