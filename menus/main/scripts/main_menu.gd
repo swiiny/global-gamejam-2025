@@ -34,9 +34,9 @@ func _unhandled_input(event):
 
 
 func _on_start_button_pressed() -> void:
-	print("Play button pressed")
 	# Load and change to the game scene
 	if idle:
+		print("Play button pressed")
 		idle = false
 		var tween = create_tween()
 		tween.tween_property($fade, "modulate:a", 1.0, 3.0) # 1.0 second duration
