@@ -47,12 +47,16 @@ func show_aura():
 	tween.tween_property($AuraArea2D, "modulate:a", 1.0, 0.2)  # Fade to opacity 1 in 1 second
 	$AuraArea2D.set_collision_layer_value(9, true)
 	
-func show_thought(message: String, message_id: String):
+func show_thought(message: String, message_id: String, auto_close_delay_in_s: int = 0):
 	if !message:
 		return
 		
 	$ChatBox.chat_box_id = message_id
-	$ChatBox.write_message(message)
+	
+	if auto_close_delay_in_s == 0:
+		$ChatBox.write_message(message)
+	else:
+		$ChatBox.write_message_with_delay(message, auto_close_delay_in_s)
 
 func _process(delta: float) -> void:
 	# Get movement direction and velocity
@@ -164,7 +168,7 @@ func stop_animation():
 	
 func start_animation():
 	$AnimatedSprite2D.play()
-	
+
 func start_auto_control_with_instructions(instructions: Array) -> void:
 	are_movements_disabled = true
 	is_player_controlled_by_the_user = false
@@ -180,17 +184,17 @@ func start_auto_control_with_instructions(instructions: Array) -> void:
 	
 	are_movements_disabled = false
 	is_player_controlled_by_the_user = true
-	
+		
 func start_auto_control(path: Path2D) -> void:
 	are_movements_disabled = true
 	is_player_following_a_path = true
 
-	# Get the starting position of the path
+	# Get the starting position of the path in global space
 	var curve = path.curve
-	var start_position = curve.sample_baked(0.0)
-	
+	var start_position = path.global_transform.origin + path.global_transform.basis_xform(curve.sample_baked(0.0))
+
 	# Smoothly move the player to the path's starting position if not already there
-	if global_position.distance_to(start_position) > 1.0:  # Only interpolate if not already at the start
+	if global_position.distance_to(start_position) > 1.0:
 		await _move_to_start(start_position)
 
 	var path_length = curve.get_baked_length()  # Total length of the path
@@ -198,9 +202,9 @@ func start_auto_control(path: Path2D) -> void:
 	var speed = 150.0  # Speed in pixels per second
 
 	while path_position < path_length:
-		# Get the next position along the path
-		var next_position = curve.sample_baked(path_position)
-		var tangent = (curve.sample_baked(path_position + 1.0) - next_position).normalized()
+		# Get the next position along the path in global space
+		var next_position = path.global_transform.origin + path.global_transform.basis_xform(curve.sample_baked(path_position))
+		var tangent = (path.global_transform.origin + path.global_transform.basis_xform(curve.sample_baked(path_position + 1.0)) - next_position).normalized()
 
 		# Determine movement direction for animation
 		var is_x_bigger = abs(tangent.x) > abs(tangent.y)
@@ -227,9 +231,11 @@ func start_auto_control(path: Path2D) -> void:
 	# Stop movement when the path is complete
 	_animate(Vector2(0, 0))  # Stop animation
 	$AnimatedSprite2D.stop()
-	
+
 	are_movements_disabled = false
 	is_player_following_a_path = false
+
+
 
 func _move_to_start(start_position: Vector2) -> void:
 	print("Moving player to path start position:", start_position)
