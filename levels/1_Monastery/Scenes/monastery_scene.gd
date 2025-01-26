@@ -19,6 +19,36 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func show_inventory() -> void:
+	var inventory_ui = $CanvasLayer/InventoryUi
+	if inventory_ui:
+		inventory_ui.visible = true  # Make it visible before animating
+		inventory_ui.modulate.a = 0.0  # Start with full transparency
+
+		var tween = create_tween()
+		tween.tween_property(inventory_ui, "modulate:a", 1.0, 0.2)  # Fade in over 1 second
+
+func hide_inventory() -> void:
+	var inventory_ui = $CanvasLayer/InventoryUi
+	if inventory_ui:
+		var tween = create_tween()
+		tween.tween_property(inventory_ui, "modulate:a", 0.0, 0.2)  # Fade out over 1 second
+		tween.connect("finished", Callable(self, "_on_inventory_hidden").bind(inventory_ui))
+	
+func _on_inventory_hidden(inventory_ui: CanvasItem) -> void:
+	inventory_ui.visible = false  # Hide after fading out
+	
+func _input(event):
+	if event.is_action_pressed("ui_inventory"):
+		var inventory_ui = $CanvasLayer/InventoryUi
+		if inventory_ui:
+			if inventory_ui.visible:
+				hide_inventory()
+			else:
+				show_inventory()
+		else:
+			print("InventoryUI node not found!")
+
 func _set_events():
 	var rooms = get_tree().current_scene.find_child("Rooms") as Node2D
 	# Connect `body_entered` signals for all rooms
