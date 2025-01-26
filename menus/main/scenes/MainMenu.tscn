@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bh5qfewn53ccx"]
 
 [ext_resource type="Script" path="res://menus/main/scripts/main_menu.gd" id="1_t5u2m"]
-[ext_resource type="Texture2D" uid="uid://bw73nmnkc6fp5" path="res://menus/main/assets/MainMenu.png" id="2_xwvcv"]
-[ext_resource type="FontFile" uid="uid://xh6qhxs4gtmi" path="res://Fonts/Almendra/Almendra-Regular.ttf" id="3_wo1ra"]
-[ext_resource type="FontFile" uid="uid://cx5yjvnv2t7xt" path="res://Fonts/Lugrasimo/Lugrasimo-Regular.ttf" id="4_2l4rv"]
-[ext_resource type="Texture2D" uid="uid://dyynyitf5bdya" path="res://menus/main/assets/Vector.png" id="5_r6eiv"]
-[ext_resource type="Texture2D" uid="uid://c7cc73b2et25e" path="res://menus/main/assets/outline-blue-cross.png" id="6_30rkb"]
+[ext_resource type="Texture2D" uid="uid://bjk20bgtlx1tt" path="res://menus/main/assets/MainMenu.png" id="2_xwvcv"]
+[ext_resource type="FontFile" uid="uid://cqyk125rp1i6a" path="res://Fonts/Almendra/Almendra-Regular.ttf" id="3_wo1ra"]
+[ext_resource type="FontFile" uid="uid://bui7lmecar8c1" path="res://Fonts/Lugrasimo/Lugrasimo-Regular.ttf" id="4_2l4rv"]
+[ext_resource type="Texture2D" uid="uid://c35bo6y83vejr" path="res://menus/main/assets/Vector.png" id="5_r6eiv"]
+[ext_resource type="Texture2D" uid="uid://dcgcpsc45qhmx" path="res://menus/main/assets/outline-blue-cross.png" id="6_30rkb"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

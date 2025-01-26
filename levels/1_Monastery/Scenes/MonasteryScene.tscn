@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
 [ext_resource type="PackedScene" uid="uid://jnd4pgnp2re5" path="res://Cutscenes/intro_scene/chapter1_cutscene.tscn" id="2_sek1j"]
-[ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/scenes/Character2D.tscn" id="3_bybr7"]
+[ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/Character2D.tscn" id="3_bybr7"]
 [ext_resource type="Texture2D" uid="uid://bbvrlbyh0rpnc" path="res://levels/1_monastery/assets/downstairs.png" id="5_gxh74"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="6_un1o2"]
 
