@@ -5,7 +5,7 @@ var speed = normal_speed  # Movement speed in pixels/sec.
 var slow_speed = 90
 var default_noise_level = 1.2
 # the sneaky emits 80% less noise
-var sneaky_noise_level = default_noise_level * (0.3 / (normal_speed/slow_speed))
+var sneaky_noise_level = default_noise_level * (0.0 / (normal_speed/slow_speed))
 
 @export var noise_level = default_noise_level
 var currently_moving := false
