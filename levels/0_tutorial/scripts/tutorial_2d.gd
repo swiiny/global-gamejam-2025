@@ -23,15 +23,18 @@ func _ready() -> void:
 	_init_audio()
 	$CanvasLayer/AnimationPlayer.play("fadein")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.get_connected_joypads().size() > 0:
-		control_mode = "gamepad"
+	var joy_pad_name = Input.get_joy_name(0)
+	if joy_pad_name.contains("DualSense"):
+		control_mode = "ps"
+	elif joy_pad_name.contains("xbox"):
+		control_mode = "xbox"
 	elif OS.has_feature("mobile"):
 		control_mode = "touch"
 	else:
 		control_mode = "keyboard"
+	pass
 
 func show_inventory() -> void:
 	var inventory_ui = $CanvasLayer/InventoryUi
@@ -161,8 +164,10 @@ func _on_enemy_triggered(type: String):
 						
 						var key = "Shift"
 						
-						if control_mode == 'gamepad':
+						if control_mode == 'xbox':
 							key = "B"
+						elif control_mode == 'ps':
+							key = "O"
 						
 						# start the chat
 						chat_box.write_message("Go back to bed ! Or, at least be quite to not wake up the parents! (Press " + key + " to crouch)")
