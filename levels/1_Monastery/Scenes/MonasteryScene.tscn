@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dgy4uqgss257q"]
+[gd_scene load_steps=37 format=4 uid="uid://dgy4uqgss257q"]
 
 [ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
 [ext_resource type="PackedScene" uid="uid://jnd4pgnp2re5" path="res://Cutscenes/intro_scene/chapter1_cutscene.tscn" id="2_sek1j"]
@@ -7,17 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://dpmvac8y2qhwt" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinRoom1.tscn" id="6_7ew58"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="6_un1o2"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/orphelin_room_1.gd" id="7_beq27"]
-[ext_resource type="PackedScene" uid="uid://dq6b55mclabrp" path="res://levels/1_Monastery/rooms/orphelin/scenes/OrphelinBed.tscn" id="8_vmo0k"]
-[ext_resource type="PackedScene" uid="uid://flmcnd83mbra" path="res://levels/1_Monastery/rooms/orphelin/scenes/OrphelinRoom2.tscn" id="9_jheu0"]
+[ext_resource type="PackedScene" uid="uid://dq6b55mclabrp" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinBed.tscn" id="8_vmo0k"]
+[ext_resource type="PackedScene" uid="uid://flmcnd83mbra" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinRoom2.tscn" id="9_jheu0"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/orphelin_room_2.gd" id="11_hpu1l"]
-[ext_resource type="PackedScene" uid="uid://budpbrftfybse" path="res://levels/1_Monastery/rooms/orphelin/scenes/AnotherBed.tscn" id="11_k860j"]
-[ext_resource type="PackedScene" uid="uid://djgvs8n6px0i3" path="res://levels/1_Monastery/rooms/orphelin/scenes/PlayerBed.tscn" id="12_a7dtk"]
+[ext_resource type="PackedScene" uid="uid://budpbrftfybse" path="res://levels/1_monastery/rooms/orphelin/scenes/AnotherBed.tscn" id="11_k860j"]
+[ext_resource type="PackedScene" uid="uid://djgvs8n6px0i3" path="res://levels/1_monastery/rooms/orphelin/scenes/PlayerBed.tscn" id="12_a7dtk"]
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="12_rrb6n"]
 [ext_resource type="AudioStream" uid="uid://drq4c8rjg6a7r" path="res://levels/1_monastery/assets/audios/level_2_main.mp3" id="13_mmm7e"]
 [ext_resource type="PackedScene" uid="uid://b6cxhlkn8e818" path="res://levels/1_monastery/rooms/orphelin/scenes/MonkRoom.tscn" id="13_pdgei"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/monk_room.gd" id="14_ns3tw"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="14_wey3h"]
-[ext_resource type="AudioStream" uid="uid://dhio4wt3m4y1y" path="res://levels/1_monastery/assets/audios/level_2_danger.mp3" id="15_2a3yo"]
+[ext_resource type="AudioStream" uid="uid://dtrcxhbupuv2q" path="res://levels/1_monastery/assets/audios/level_2_danger.mp3" id="15_2a3yo"]
 [ext_resource type="PackedScene" uid="uid://r0t8bfagke7f" path="res://collectibles/shared/scenes/Collectible.tscn" id="15_pd86b"]
 [ext_resource type="PackedScene" uid="uid://b214y642wy68f" path="res://levels/1_monastery/rooms/orphelin/scenes/StairsRoom.tscn" id="16_ceyhy"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/stairs_room.gd" id="17_xc120"]
@@ -297,12 +297,13 @@ libraries = {
 z_index = 2000
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2304
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(532, 3872)
 shape = SubResource("RectangleShape2D_nbyqi")
 
-[connection signal="body_entered" from="Area2D" to="." method="trigger_final_cutscene"]
 [node name="Fontaine" type="Sprite2D" parent="."]
 position = Vector2(1150, 2342)
 scale = Vector2(2, 2)
@@ -316,3 +317,4 @@ position = Vector2(856, 240)
 [connection signal="body_entered" from="Rooms/MonkRoom/Area2D2" to="Rooms/MonkRoom" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Rooms/StairsRoom/TPArea" to="Rooms/StairsRoom" method="_on_tp_area_body_entered"]
 [connection signal="body_entered" from="Rooms/StairsRoom/CantGoHereArea" to="Rooms/StairsRoom" method="_on_cant_go_here_area_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="trigger_final_cutscene"]

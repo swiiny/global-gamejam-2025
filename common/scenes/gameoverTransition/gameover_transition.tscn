@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwbp0h3ishbks"]
+[gd_scene load_steps=7 format=3 uid="uid://bwbp0h3ishbks"]
 
 [ext_resource type="Script" path="res://common/scenes/gameoverTransition/gameover_transition.gd" id="1_ge4tx"]
+[ext_resource type="FontFile" uid="uid://bqi8egnhvwoh8" path="res://Fonts/Almendra/Almendra-Bold.ttf" id="2_x2w27"]
 
 [sub_resource type="Animation" id="Animation_t1umq"]
 length = 0.001
@@ -101,5 +102,6 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_x2w27")
 theme_override_font_sizes/font_size = 60
 text = "Game Over"
