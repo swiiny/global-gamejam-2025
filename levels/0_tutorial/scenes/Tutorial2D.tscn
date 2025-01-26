@@ -91,7 +91,7 @@ z_index = 11
 position = Vector2(285, -367)
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(960, 304)
+position = Vector2(459, 181)
 
 [node name="EndOfLevelMarker2D" type="Marker2D" parent="."]
 position = Vector2(269, 269)
