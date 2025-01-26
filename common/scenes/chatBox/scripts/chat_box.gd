@@ -9,6 +9,7 @@ var control_mode = "keyboard"
 
 var is_disabled = false 
 var is_message_displayed = false
+var force_hide_button = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,10 +44,6 @@ func _ready() -> void:
 	
 	_update_layout()
 	
-func _handle_close_chat_box():
-	SignalBus.chat_box_closed.emit(chat_box_id)
-	_hide_chatbox()
-	
 func deactivate_modal():
 	is_disabled = true
 
@@ -79,8 +76,11 @@ func _process(delta: float) -> void:
 	elif control_mode != "keyboard":
 		$Panel/Button.visible = true
 	
+	if force_hide_button:
+		$Panel/Button.visible = false
+		
 	if is_message_displayed && !is_disabled and Input.is_action_just_pressed("ui_select"):
-		_handle_close_chat_box()	
+		close_chat_box()	
 	
 func _show_chatbox():
 	if !is_disabled:
@@ -93,7 +93,7 @@ func _show_chatbox():
 				player.stop_animation()
 	
 func _hide_chatbox():
-	var 	tween = create_tween()
+	var tween = create_tween()
 	if tween:
 		tween.tween_property(self, "modulate:a", 0.0, 0.2)  # Fade out
 		is_message_displayed = false
@@ -105,6 +105,20 @@ func _hide_chatbox():
 func write_message(message: String):
 	_show_chatbox()
 	_type_text(message, get_tree())
+	
+func write_message_with_delay(message: String, delay: int = 0):
+	_show_chatbox()
+	_type_text(message, get_tree())
+	
+	force_hide_button = true
+	
+	await get_tree().create_timer(delay).timeout
+	close_chat_box()
+	
+func close_chat_box():
+	SignalBus.chat_box_closed.emit(chat_box_id)
+	await _hide_chatbox()
+	force_hide_button = false
 	
 func _type_text(text: String, tree: SceneTree, speed: float = 0.05):
 	label.text = ""
@@ -159,4 +173,4 @@ func _unhandled_input(event):
 	if is_message_displayed and not is_disabled:
 		if control_mode == "keyboard":
 			if event is InputEventKey and event.pressed:
-				_handle_close_chat_box()
+				close_chat_box()

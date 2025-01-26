@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dgy4uqgss257q"]
+[gd_scene load_steps=39 format=4 uid="uid://dgy4uqgss257q"]
 
 [ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
 [ext_resource type="PackedScene" uid="uid://jnd4pgnp2re5" path="res://Cutscenes/intro_scene/chapter1_cutscene.tscn" id="2_sek1j"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b6cxhlkn8e818" path="res://levels/1_monastery/rooms/orphelin/scenes/MonkRoom.tscn" id="13_pdgei"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/monk_room.gd" id="14_ns3tw"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="14_wey3h"]
-[ext_resource type="AudioStream" uid="uid://dtrcxhbupuv2q" path="res://levels/1_Monastery/assets/audios/level_2_danger.mp3" id="15_2a3yo"]
+[ext_resource type="AudioStream" uid="uid://dtrcxhbupuv2q" path="res://levels/1_monastery/assets/audios/level_2_danger.mp3" id="15_2a3yo"]
 [ext_resource type="PackedScene" uid="uid://r0t8bfagke7f" path="res://collectibles/shared/scenes/Collectible.tscn" id="15_pd86b"]
 [ext_resource type="PackedScene" uid="uid://b214y642wy68f" path="res://levels/1_monastery/rooms/orphelin/scenes/StairsRoom.tscn" id="16_ceyhy"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/stairs_room.gd" id="17_xc120"]
@@ -85,6 +85,18 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbyqi"]
 size = Vector2(1070, 564)
+
+[sub_resource type="Curve2D" id="Curve2D_80v74"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2078, 1300, 0, 0, 0, 0, 2074, 2180, 0, 0, 0, 0, 2074, 2256, 0, 0, 0, 0, 2074, 2276, 0, 0, 0, 0, 2072, 2306, 0, 0, 0, 0, 2070, 2358, 0, 0, 0, 0, 2020, 2360, 0, 0, 0, 0, 1950, 2362, 0, 0, 0, 0, 1874, 2362, 0, 0, 0, 0, 1678, 2362, 0, 0, 0, 0, 1452, 2360, 0, 0, 0, 0, 1330, 2358)
+}
+point_count = 12
+
+[sub_resource type="Curve2D" id="Curve2D_rie6j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1340, 2358, 0, 0, 0, 0, 1320, 2488, 0, 0, 0, 0, 1298, 2564, 0, 0, 0, 0, 1158, 2564, 0, 0, 0, 0, 1146, 2656, 0, 0, 0, 0, 1140, 2728, 0, 0, 0, 0, 1140, 2864, 0, 0, 0, 0, 1140, 3044, 0, 0, 0, 0, 1140, 3246, 0, 0, 0, 0, 1130, 3348, 0, 0, 0, 0, 1130, 3410, 0, 0, 0, 0, 204, 3412, 0, 0, 0, 0, 202, 3772)
+}
+point_count = 13
 
 [node name="MonasteryScene" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -236,7 +248,7 @@ position = Vector2(1746, 750)
 shape = SubResource("RectangleShape2D_xrf2n")
 
 [node name="TPArea" type="Area2D" parent="Rooms/StairsRoom"]
-position = Vector2(-18, -20)
+position = Vector2(2, 0)
 collision_layer = 0
 collision_mask = 128
 
@@ -245,7 +257,7 @@ position = Vector2(-286, 21)
 shape = SubResource("RectangleShape2D_gearc")
 
 [node name="TeleporterSecondRoomMarker2D" type="Marker2D" parent="Rooms/StairsRoom"]
-position = Vector2(-794, 890)
+position = Vector2(-782, 880)
 
 [node name="CantGoHereArea" type="Area2D" parent="Rooms/StairsRoom"]
 collision_layer = 0
@@ -318,9 +330,18 @@ scale = Vector2(2, 2)
 texture = ExtResource("23_47i5p")
 
 [node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(856, 240)
+position = Vector2(860, 248)
 
 [node name="GameoverTransition" parent="." instance=ExtResource("24_u7tg4")]
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Paths"]
+position = Vector2(12, -2)
+curve = SubResource("Curve2D_80v74")
+
+[node name="FinalPath2D" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_rie6j")
 
 [connection signal="body_entered" from="Rooms/MonkRoom/Area2D2" to="Rooms/MonkRoom" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Rooms/StairsRoom/TPArea" to="Rooms/StairsRoom" method="_on_tp_area_body_entered"]

@@ -39,7 +39,12 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 			
 			player.show_thought("I need the monastery key...", "need-key-id")
 
-
+func emulate_key_press(key_code: int, pressed: bool = true) -> void:
+	var event = InputEventKey.new()
+	event.physical_keycode = key_code  # The physical scancode of the key
+	event.pressed = pressed            # `true` for key press, `false` for release
+	event.echo = false                 # Optional: distinguish between key press and key hold
+	Input.parse_input_event(event)     # Inject the event into the input system
 
 func _on_tp_area_body_entered(body: Node2D) -> void:
 	var player = get_tree().get_first_node_in_group("player") as Player
@@ -50,12 +55,14 @@ func _on_tp_area_body_entered(body: Node2D) -> void:
 		player.hide_aura()
 		tree.current_scene.hide_inventory()
 		
-		await tree.create_timer(0.1).timeout
+		#player.start_auto_control_with_instructions([Vector3(0, 1, 3.5), Vector3(-1, 0, 1), Vector3(0, 1, 2.5), Vector3(-1, 0, 2), Vector3(0, 1, 1), Vector3(-1, 0, 3.2), Vector3(0, 1, 1.5)])
+		var paths = tree.current_scene.find_child("Paths")
 		
-		#player.start_auto_control(path)
-		player.start_auto_control_with_instructions([Vector3(0, 1, 3.5), Vector3(-1, 0, 1), Vector3(0, 1, 2.5), Vector3(-1, 0, 2), Vector3(0, 1, 1), Vector3(-1, 0, 3.2), Vector3(0, 1, 1.5)])
-
-		
+		for path in paths.get_children():
+			await player.start_auto_control(path)	
+			# show message
+			await player.show_thought("...", "auto-close", 2)
+			await tree.create_timer(2).timeout
 		
 
 
