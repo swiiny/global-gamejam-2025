@@ -156,8 +156,6 @@ func _on_danger_zone_exited(body: Node2D):
 func _on_enter_end_level(body: Node2D) -> void:
 	print("end of level")
 
-	#$FadeTransition._move_to_scene("res://Cutscenes/intro_scene/chapter1_cutscene.tscn")
-	AudioSingleton._start_music("res://common/audio/CUTSCENE 2.mp3")
 
 func _on_chat_box_close(chat_box_id: String):
 	print("chat box closed")
