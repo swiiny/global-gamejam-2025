@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://b7qlba7qjpecu"]
 
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="1_jyhta"]
-[ext_resource type="Script" path="res://levels/1_Monastery/scenes/level2tilemap.gd" id="1_l0kae"]
+[ext_resource type="Script" path="res://levels/1_monastery/scenes/level2tilemap.gd" id="1_l0kae"]
 
 [node name="Basetilemap" type="Node2D"]
 script = ExtResource("1_l0kae")
