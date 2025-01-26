@@ -9,10 +9,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-func _move_to_scene(scene: String) -> void:
-	print("fade transition begin")
-	$AnimationPlayer.play("fade")
-	await get_tree().create_timer(2).timeout
-	print("fade transition end")
-	get_tree().change_scene_to_file(scene)

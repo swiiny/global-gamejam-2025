@@ -42,3 +42,7 @@ func _set_camera():
 	camera.limit_bottom = 24 * 64
 	camera.enabled = true
 	camera.make_current()
+
+
+func _trigger_end_level(body: Node2D) -> void:
+	print("start end level")

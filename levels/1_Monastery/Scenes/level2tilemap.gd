@@ -10,9 +10,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _move_to_scene(scene: String) -> void:
-	print("fade transition begin")
-	$AnimationPlayer.play("fade")
-	await get_tree().create_timer(2).timeout
-	print("fade transition end")
-	get_tree().change_scene_to_file(scene)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("trigger end level")
