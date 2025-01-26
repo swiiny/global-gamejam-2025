@@ -243,9 +243,9 @@ position = Vector2(342.75, 157)
 shape = SubResource("RectangleShape2D_eswo7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="fadein" type="ColorRect" parent="CanvasLayer"]
+visible = false
 z_index = 3000
 anchors_preset = 15
 anchor_right = 1.0

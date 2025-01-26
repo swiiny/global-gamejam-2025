@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwbp0h3ishbks"]
 
 [ext_resource type="Script" path="res://common/scenes/gameoverTransition/gameover_transition.gd" id="1_ge4tx"]
-[ext_resource type="FontFile" uid="uid://uy3lf6h3stwc" path="res://Fonts/Almendra/Almendra-Bold.ttf" id="2_x2w27"]
+[ext_resource type="FontFile" uid="uid://bqi8egnhvwoh8" path="res://Fonts/Almendra/Almendra-Bold.ttf" id="2_x2w27"]
 
 [sub_resource type="Animation" id="Animation_t1umq"]
 length = 0.001

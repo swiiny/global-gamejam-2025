@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/1_monastery/scenes/monastery_scene.gd" id="1_g2qrm"]
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/Character2D.tscn" id="2_fromd"]
-[ext_resource type="Texture2D" uid="uid://cduq5xp8xgodc" path="res://levels/1_monastery/assets/downstairs.png" id="3_8u02t"]
+[ext_resource type="Texture2D" uid="uid://b3g6cn5tvo8e7" path="res://levels/1_monastery/assets/downstairs.png" id="3_8u02t"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="4_iydur"]
 [ext_resource type="PackedScene" uid="uid://dpmvac8y2qhwt" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinRoom1.tscn" id="5_4ijsp"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/orphelin_room_1.gd" id="6_x61x7"]
@@ -17,14 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://b214y642wy68f" path="res://levels/1_monastery/rooms/orphelin/scenes/StairsRoom.tscn" id="15_vds85"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/stairs_room.gd" id="16_43550"]
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="17_o7jks"]
-[ext_resource type="AudioStream" uid="uid://bjel52bpm0dsi" path="res://levels/1_monastery/assets/audios/level_2_main.mp3" id="18_ri32p"]
+[ext_resource type="AudioStream" uid="uid://drq4c8rjg6a7r" path="res://levels/1_monastery/assets/audios/level_2_main.mp3" id="18_ri32p"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="19_feup2"]
-[ext_resource type="AudioStream" uid="uid://dhio4wt3m4y1y" path="res://levels/1_monastery/assets/audios/level_2_danger.mp3" id="20_1gl40"]
+[ext_resource type="AudioStream" uid="uid://dtrcxhbupuv2q" path="res://levels/1_monastery/assets/audios/level_2_danger.mp3" id="20_1gl40"]
 [ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="21_wvbcv"]
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/scenes/fadeTransition/Fade Transition.tscn" id="22_qfb2r"]
-[ext_resource type="Texture2D" uid="uid://cq3lpwf2xsh4s" path="res://levels/1_monastery/assets/fontaine.png" id="23_qe5tg"]
+[ext_resource type="Texture2D" uid="uid://kr8mpumedffy" path="res://levels/1_monastery/assets/fontaine.png" id="23_qe5tg"]
 [ext_resource type="PackedScene" uid="uid://bwbp0h3ishbks" path="res://common/scenes/gameoverTransition/gameover_transition.tscn" id="24_scutx"]
-[ext_resource type="Texture2D" uid="uid://b76ca34bc2a5k" path="res://levels/1_monastery/assets/MonkDown_1.png" id="25_kor1v"]
+[ext_resource type="Texture2D" uid="uid://da8cx3kwsmmpa" path="res://levels/1_monastery/assets/MonkDown_1.png" id="25_kor1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avcda"]
 size = Vector2(993, 366)
@@ -287,9 +287,9 @@ autoplay = false
 parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="fadein" type="ColorRect" parent="CanvasLayer"]
+visible = false
 z_index = 3000
 anchors_preset = 15
 anchor_right = 1.0
