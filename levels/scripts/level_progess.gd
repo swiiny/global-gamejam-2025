@@ -21,9 +21,13 @@ func checkpoint():
 	last_check_point = completed_interactions
 
 func reset_progress():
-	print("resetting state to:")
+	print("resetting state from:")
+	print(completed_interactions)
+
+	print("to state:")
 	print(last_check_point)
 	completed_interactions = last_check_point
+	last_check_point = {}
 
 func save_game():
 	var save_data = {
