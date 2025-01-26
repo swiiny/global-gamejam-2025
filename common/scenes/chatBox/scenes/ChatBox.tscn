@@ -63,11 +63,13 @@ offset_bottom = 107.0
 
 [node name="StartButton" type="MenuButton" parent="Panel/Button"]
 visible = false
+layout_mode = 0
 theme_override_fonts/font = ExtResource("3_nmbc6")
 theme_override_font_sizes/font_size = 40
 
 [node name="xbox_controller_label" type="HBoxContainer" parent="Panel/Button"]
 visible = false
+layout_mode = 0
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Panel/Button/xbox_controller_label"]
 layout_mode = 2
@@ -84,6 +86,7 @@ size_flags_horizontal = 3
 
 [node name="ps_controller_label" type="HBoxContainer" parent="Panel/Button"]
 visible = false
+layout_mode = 0
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Panel/Button/ps_controller_label"]
 layout_mode = 2
@@ -100,6 +103,7 @@ size_flags_horizontal = 3
 
 [node name="touch_screen_label" type="Label" parent="Panel/Button"]
 visible = false
+layout_mode = 0
 theme_override_fonts/font = ExtResource("3_a4ejk")
 theme_override_font_sizes/font_size = 40
 text = "Tap To Start"

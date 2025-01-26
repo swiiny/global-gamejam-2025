@@ -15,17 +15,25 @@ func _ready() -> void:
 	# set opacity to 0
 	self.modulate.a = 0.0
 	
-	if Input.get_connected_joypads().size() > 0:
-		control_mode = "gamepad"
+	var joy_pad_name = Input.get_joy_name(0)
+		
+	if joy_pad_name.contains("DualSense"):
+		control_mode = "ps"
+		$Panel/Button/ps_controller_label.visible = true
+		$Panel/Button/StartButton.visible = false
+	elif joy_pad_name.contains("xbox"):
+		control_mode = "xbox"
 		$Panel/Button/xbox_controller_label.visible = true
+		$Panel/Button/StartButton.visible = false
 	elif OS.has_feature("mobile"):
-		#control_mode = "touch"
-		#$Panel/Button/touch_screen_label.visible = true
-		# always false
-		$Panel/Button/touch_screen_label.visible = false
+		control_mode = "touch"
+		$Panel/Button/touch_screen_label.visible = true
+		$Panel/Button/StartButton.visible = false
 	else:
 		control_mode = "keyboard"
 		$Panel/Button.visible = false
+		
+		
 	
 	var corner_thought = $"Panel/AspectRatioContainer/Bubble-corner-thought"
 	var corner_talk = $"Panel/AspectRatioContainer/Bubble-corner"
@@ -45,6 +53,29 @@ func deactivate_modal():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_update_layout()
+	
+	var joy_pad_name = Input.get_joy_name(0)
+	
+	if joy_pad_name.contains("DualSense"):
+		control_mode = "ps"
+		$Panel/Button/ps_controller_label.visible = true
+		$Panel/Button/StartButton.visible = false
+	elif joy_pad_name.contains("xbox"):
+		control_mode = "xbox"
+		$Panel/Button/xbox_controller_label.visible = true
+		$Panel/Button/StartButton.visible = false
+	elif OS.has_feature("mobile"):
+		control_mode = "touch"
+		$Panel/Button/touch_screen_label.visible = true
+		$Panel/Button/StartButton.visible = false
+	else:
+		control_mode = "keyboard"
+		$Panel/Button.visible = false
+		
+	if !is_message_displayed:
+		$Panel/Button.visible = false
+	elif control_mode != "keyboard":
+		$Panel/Button.visible = true
 	
 	if is_message_displayed && !is_disabled and Input.is_action_just_pressed("ui_select"):
 		_handle_close_chat_box()	
