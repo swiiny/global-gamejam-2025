@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwbp0h3ishbks"]
 
 [ext_resource type="Script" path="res://common/scenes/gameoverTransition/gameover_transition.gd" id="1_ge4tx"]
-[ext_resource type="FontFile" uid="uid://bqi8egnhvwoh8" path="res://Fonts/Almendra/Almendra-Bold.ttf" id="2_x2w27"]
+[ext_resource type="FontFile" uid="uid://uy3lf6h3stwc" path="res://Fonts/Almendra/Almendra-Bold.ttf" id="2_x2w27"]
 
 [sub_resource type="Animation" id="Animation_t1umq"]
 length = 0.001
@@ -61,6 +61,30 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_pkc7r"]
 resource_name = "fadeout_text"
 length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6yn3j"]
 _data = {
@@ -72,7 +96,7 @@ _data = {
 [node name="GameoverTransition" type="Node2D"]
 script = ExtResource("1_ge4tx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="GameOverAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6yn3j")
 }
