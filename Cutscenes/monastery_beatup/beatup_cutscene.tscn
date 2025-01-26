@@ -163,7 +163,7 @@ texture = ExtResource("3_t4o4t")
 libraries = {
 "": SubResource("AnimationLibrary_ixson")
 }
-autoplay = "scene1"
+autoplay = "RESET"
 
 [node name="Chap2Cutscene1Bg" type="Sprite2D" parent="."]
 position = Vector2(922, 530)
