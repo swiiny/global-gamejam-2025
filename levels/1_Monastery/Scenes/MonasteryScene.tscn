@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://levels/1_Monastery/scenes/monastery_scene.gd" id="1_puf30"]
 [ext_resource type="PackedScene" uid="uid://jnd4pgnp2re5" path="res://Cutscenes/intro_scene/chapter1_cutscene.tscn" id="2_sek1j"]
 [ext_resource type="PackedScene" uid="uid://5e0os3qn5jp5" path="res://character/Character2D.tscn" id="3_bybr7"]
-[ext_resource type="Texture2D" uid="uid://cduq5xp8xgodc" path="res://levels/1_monastery/assets/downstairs.png" id="5_gxh74"]
-[ext_resource type="PackedScene" uid="uid://dpmvac8y2qhwt" path="res://levels/1_Monastery/rooms/orphelin/scenes/OrphelinRoom1.tscn" id="6_7ew58"]
+[ext_resource type="Texture2D" uid="uid://b3g6cn5tvo8e7" path="res://levels/1_monastery/assets/downstairs.png" id="5_gxh74"]
+[ext_resource type="PackedScene" uid="uid://dpmvac8y2qhwt" path="res://levels/1_monastery/rooms/orphelin/scenes/OrphelinRoom1.tscn" id="6_7ew58"]
 [ext_resource type="TileSet" uid="uid://dmhfoonmcr61w" path="res://levels/tilesets/TileSet.tres" id="6_un1o2"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/orphelin_room_1.gd" id="7_beq27"]
 [ext_resource type="PackedScene" uid="uid://dq6b55mclabrp" path="res://levels/1_Monastery/rooms/orphelin/scenes/OrphelinBed.tscn" id="8_vmo0k"]
@@ -13,14 +13,18 @@
 [ext_resource type="PackedScene" uid="uid://budpbrftfybse" path="res://levels/1_Monastery/rooms/orphelin/scenes/AnotherBed.tscn" id="11_k860j"]
 [ext_resource type="PackedScene" uid="uid://djgvs8n6px0i3" path="res://levels/1_Monastery/rooms/orphelin/scenes/PlayerBed.tscn" id="12_a7dtk"]
 [ext_resource type="PackedScene" uid="uid://b28c3520gerff" path="res://levels/0_tutorial/audio/players/MainLoopAudio.tscn" id="12_rrb6n"]
-[ext_resource type="AudioStream" uid="uid://bjel52bpm0dsi" path="res://levels/1_monastery/assets/audios/level_2_main.mp3" id="13_mmm7e"]
-[ext_resource type="PackedScene" uid="uid://b6cxhlkn8e818" path="res://levels/1_Monastery/rooms/orphelin/scenes/MonkRoom.tscn" id="13_pdgei"]
+[ext_resource type="AudioStream" uid="uid://drq4c8rjg6a7r" path="res://levels/1_monastery/assets/audios/level_2_main.mp3" id="13_mmm7e"]
+[ext_resource type="PackedScene" uid="uid://b6cxhlkn8e818" path="res://levels/1_monastery/rooms/orphelin/scenes/MonkRoom.tscn" id="13_pdgei"]
 [ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/monk_room.gd" id="14_ns3tw"]
 [ext_resource type="PackedScene" uid="uid://rjf2mrttpy57" path="res://levels/0_tutorial/audio/players/DangerLoopAudio.tscn" id="14_wey3h"]
 [ext_resource type="AudioStream" uid="uid://dhio4wt3m4y1y" path="res://levels/1_monastery/assets/audios/level_2_danger.mp3" id="15_2a3yo"]
 [ext_resource type="PackedScene" uid="uid://r0t8bfagke7f" path="res://collectibles/shared/scenes/Collectible.tscn" id="15_pd86b"]
+[ext_resource type="PackedScene" uid="uid://b214y642wy68f" path="res://levels/1_monastery/rooms/orphelin/scenes/StairsRoom.tscn" id="16_ceyhy"]
+[ext_resource type="Script" path="res://levels/1_monastery/rooms/orphelin/scripts/stairs_room.gd" id="17_xc120"]
 [ext_resource type="PackedScene" uid="uid://bwwv1ejgaflq8" path="res://menus/inventory/scenes/InventoryUi.tscn" id="20_ehmdq"]
 [ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/scenes/fadeTransition/Fade Transition.tscn" id="21_5prla"]
+[ext_resource type="Texture2D" uid="uid://kr8mpumedffy" path="res://levels/1_monastery/assets/fontaine.png" id="23_47i5p"]
+[ext_resource type="PackedScene" uid="uid://bwbp0h3ishbks" path="res://common/scenes/gameoverTransition/gameover_transition.tscn" id="24_u7tg4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avcda"]
 size = Vector2(993, 366)
@@ -33,6 +37,15 @@ size = Vector2(620, 598)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx7nf"]
 size = Vector2(20, 294)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrf2n"]
+size = Vector2(1420, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gearc"]
+size = Vector2(264, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd2ql"]
+size = Vector2(180, 50)
 
 [sub_resource type="Animation" id="Animation_3qn02"]
 length = 0.001
@@ -86,9 +99,6 @@ light_mask = 3
 visibility_layer = 3
 z_index = 11
 position = Vector2(285, -367)
-
-[node name="SpawnMarker2D" type="Marker2D" parent="."]
-position = Vector2(918, 224)
 
 [node name="Downstairs" type="Sprite2D" parent="."]
 visible = false
@@ -206,6 +216,37 @@ collision_mask = 128
 position = Vector2(192, 459)
 shape = SubResource("RectangleShape2D_yx7nf")
 
+[node name="StairsRoom" parent="Rooms" instance=ExtResource("16_ceyhy")]
+position = Vector2(2874, 382)
+script = ExtResource("17_xc120")
+
+[node name="Area2D" type="Area2D" parent="Rooms/StairsRoom"]
+position = Vector2(-2874, -382)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StairsRoom/Area2D"]
+position = Vector2(1746, 750)
+shape = SubResource("RectangleShape2D_xrf2n")
+
+[node name="TPArea" type="Area2D" parent="Rooms/StairsRoom"]
+position = Vector2(-18, -20)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StairsRoom/TPArea"]
+position = Vector2(-286, 21)
+shape = SubResource("RectangleShape2D_gearc")
+
+[node name="TeleporterSecondRoomMarker2D" type="Marker2D" parent="Rooms/StairsRoom"]
+position = Vector2(-794, 890)
+
+[node name="CantGoHereArea" type="Area2D" parent="Rooms/StairsRoom"]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/StairsRoom/CantGoHereArea"]
+position = Vector2(-958, 211)
+shape = SubResource("RectangleShape2D_cd2ql")
+
 [node name="MainLoopAudio" parent="." instance=ExtResource("12_rrb6n")]
 position = Vector2(-8, 0)
 stream = ExtResource("13_mmm7e")
@@ -261,5 +302,17 @@ z_index = 2000
 position = Vector2(532, 3872)
 shape = SubResource("RectangleShape2D_nbyqi")
 
-[connection signal="body_entered" from="Rooms/MonkRoom/Area2D2" to="Rooms/MonkRoom" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="trigger_final_cutscene"]
+[node name="Fontaine" type="Sprite2D" parent="."]
+position = Vector2(1150, 2342)
+scale = Vector2(2, 2)
+texture = ExtResource("23_47i5p")
+
+[node name="SpawnMarker2D" type="Marker2D" parent="."]
+position = Vector2(856, 240)
+
+[node name="GameoverTransition" parent="." instance=ExtResource("24_u7tg4")]
+
+[connection signal="body_entered" from="Rooms/MonkRoom/Area2D2" to="Rooms/MonkRoom" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Rooms/StairsRoom/TPArea" to="Rooms/StairsRoom" method="_on_tp_area_body_entered"]
+[connection signal="body_entered" from="Rooms/StairsRoom/CantGoHereArea" to="Rooms/StairsRoom" method="_on_cant_go_here_area_body_entered"]
