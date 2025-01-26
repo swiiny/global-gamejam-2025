@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://jnd4pgnp2re5"]
+[gd_scene load_steps=9 format=3 uid="uid://jnd4pgnp2re5"]
 
 [ext_resource type="PackedScene" uid="uid://cmqhhq3rc1sn" path="res://Cutscenes/intro_scene/monastery_scene/monastery_intro.tscn" id="1_qqm66"]
 [ext_resource type="PackedScene" uid="uid://degvauhp5t03j" path="res://Cutscenes/intro_scene/parent_scene/parentscene.tscn" id="2_a1i84"]
 [ext_resource type="PackedScene" uid="uid://cbha22u32c0ni" path="res://Cutscenes/intro_scene/hill_scene/introduction_cutscene.tscn" id="3_lvurr"]
 [ext_resource type="FontFile" uid="uid://de7weonfsghce" path="res://Fonts/Almendra/Almendra-Regular.ttf" id="4_5dh3c"]
 [ext_resource type="FontFile" uid="uid://bx762d1lay4yf" path="res://Fonts/Lugrasimo/Lugrasimo-Regular.ttf" id="5_yuak4"]
+[ext_resource type="PackedScene" uid="uid://bdfadysrxjhk6" path="res://common/scenes/fadeTransition/Fade Transition.tscn" id="6_6lvte"]
 
 [sub_resource type="Animation" id="Animation_w24qc"]
 resource_name = "sequence_cutscene"
@@ -35,6 +36,20 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"run_animation"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeTransition")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(22.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["res://levels/1_Monastery/scenes/MonasteryScene.tscn"],
+"method": &"_move_to_scene"
 }]
 }
 
@@ -92,10 +107,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -951.0
-offset_top = -513.0
-offset_right = -427.0
-offset_bottom = 23.0
+offset_left = -1215.0
+offset_top = -809.0
+offset_right = -691.0
+offset_bottom = -273.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -117,3 +132,7 @@ theme_override_fonts/font = ExtResource("5_yuak4")
 theme_override_font_sizes/font_size = 40
 text = "Abandonement"
 horizontal_alignment = 1
+
+[node name="FadeTransition" parent="." instance=ExtResource("6_6lvte")]
+z_index = 6
+position = Vector2(-955, -540)
