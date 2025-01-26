@@ -158,3 +158,7 @@ func _on_enter_end_level(body: Node2D) -> void:
 
 func _on_chat_box_close(chat_box_id: String):
 	print("chat box closed")
+
+
+func trigger_final_cutscene(body: Node2D) -> void:
+	pass # Replace with function body.

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://cmqhhq3rc1sn"]
 
 [ext_resource type="Script" path="res://Cutscenes/intro_scene/monastery_scene/monastery_intro.gd" id="1_0tih2"]
-[ext_resource type="Texture2D" uid="uid://cgddaqcxrsfjs" path="res://Cutscenes/assets/citsceme1_monastery_intro/Chap1_Cutscene3_Background.png" id="1_54ni2"]
-[ext_resource type="Texture2D" uid="uid://sbvax4t0dopb" path="res://Cutscenes/assets/citsceme1_monastery_intro/Chap1_Cutscene3_Gate.png" id="2_0ouxl"]
-[ext_resource type="Texture2D" uid="uid://bfj5r64ij1rb7" path="res://Cutscenes/assets/citsceme1_monastery_intro/Chap1_Cutscene3_Sol.png" id="3_u0buj"]
-[ext_resource type="Texture2D" uid="uid://ll6jpsean1x0" path="res://Cutscenes/assets/citsceme1_monastery_intro/Chap1_Cutscene3_Monk.png" id="4_bxowp"]
-[ext_resource type="Texture2D" uid="uid://dsr5mskgxtyfn" path="res://Cutscenes/assets/citsceme1_monastery_intro/Chap1_Cutscene3_FatherAndSon.png" id="5_vjge4"]
+[ext_resource type="Texture2D" uid="uid://cgddaqcxrsfjs" path="res://Cutscenes/intro_scene/assets/citsceme1_monastery_intro/Chap1_Cutscene3_Background.png" id="1_54ni2"]
+[ext_resource type="Texture2D" uid="uid://sbvax4t0dopb" path="res://Cutscenes/intro_scene/assets/citsceme1_monastery_intro/Chap1_Cutscene3_Gate.png" id="2_0ouxl"]
+[ext_resource type="Texture2D" uid="uid://bfj5r64ij1rb7" path="res://Cutscenes/intro_scene/assets/citsceme1_monastery_intro/Chap1_Cutscene3_Sol.png" id="3_u0buj"]
+[ext_resource type="Texture2D" uid="uid://ll6jpsean1x0" path="res://Cutscenes/intro_scene/assets/citsceme1_monastery_intro/Chap1_Cutscene3_Monk.png" id="4_bxowp"]
+[ext_resource type="Texture2D" uid="uid://dsr5mskgxtyfn" path="res://Cutscenes/intro_scene/assets/citsceme1_monastery_intro/Chap1_Cutscene3_FatherAndSon.png" id="5_vjge4"]
 
 [sub_resource type="Animation" id="Animation_j3mkn"]
 length = 0.001

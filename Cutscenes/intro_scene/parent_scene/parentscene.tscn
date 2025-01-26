@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://degvauhp5t03j"]
 
-[ext_resource type="Texture2D" uid="uid://cvobfea4ratgb" path="res://Cutscenes/assets/cutscene1_angry_parent/Chap1_Cutscene2_Sky.png" id="1_50ooo"]
+[ext_resource type="Texture2D" uid="uid://cvobfea4ratgb" path="res://Cutscenes/intro_scene/assets/cutscene1_angry_parent/Chap1_Cutscene2_Sky.png" id="1_50ooo"]
 [ext_resource type="Script" path="res://Cutscenes/intro_scene/parent_scene/parentscene.gd" id="1_rv2rn"]
-[ext_resource type="Texture2D" uid="uid://1vy7m3daw1bk" path="res://Cutscenes/assets/cutscene1_angry_parent/Chap1_Cutscene2_Stars.png" id="2_0i6kn"]
-[ext_resource type="Texture2D" uid="uid://0dh0i6bknepx" path="res://Cutscenes/assets/cutscene1_angry_parent/Chap1_Cutscene2_House.png" id="3_dl5n4"]
-[ext_resource type="Texture2D" uid="uid://bvve2rpg55y4v" path="res://Cutscenes/assets/cutscene1_angry_parent/Chap1_Cutscene2_Hills.png" id="4_4n3dw"]
-[ext_resource type="Texture2D" uid="uid://dh2ecmiqkgnob" path="res://Cutscenes/assets/cutscene1_angry_parent/Chap1_Cutscene2_Characters.png" id="5_ivdb7"]
+[ext_resource type="Texture2D" uid="uid://1vy7m3daw1bk" path="res://Cutscenes/intro_scene/assets/cutscene1_angry_parent/Chap1_Cutscene2_Stars.png" id="2_0i6kn"]
+[ext_resource type="Texture2D" uid="uid://0dh0i6bknepx" path="res://Cutscenes/intro_scene/assets/cutscene1_angry_parent/Chap1_Cutscene2_House.png" id="3_dl5n4"]
+[ext_resource type="Texture2D" uid="uid://bvve2rpg55y4v" path="res://Cutscenes/intro_scene/assets/cutscene1_angry_parent/Chap1_Cutscene2_Hills.png" id="4_4n3dw"]
+[ext_resource type="Texture2D" uid="uid://dh2ecmiqkgnob" path="res://Cutscenes/intro_scene/assets/cutscene1_angry_parent/Chap1_Cutscene2_Characters.png" id="5_ivdb7"]
 
 [sub_resource type="Animation" id="Animation_6utm6"]
 length = 0.001
